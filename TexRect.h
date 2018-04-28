@@ -30,6 +30,11 @@ public:
     void advance();
     void reset();
 
+    void changeX(float);
+    void changeY(float);
+    void changeWidth(float);
+    void changeHeight(float);
+
     void changeBMPFile(const char*, int, int);
     bool contains(float x, float y);
     void mouseHandler(float x, float y);

@@ -4,7 +4,6 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     // Initialize state variables
     mx = 0.0;
     my = 0.0;
-
     mushroom = new TexRect("mushroom.bmp", 1, 1, 0, 0.67, 0.5, 0.5);
 }
 
