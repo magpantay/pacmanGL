@@ -3,11 +3,12 @@
 
 #include <vector>
 
-class pellets
+class pellets : public TexRect
 {
-    vector < TexRect * > pellets;
+    bool hasBeenEaten;
     public:
       pellets();
+      void changeBeenEaten();
       ~pellets();
 };
 

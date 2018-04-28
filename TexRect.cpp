@@ -127,6 +127,26 @@ void TexRect::changeBMPFile(const char* filename, int rows, int cols)
     complete = false; //need to re-do certain things when changing the image file, like #rows & #cols
 }
 
+void TexRect::changeX(float x)
+{
+	this->x = x;
+}
+
+void TexRect::changeY(float y)
+{
+	this->y = y;
+}
+
+void TexRect::changeWidth(float w)
+{
+	this->w = w;
+}
+
+void TexRect::changeHeight(float h)
+{
+	this->h = h;
+}
+
 bool TexRect::contains(float x0, float y0)
 {
     return (x0 <= this->x+this->w && x0 >= this->x) && (y0 >= (this->y - this->h) && y0 <= this->y) && (!this->done()); //this->done to prevent user from clicking again once the animation finishes
