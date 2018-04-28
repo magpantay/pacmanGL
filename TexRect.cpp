@@ -147,8 +147,6 @@ void TexRect::changeHeight(float h)
 	this->h = h;
 }
 
-void TexRect::change
-
 bool TexRect::contains(float x0, float y0)
 {
     return (x0 <= this->x+this->w && x0 >= this->x) && (y0 >= (this->y - this->h) && y0 <= this->y) && (!this->done()); //this->done to prevent user from clicking again once the animation finishes
