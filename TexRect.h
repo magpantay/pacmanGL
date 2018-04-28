@@ -44,7 +44,7 @@ public:
     void changeBMPFile(const char*, int, int);
     bool contains(float x, float y);
     void mouseHandler(float x, float y);
-    void keyHandler(float key);
+    void keyHandler(unsigned char key);
 
 };
 
