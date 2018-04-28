@@ -176,3 +176,8 @@ void TexRect::moveLeft(float rate){
 void TexRect::moveRight(float rate){
     x += rate;
 }
+
+void TexRect::keyHandler(float key)
+{
+	//key press is now passed into TexRect, do with that as you will
+}
