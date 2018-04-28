@@ -12,7 +12,7 @@ public:
     void moveDown(float);
     void moveRight(float);
     void moveLeft(float);
-    void autoMove(float);
+    //void autoMove(float, int);
 };
 
 #endif

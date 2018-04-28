@@ -163,3 +163,21 @@ void TexRect::mouseHandler(float x, float y)
     }
 
 }
+
+void TexRect::moveUp(float rate){
+    y += rate;
+}
+void TexRect::moveDown(float rate){
+    y -= rate;
+}
+void TexRect::moveLeft(float rate){
+    x -= rate;
+}
+void TexRect::moveRight(float rate){
+    x += rate;
+}
+
+void TexRect::keyHandler(unsigned char key)
+{
+	//key press is now passed into TexRect, do with that as you will
+}
