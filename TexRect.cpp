@@ -16,27 +16,27 @@ TexRect::TexRect (const char* filename, int rows, int cols, float x=0, float y=0
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_FLAT);
     glEnable(GL_DEPTH_TEST);
-    
+
     RgbImage theTexMap( filename );
-    
+
     glGenTextures( 1, &texture_id );
     glBindTexture( GL_TEXTURE_2D, texture_id );
-    
+
     gluBuild2DMipmaps(GL_TEXTURE_2D, 3, theTexMap.GetNumCols(), theTexMap.GetNumRows(),
                       GL_RGB, GL_UNSIGNED_BYTE, theTexMap.ImageData() );
     this->texture_id = texture_id;
-    
+
     this->rows = rows;
     this->cols = cols;
-    
+
     this->x = x;
     this->y = y;
     this->w = w;
     this->h = h;
-    
+
     curr_row = 1;
     curr_col = 1;
-    
+
     complete = false;
 }
 
@@ -49,35 +49,35 @@ void TexRect::draw(){
     glBindTexture( GL_TEXTURE_2D, texture_id );
     glEnable(GL_TEXTURE_2D);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    
-    
+
+
     float xinc = 1.0/cols;
     float yinc = 1.0/rows;
-    
-    
+
+
     float top = 1 - yinc * (curr_row - 1);
     float bottom = 1 - yinc * curr_row;
-    
+
     float left = xinc * (curr_col - 1);
     float right = xinc * curr_col;
-    
-    
+
+
     glBegin(GL_QUADS);
-    
+
     glTexCoord2f(left, bottom);
     glVertex2f(x, y - h);
-    
+
     glTexCoord2f(left, top);
     glVertex2f(x, y);
-    
+
     glTexCoord2f(right, top);
     glVertex2f(x+w, y);
-    
+
     glTexCoord2f(right, bottom);
     glVertex2f(x+w, y - h);
-    
+
     glEnd();
-    
+
     glDisable(GL_TEXTURE_2D);
 }
 
@@ -95,7 +95,7 @@ void TexRect::advance(){
             curr_col = 1;
         }
     }
-    
+
     if (curr_row == rows && curr_col == cols){
         complete = true;
     }
@@ -110,12 +110,12 @@ void TexRect::changeBMPFile(const char* filename, int rows, int cols)
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_FLAT);
     glEnable(GL_DEPTH_TEST);
-    
+
     RgbImage theTexMap( filename );
-    
+
     glGenTextures( 1, &texture_id );
     glBindTexture( GL_TEXTURE_2D, texture_id );
-    
+
     gluBuild2DMipmaps(GL_TEXTURE_2D, 3, theTexMap.GetNumCols(), theTexMap.GetNumRows(),
                       GL_RGB, GL_UNSIGNED_BYTE, theTexMap.ImageData() );
     this->texture_id = texture_id;
@@ -123,7 +123,7 @@ void TexRect::changeBMPFile(const char* filename, int rows, int cols)
     this->cols = cols;
     curr_row = 1;
     curr_col = 1;
-    
+
     complete = false; //need to re-do certain things when changing the image file, like #rows & #cols
 }
 
@@ -140,13 +140,6 @@ void TexRect::mouseHandler(float x, float y)
 	this->draw();
 	singleton = this;
 	boom(0);
-
-	//to do: change rows ========== DONE
-	//	 change cols ========== DONE
-	//	 change texture bmp === DONE
-	//	 redraw =============== DONE
-	//	 follow explode procedure in App.cpp, ALMOST NEED TO IGNORE CLICK WHILE ANOTHER EXPLOSION IS IN PROGRESS
-
     }
 
 }
