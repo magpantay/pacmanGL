@@ -21,7 +21,7 @@ class TexRect {
     int cols;
     int curr_row;
     int curr_col;
-    
+
     bool complete;
 public:
     TexRect (const char*, int, int, float, float, float, float);
@@ -33,7 +33,7 @@ public:
     void changeBMPFile(const char*, int, int);
     bool contains(float x, float y);
     void mouseHandler(float x, float y);
-    void wowsers();
+
 };
 
 #endif
