@@ -163,3 +163,16 @@ void TexRect::mouseHandler(float x, float y)
     }
 
 }
+
+void TexRect::moveUp(float rate){
+    y += rate;
+}
+void TexRect::moveDown(float rate){
+    y -= rate;
+}
+void TexRect::moveLeft(float rate){
+    x -= rate;
+}
+void TexRect::moveRight(float rate){
+    x += rate;
+}

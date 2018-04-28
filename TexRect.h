@@ -36,6 +36,11 @@ public:
     void changeWidth(float);
     void changeHeight(float);
 
+    void moveUp(float rate=0.01);
+    void moveDown(float rate=0.01);
+    void moveLeft(float rate=0.01);
+    void moveRight(float rate=0.01);
+
     void changeBMPFile(const char*, int, int);
     bool contains(float x, float y);
     void mouseHandler(float x, float y);
