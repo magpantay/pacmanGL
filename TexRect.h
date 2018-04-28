@@ -36,10 +36,10 @@ public:
     void changeWidth(float);
     void changeHeight(float);
 
-    void moveUp(float rate=0.01);
-    void moveDown(float rate=0.01);
-    void moveLeft(float rate=0.01);
-    void moveRight(float rate=0.01);
+    virtual void moveUp(float rate=0.01);
+    virtual void moveDown(float rate=0.01);
+    virtual void moveLeft(float rate=0.01);
+    virtual void moveRight(float rate=0.01);
 
     void changeBMPFile(const char*, int, int);
     bool contains(float x, float y);
