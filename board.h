@@ -4,6 +4,8 @@
 #include <vector>
 #include "TexRect.h"
 
+using namespace std;
+
 class gameBoard
 {
     vector < TexRect* > blocks;

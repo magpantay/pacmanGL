@@ -12,6 +12,7 @@
 #include "RgbImage.h"
 
 class TexRect {
+protected:
     float x;
     float y;
     float w;
