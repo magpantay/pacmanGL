@@ -4,10 +4,10 @@
 #include "GlutApp.h"
 #include "TexRect.h"
 
-#include "pellets.h"
-#include "pacman.h"
-#include "board.h"
-#include "ghosts.h"
+//#include "pellets.h"
+//#include "pacman.h"
+//#include "board.h"
+//#include "ghosts.h"
 
 class App: public GlutApp {
     // Maintain app state here
