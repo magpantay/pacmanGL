@@ -36,6 +36,11 @@ public:
     void changeWidth(float);
     void changeHeight(float);
 
+    float getX() const;
+    float getY() const;
+    float getW() const;
+    float getH() const;
+
     virtual void moveUp(float rate=0.01);
     virtual void moveDown(float rate=0.01);
     virtual void moveLeft(float rate=0.01);
