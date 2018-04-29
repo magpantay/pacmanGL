@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class pellets : public TexRect
+class pellets : public TexRect //inherits changeBMP, draw, etc.
 {
     bool hasBeenEaten;
     public:
