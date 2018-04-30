@@ -23,8 +23,8 @@ populatePellets::populatePellets()
 
     /* SECOND ROW */
         /* SECOND ROW OF PELLETS */
-        pellet * pellet1 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+(2.0/19.0)+pellet_spacing_x, 0.7-pellet_spacing_y, default_width, default_height);
-        pelletStuff.push_back(pellet1);
+        pellet * pellet1 = new pellet ("BMPs/other/pellet_big.bmp", 1, 1, -1.0+(2.0/19.0)+pellet_spacing_x-0.00725, 0.7-pellet_spacing_y+0.015, default_width+0.02, default_height+0.03);
+        pelletStuff.push_back(pellet1); //BIGGER PELLET #1
 
         pellet * pellet2 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, 0.7-pellet_spacing_y, default_width, default_height);
         pelletStuff.push_back(pellet2);
@@ -38,8 +38,8 @@ populatePellets::populatePellets()
         pellet * pellet5 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, 0.7-pellet_spacing_y, default_width, default_height);
         pelletStuff.push_back(pellet5);
 
-        pellet * pellet6 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+17.0*(2.0/19.0)+pellet_spacing_x, 0.7-pellet_spacing_y, default_width, default_height);
-        pelletStuff.push_back(pellet6);
+        pellet * pellet6 = new pellet ("BMPs/other/pellet_big.bmp", 1, 1, -1.0+17.0*(2.0/19.0)+pellet_spacing_x-0.00725, 0.7-pellet_spacing_y+0.015, default_width+0.02, default_height+0.03);
+        pelletStuff.push_back(pellet6); //BIGGER PELLET #2
 
     /* THIRD ROW */
         for (float j = 1.0; j < 18.0; j+=1.0)
@@ -142,7 +142,7 @@ populatePellets::populatePellets()
    /*************/
    /* AT THIS POINT, THIS IS THE SAME AS THE 1ST TO 8TH ROW EXCEPT THE Y COORD IS NEGATIVE */
    /*************/
-   
+
     /* 10TH ROW OF PELLETS */ /* SAME AS 8TH ROW */
          pellet * pellet37 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_width, default_height);
          pelletStuff.push_back(pellet37);
@@ -234,8 +234,8 @@ populatePellets::populatePellets()
        }
 
     /* 16TH ROW */ /* SAME AS SECOND ROW */
-        pellet * pellet23 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+(2.0/19.0)+pellet_spacing_x, -0.7-pellet_spacing_y, default_width, default_height);
-        pelletStuff.push_back(pellet23);
+        pellet * pellet23 = new pellet ("BMPs/other/pellet_big.bmp", 1, 1, -1.0+(2.0/19.0)+pellet_spacing_x-0.00725, -0.7-pellet_spacing_y+0.015, default_width+0.02, default_height+0.03);
+        pelletStuff.push_back(pellet23); //BIG PELLET #3
 
         pellet * pellet24 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.7-pellet_spacing_y, default_width, default_height);
         pelletStuff.push_back(pellet24);
@@ -249,8 +249,8 @@ populatePellets::populatePellets()
         pellet * pellet27 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, -0.7-pellet_spacing_y, default_width, default_height);
         pelletStuff.push_back(pellet27);
 
-        pellet * pellet28 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+17.0*(2.0/19.0)+pellet_spacing_x, -0.7-pellet_spacing_y, default_width, default_height);
-        pelletStuff.push_back(pellet28);
+        pellet * pellet28 = new pellet ("BMPs/other/pellet_big.bmp", 1, 1, -1.0+17.0*(2.0/19.0)+pellet_spacing_x-0.00725, -0.7-pellet_spacing_y+0.015, default_width+0.02, default_height+0.03);
+        pelletStuff.push_back(pellet28); //BIG PELLET #4
 
     /* 17TH ROW */ /* SAME AS FIRST ROW */
         /* 17TH ROW LEFT */
