@@ -63,4 +63,28 @@ gameBoard::gameBoard()
 
     TexRect * bottom_middlebar = new TexRect("BMPs/bluesquare.bmp", 1, 1, -1.0+(9.0*(2.0/19.0)), -0.7, (2.0/19.0), 0.2);
     blocks.push_back(bottom_middlebar);
+
+    TexRect * leftupper_box1 = new TexRect("BMPs/bluesquare.bmp", 1, 1, -1.0+(2.0*(2.0/19.0)), 0.7, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(leftupper_box1);
+
+    TexRect * leftupper_box2 = new TexRect("BMPs/bluesquare.bmp", 1, 1, -1.0+(2.0*(2.0/19.0)), 0.5, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(leftupper_box2);
+
+    TexRect * leftlower_box1 = new TexRect("BMPs/bluesquare.bmp", 1, 1, -1.0+(2.0*(2.0/19.0)), -0.5, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(leftlower_box1);
+
+    TexRect * leftlower_box2 = new TexRect("BMPs/bluesquare.bmp", 1, 1, -1.0+(2.0*(2.0/19.0)), -0.7,  2.0*(2.0/19.0), 0.1);
+    blocks.push_back(leftlower_box2);
+
+    TexRect * rightupper_box1 = new TexRect("BMPs/bluesquare.bmp", 1, 1, 1.0-(4.0*(2.0/19.0)), 0.7, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(rightupper_box1);
+
+    TexRect * rightupper_box2 = new TexRect("BMPs/bluesquare.bmp", 1, 1, 1.0-(4.0*(2.0/19.0)), 0.5, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(rightupper_box2);
+
+    TexRect * rightlower_box1 = new TexRect("BMPs/bluesquare.bmp", 1, 1, 1.0-(4.0*(2.0/19.0)), -0.5, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(rightlower_box1);
+
+    TexRect * rightlower_box2 = new TexRect("BMPs/bluesquare.bmp", 1, 1, 1.0-(4.0*(2.0/19.0)), -0.7, 2.0*(2.0/19.0), 0.1);
+    blocks.push_back(rightlower_box2);
 }
