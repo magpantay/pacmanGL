@@ -67,32 +67,70 @@ populatePellets::populatePellets()
         pellet * pellet12 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+17.0*(2.0/19.0)+pellet_spacing_x, 0.5-pellet_spacing_y, default_width, default_height);
         pelletStuff.push_back(pellet12);
 
+    /* 5TH ROW */
+       for (float j = 1.0; j < 5.0; j+=1.0)
+       {
+          pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, 0.4-pellet_spacing_y, default_width,default_height);
+          pelletStuff.push_back(pellet0);
+       }
+
+       for (float j = 6.0; j < 9.0; j+=1.0)
+       {
+          pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, 0.4-pellet_spacing_y, default_width, default_height);
+          pelletStuff.push_back(pellet0);
+       }
+
+       for (float j = 10.0; j < 13.0; j+=1.0)
+       {
+          pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, 0.4-pellet_spacing_y, default_width, default_height);
+          pelletStuff.push_back(pellet0);
+       }
+
+       for (float j = 14.0; j < 18.0; j+=1.0)
+       {
+          pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, 0.4-pellet_spacing_y, default_width, default_height);
+          pelletStuff.push_back(pellet0);
+       }
+
     /* 6TH ROW */
-        pellet * pellet13 = new pellet (-1.0+4.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet13);
+        pellet * pellet13 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet13);
 
-        pellet * pellet14 = new pellet (-1.0+8.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet14);
+        pellet * pellet14 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+8.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet14);
 
-        pellet * pellet15 = new pellet (-1.0+10.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet15);
+        pellet * pellet15 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+10.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet15);
 
-        pellet * pellet16 = new pellet (-1.0+14.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet16);
+        pellet * pellet16 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, 0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet16);
+
+    /* 7TH ROW */
+         pellet * pellet41 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, 0.2-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet41);
+
+         for (float j = 6.0; j < 13.0; j+=1.0)
+         {
+            pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, 0.2-pellet_spacing_y, default_width, default_height);
+            pelletStuff.push_back(pellet0);
+         }
+
+         pellet * pellet42 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, 0.2-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet42);
 
     /* 8TH ROW */
 
-         pellet * pellet33 = new pellet (-1.0+4.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet33);
+         pellet * pellet33 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet33);
 
-         pellet * pellet34 = new pellet (-1.0+6.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet34);
+         pellet * pellet34 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+6.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet34);
 
-         pellet * pellet35 = new pellet (-1.0+12.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet35);
+         pellet * pellet35 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+12.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet35);
 
-         pellet * pellet36 = new pellet (-1.0+14.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet36);
+         pellet * pellet36 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, 0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet36);
 
     /* 9TH ROW (MIDDLE) */
         for (float j = 1.0; j < 18.0; j+=1.0)
@@ -101,31 +139,73 @@ populatePellets::populatePellets()
           pelletStuff.push_back(pellet0);
         }
 
+   /*************/
+   /* AT THIS POINT, THIS IS THE SAME AS THE 1ST TO 8TH ROW EXCEPT THE Y COORD IS NEGATIVE */
+   /*************/
+   
     /* 10TH ROW OF PELLETS */ /* SAME AS 8TH ROW */
-         pellet * pellet37 = new pellet (-1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet37);
+         pellet * pellet37 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet37);
 
-         pellet * pellet38 = new pellet (-1.0+6.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet38);
+         pellet * pellet38 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+6.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet38);
 
-         pellet * pellet39 = new pellet (-1.0+12.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet39);
+         pellet * pellet39 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+12.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet39);
 
-         pellet * pellet40 = new pellet (-1.0+14.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-         gameSquares.push_back(pellet40);
+         pellet * pellet40 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, -0.1-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet40);
+
+     /* 11TH ROW */ /* SAME AS 7TH ROW */
+         pellet * pellet43 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.2-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet43);
+
+         for (float j = 6.0; j < 13.0; j+=1.0)
+         {
+            pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, -0.2-pellet_spacing_y, default_width, default_height);
+            pelletStuff.push_back(pellet0);
+         }
+
+         pellet * pellet44 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, -0.2-pellet_spacing_y, default_width, default_height);
+         pelletStuff.push_back(pellet44);
 
     /* 12TH ROW OF PELLETS */ /* SAME AS 6TH ROW */
-        pellet * pellet29 = new pellet (-1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet29);
+        pellet * pellet29 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+4.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet29);
 
-        pellet * pellet30 = new pellet (-1.0+8.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet30);
+        pellet * pellet30 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+8.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet30);
 
-        pellet * pellet31 = new pellet (-1.0+10.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet31);
+        pellet * pellet31 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+10.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet31);
 
-        pellet * pellet32 = new pellet (-1.0+14.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_height, default_width, 1.0,0.0,0.0);
-        gameSquares.push_back(pellet32);
+        pellet * pellet32 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+14.0*(2.0/19.0)+pellet_spacing_x, -0.3-pellet_spacing_y, default_width, default_height);
+        pelletStuff.push_back(pellet32);
+
+    /* 13TH ROW */ /* SAME AS 5TH ROW */
+        for (float j = 1.0; j < 5.0; j+=1.0)
+        {
+           pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, -0.4-pellet_spacing_y, default_width, default_height);
+           pelletStuff.push_back(pellet0);
+        }
+
+        for (float j = 6.0; j < 9.0; j+=1.0)
+        {
+           pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, -0.4-pellet_spacing_y, default_width, default_height);
+           pelletStuff.push_back(pellet0);
+        }
+
+        for (float j = 10.0; j < 13.0; j+=1.0)
+        {
+           pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, -0.4-pellet_spacing_y, default_width, default_height);
+           pelletStuff.push_back(pellet0);
+        }
+
+        for (float j = 14.0; j < 18.0; j+=1.0)
+        {
+           pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, -0.4-pellet_spacing_y, default_width, default_height);
+           pelletStuff.push_back(pellet0);
+        }
 
     /* 14TH ROW */ /* SAME AS 4TH */
         pellet * pellet17 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+(2.0/19.0)+pellet_spacing_x, -0.5-pellet_spacing_y, default_width, default_height);
@@ -185,4 +265,5 @@ populatePellets::populatePellets()
            pellet * pellet0 = new pellet ("BMPs/other/pellet_small.bmp", 1, 1, -1.0+j*(2.0/19.0)+pellet_spacing_x, -0.8-pellet_spacing_y, default_width, default_height);
            pelletStuff.push_back(pellet0);
         }
+        //44
 }
