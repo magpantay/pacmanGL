@@ -63,7 +63,6 @@ gameBoard::gameBoard()
   */
 
     float x_axis_divider = (2.0/19.0);  //reason for 2.0/19.0 is because distance from -1 to 1 is 2 and 19.0 blocks is from the amount of blocks horizontally in a Pacman game (x axis divider is in increments of 2.0/19.0)
-
     //reason height is 0.1 each block is because we need 0.1 at the top for score and stuff, meaning we have 19 blocks left to use. 1.9/19 = 0.1 (y axis divider is in increments of 0.1)
 
     TexRect * top_bar = new TexRect ("BMPs/bluesquare.bmp", 1, 1, -1.0, 0.9, 2.0, 0.1);
