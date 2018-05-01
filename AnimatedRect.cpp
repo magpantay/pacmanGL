@@ -119,7 +119,7 @@ void AnimatedRect::stop(){
     animating = false;
 }
 
-void AnimatedRect::change_Picture_File(const char* filename, int rows, int cols)
+void AnimatedRect::change_Picture_File(const char* map_filename, int rows, int cols)
 {
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_FLAT);
