@@ -4,13 +4,13 @@
 #include <vector>
 #include "TexRect.h"
 
-class pellets : public TexRect //inherits changeBMP, draw, etc.
+class pellet : public TexRect //inherits changeBMP, draw, etc.
 {
     bool hasBeenEaten;
     public:
-      pellets();
+      pellet();
       void changeBeenEaten();
-      ~pellets();
+      ~pellet();
 };
 
 #endif

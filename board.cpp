@@ -200,6 +200,6 @@ gameBoard::gameBoard()
     TexRect * middle_box_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(7.0*(2.0/19.0)), 0.1, 5.0*x_axis_divider, 0.1);
     blocks.push_back(middle_box_part1); //[44]
 
-    TexRect * middle_box_part2 = new Rect("BMPs/bluesquare.bmp", -1.0+(7.0*(2.0/19.0)), -0.1, 5.0*x_axis_divider, 0.1);
+    TexRect * middle_box_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(7.0*(2.0/19.0)), -0.1, 5.0*x_axis_divider, 0.1);
     blocks.push_back(middle_box_part2); //[45]
 }
