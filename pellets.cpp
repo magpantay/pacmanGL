@@ -1,6 +1,6 @@
 #include "pellets.h"
 
-pellet::pellet(const char* filename, float x=0, float y=0, float w=0.5, float h=0.5):TexRect(filename, x, y, w, h)
+pellet::pellet(const char* filename, float x, float y, float w, float h):TexRect(filename, x, y, w, h)
 {
   hasBeenEaten = false;
 }
