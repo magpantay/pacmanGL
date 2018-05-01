@@ -11,6 +11,8 @@ class populatePellets
   vector < pellet* > pelletStuff;
   public:
     populatePellets();
+    vector < pellet* > getPellets(); 
+    ~populatePellets();
 };
 
 #endif

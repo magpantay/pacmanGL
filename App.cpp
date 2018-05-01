@@ -6,7 +6,7 @@ void app_timer(int value){
     if (singleton->game_over){
         singleton->gameOver->advance();
     }
-    
+
     if (singleton->moving){
         singleton->ball->jump();
         float bx = singleton->ball->x + singleton->ball->w/2;
@@ -19,12 +19,12 @@ void app_timer(int value){
                 singleton->ball->yinc = 0.15;
             }
         }
-        
+
         if (singleton->ball->y - singleton->ball->h < -0.99){
             singleton->moving = false;
             singleton->game_over = true;
             singleton->gameOver->animate();
-            
+
         }
     }
     if (singleton->up){
@@ -39,7 +39,7 @@ void app_timer(int value){
     if (singleton->right){
         singleton->platform->moveRight(0.05);
     }
-    
+
     if (singleton->game_over){
         singleton->redraw();
         glutTimerFunc(100, app_timer, value);
@@ -50,29 +50,36 @@ void app_timer(int value){
             glutTimerFunc(16, app_timer, value);
         }
     }
-    
-    
+
+
 }
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
-    
+
     singleton = this;
     mx = 0.0;
     my = 0.0;
-    
+
     background = new TexRect("images/sky.png", -1, 1, 2, 2);
     ball = new TexRect("images/mushroom.png", 0, 0.67, 0.2, 0.2);
 
     platform = new TexRect("images/board.png", 0, -0.7, 0.6, 0.2);
-    
+
     gameOver = new AnimatedRect("images/game_over.png", 7, 1, -1.0, 0.8, 2, 1.2);
-    
+
     up = down = left = right = false;
-    
+
     moving = true;
     game_over = false;
-    
+
+    /* INSTANTIATION OF MY IMPLEMENTATIONS FOR TESTING */
+    b = new gameBoard();
+    boardStuffs = b->getGameBoard();
+
+    pp = new populatePellets();
+    pelletStuffs = pp->getPellets();
+
     app_timer(1);
 
 }
@@ -113,19 +120,29 @@ void App::draw() {
 
     // Clear the screen
     glClear(GL_COLOR_BUFFER_BIT);
-    
+
     // Set background color to black
     glClearColor(0.0, 0.0, 1.0, 1.0);
-    
+
     // Set up the transformations stack
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    
+
     background->draw();
     platform->draw();
     ball->draw();
     gameOver->draw();
-    
+
+    for (int i = 0; i < boardStuffs.size(); i++)
+    {
+       boardStuffs[i]->draw();
+    }
+
+    for (int i = 0; i < pelletStuffs.size(); i++)
+    {
+       pelletStuffs[i]->draw();
+    }
+
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
@@ -153,16 +170,16 @@ void App::idle(){
 void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
-        
+
         delete ball;
         delete platform;
         delete gameOver;
         delete background;
         delete this;
-        
+
         exit(0);
     }
-    
+
     if (key == ' '){
         ball->x = 0;
         ball->y = 0.67;

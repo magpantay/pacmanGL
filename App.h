@@ -38,6 +38,14 @@ public:
 
     AnimatedRect* gameOver;
 
+    /* FOR TESTING PURPOSES */
+    /* INSTANTIATION OF MY IMPLEMENTATIONS */
+    gameBoard * b;
+    vector < TexRect* > boardStuffs;
+
+    populatePellets* pp;
+    vector < pellet* > pelletStuffs;
+
     bool up;
     bool down;
     bool left;
