@@ -9,6 +9,7 @@
 //#include "ghosts.h"
 //#include "pacman.h"
 #include "populatePellets.h"
+#include "pellets.h"
 
 class App: public GlutApp {
     // Maintain app state here
