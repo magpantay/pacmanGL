@@ -1,36 +1,50 @@
 #ifndef TexRect_h
 #define TexRect_h
 
+/* THIS IS FOR STATIC OBJECTS THAT JUST NEED TEXTURING */
+/* NO ANIMATED TEXTURES HERE, THAT'S HANDLED BY ANIMATEDRECT.H/ANIMATEDRECT.CPP */
+
 #if defined WIN32
 #include <freeglut.h>
+#include "../windows/SOIL.h"
 #elif defined __APPLE__
 #include <GLUT/glut.h>
+#include <SOIL.h>
 #else
 #include <GL/freeglut.h>
+#include <SOIL.h>
 #endif
 
-#include "RgbImage.h"
-
 class TexRect {
-protected:
+public:
     float x;
     float y;
     float w;
     float h;
     GLuint texture_id;
-    int rows;
-    int cols;
-    int curr_row;
-    int curr_col;
 
-    bool complete;
-public:
-    TexRect (const char*, int, int, float, float, float, float);
-    bool done();
+    bool rising;
+    bool movingLeft;
+
+    float xinc;
+    float yinc;
+
+    TexRect (const char*, float, float, float, float);
+
     void draw();
-    void advance();
-    void reset();
 
+    bool contains(float, float);
+
+    void moveUp(float rate=0.01);
+    void moveDown(float rate=0.01);
+    void moveLeft(float rate=0.01);
+    void moveRight(float rate=0.01);
+
+    void jump();
+
+    void change_Picture_File(const char*);
+
+    /* UNNECESSARY, SINCE IT'S PUBLIC
     void changeX(float);
     void changeY(float);
     void changeWidth(float);
@@ -40,17 +54,7 @@ public:
     float getY() const;
     float getW() const;
     float getH() const;
-
-    virtual void moveUp(float rate=0.01);
-    virtual void moveDown(float rate=0.01);
-    virtual void moveLeft(float rate=0.01);
-    virtual void moveRight(float rate=0.01);
-
-    void changeBMPFile(const char*, int, int);
-    bool contains(float x, float y);
-    void mouseHandler(float x, float y);
-    void keyHandler(unsigned char key);
-
+    */
 };
 
 #endif

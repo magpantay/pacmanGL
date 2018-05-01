@@ -1,79 +1,112 @@
 #include "TexRect.h"
 
-static TexRect* singleton; //we doing this again
+/* THIS IS FOR STATIC OBJECTS THAT JUST NEED TEXTURING */
+/* NO ANIMATED TEXTURES HERE, THAT'S HANDLED BY ANIMATEDRECT.H/ANIMATEDRECT.CPP */
 
-void boom(int value)
-{
-	if (!singleton->done())
-	{
-		singleton->advance();
-		singleton->draw();
-		glutTimerFunc(32, boom, value);
-	}
-}
-
-TexRect::TexRect (const char* filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5){
+TexRect::TexRect (const char* filename, float x=0, float y=0, float w=0.5, float h=0.5){
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_FLAT);
     glEnable(GL_DEPTH_TEST);
 
-    RgbImage theTexMap( filename );
+    texture_id = SOIL_load_OGL_texture (
+     filename,
+     SOIL_LOAD_AUTO,
+     SOIL_CREATE_NEW_ID,
+     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+     );
 
-    glGenTextures( 1, &texture_id );
-    glBindTexture( GL_TEXTURE_2D, texture_id );
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, theTexMap.GetNumCols(), theTexMap.GetNumRows(),
-                      GL_RGB, GL_UNSIGNED_BYTE, theTexMap.ImageData() );
-    this->texture_id = texture_id;
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-    this->rows = rows;
-    this->cols = cols;
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
     this->x = x;
     this->y = y;
     this->w = w;
     this->h = h;
 
-    curr_row = 1;
-    curr_col = 1;
+    rising = false;
+    movingLeft = true;
 
-    complete = false;
+    xinc = 0.01;
+    yinc = 0.01;
 }
 
-bool TexRect::done() {
-    return complete;
+// USED FOR MOVEMENT, BUT NO ANIMATION
+void TexRect::moveUp(float rate){
+    y += rate;
 }
+void TexRect::moveDown(float rate){
+    y -= rate;
+}
+void TexRect::moveLeft(float rate){
+    x -= rate;
+    if (x < -0.99){
+        x = -0.99;
+    }
+}
+void TexRect::moveRight(float rate){
+    x += rate;
+    if (x + w > 0.99){
+        x = 0.99 - w;
+    }
+}
+
+void TexRect::jump(){
+    if(rising){
+        y+=yinc;
+        if (movingLeft){
+            x -=xinc;
+        }
+        else {
+            x +=xinc;
+        }
+    }
+    else {
+        y-=yinc;
+        if (movingLeft){
+            x -=xinc;
+        }
+        else{
+            x +=xinc;
+        }
+    }
+
+    if (y > 0.99){
+        rising = false;
+    }
+    if ((y-h) < -0.99){
+        rising = true;
+    }
+    if (x < -0.99) {
+        movingLeft = false;
+
+    }
+    if (x+w > 0.99) {
+        movingLeft = true;
+
+    }
+}
+//END MOVEMENT
 
 void TexRect::draw(){
-
     glBindTexture( GL_TEXTURE_2D, texture_id );
     glEnable(GL_TEXTURE_2D);
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-
-
-    float xinc = 1.0/cols;
-    float yinc = 1.0/rows;
-
-
-    float top = 1 - yinc * (curr_row - 1);
-    float bottom = 1 - yinc * curr_row;
-
-    float left = xinc * (curr_col - 1);
-    float right = xinc * curr_col;
-
 
     glBegin(GL_QUADS);
-
-    glTexCoord2f(left, bottom);
+    glColor4f(1, 1, 1, 1);
+    glTexCoord2f(0, 0);
     glVertex2f(x, y - h);
 
-    glTexCoord2f(left, top);
+    glTexCoord2f(0, 1);
     glVertex2f(x, y);
 
-    glTexCoord2f(right, top);
+    glTexCoord2f(1, 1);
     glVertex2f(x+w, y);
 
-    glTexCoord2f(right, bottom);
+    glTexCoord2f(1, 0);
     glVertex2f(x+w, y - h);
 
     glEnd();
@@ -81,52 +114,39 @@ void TexRect::draw(){
     glDisable(GL_TEXTURE_2D);
 }
 
-void TexRect::advance(){
-    if (curr_col < cols){
-        curr_col++;
-    }
-    else {
-        if (curr_row < rows){
-            curr_row++;
-            curr_col = 1;
-        }
-        else{
-            curr_row = 1;
-            curr_col = 1;
-        }
-    }
-
-    if (curr_row == rows && curr_col == cols){
-        complete = true;
-    }
-}
-
-void TexRect::reset(){
-    complete = false;
-}
-
-void TexRect::changeBMPFile(const char* filename, int rows, int cols)
+void TexRect::change_Picture_File(const char* filename) //no need for rows and columns because it's unanimated here
 {
-    glClearColor (0.0, 0.0, 0.0, 0.0);
-    glShadeModel(GL_FLAT);
-    glEnable(GL_DEPTH_TEST);
+      glClearColor (0.0, 0.0, 0.0, 0.0);
+      glShadeModel(GL_FLAT);
+      glEnable(GL_DEPTH_TEST);
 
-    RgbImage theTexMap( filename );
+      texture_id = SOIL_load_OGL_texture (
+       filename,
+       SOIL_LOAD_AUTO,
+       SOIL_CREATE_NEW_ID,
+       SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+       );
 
-    glGenTextures( 1, &texture_id );
-    glBindTexture( GL_TEXTURE_2D, texture_id );
+      glEnable(GL_BLEND);
+      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, theTexMap.GetNumCols(), theTexMap.GetNumRows(),
-                      GL_RGB, GL_UNSIGNED_BYTE, theTexMap.ImageData() );
-    this->texture_id = texture_id;
-    this->rows = rows;
-    this->cols = cols;
-    curr_row = 1;
-    curr_col = 1;
+      glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-    complete = false; //need to re-do certain things when changing the image file, like #rows & #cols
+      glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+      rising = false;
+      movingLeft = true;
+
+      xinc = 0.01;
+      yinc = 0.01;
 }
 
+bool TexRect::contains(float x0, float y0)
+{
+    return (x0 <= this->x+this->w && x0 >= this->x) && (y0 >= (this->y - this->h) && y0 <= this->y);
+}
+
+/* COMMENT AS TO WHY THIS WAS REMOVED IN THE H FILE
 void TexRect::changeX(float x)
 {
 	this->x = x;
@@ -166,38 +186,4 @@ float TexRect::getH() const
 {
     return h;
 }
-
-bool TexRect::contains(float x0, float y0)
-{
-    return (x0 <= this->x+this->w && x0 >= this->x) && (y0 >= (this->y - this->h) && y0 <= this->y) && (!this->done()); //this->done to prevent user from clicking again once the animation finishes
-}
-
-void TexRect::mouseHandler(float x, float y)
-{
-    if (contains(x, y))
-    {
-	this->changeBMPFile("fireball.bmp", 6, 6);
-	this->draw();
-	singleton = this;
-	boom(0);
-    }
-
-}
-
-virtual void TexRect::moveUp(float rate){
-    y += rate;
-}
-virtual void TexRect::moveDown(float rate){
-    y -= rate;
-}
-virtual void TexRect::moveLeft(float rate){
-    x -= rate;
-}
-virtual void TexRect::moveRight(float rate){
-    x += rate;
-}
-
-void TexRect::keyHandler(unsigned char key)
-{
-	//key press is now passed into TexRect, do with that as you will
-}
+*/
