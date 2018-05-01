@@ -35,9 +35,6 @@ AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float 
 
     complete = false;
     animating = false;
-
-    rising = false;
-    movingLeft = true;
 }
 
 bool AnimatedRect::done() {
@@ -82,11 +79,11 @@ void AnimatedRect::draw(){
     }
 }
 
-void AnimatedRect::incY(float yinc=0.01){
+void AnimatedRect::incY(float yinc){
     y+=yinc;
 }
 
-void AnimatedRect::incX(float xinc=0.01){
+void AnimatedRect::incX(float xinc){
     x+=xinc;
 }
 
@@ -215,41 +212,5 @@ void AnimatedRect::moveRight(float rate){
     x += rate;
     if (x + w > 0.99){
         x = 0.99 - w;
-    }
-}
-
-void AnimatedRect::jump(){
-    if(rising){
-        y+=yinc;
-        if (movingLeft){
-            x -=xinc;
-        }
-        else {
-            x +=xinc;
-        }
-    }
-    else {
-        y-=yinc;
-        if (movingLeft){
-            x -=xinc;
-        }
-        else{
-            x +=xinc;
-        }
-    }
-
-    if (y > 0.99){
-        rising = false;
-    }
-    if ((y-h) < -0.99){
-        rising = true;
-    }
-    if (x < -0.99) {
-        movingLeft = false;
-
-    }
-    if (x+w > 0.99) {
-        movingLeft = true;
-
     }
 }
