@@ -75,10 +75,8 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 
     /* INSTANTIATION OF MY IMPLEMENTATIONS FOR TESTING */
     b = new gameBoard();
-    boardStuffs = b->getGameBoard();
 
     pp = new populatePellets();
-    pelletStuffs = pp->getPellets();
 
     app_timer(1);
 
@@ -133,14 +131,14 @@ void App::draw() {
     ball->draw();
     gameOver->draw();
 
-    for (int i = 0; i < boardStuffs.size(); i++)
+    for (int i = 0; i < (b->blocks).size(); i++)
     {
-       boardStuffs[i]->draw();
+       (b->blocks)[i]->draw();
     }
 
-    for (int i = 0; i < pelletStuffs.size(); i++)
+    for (int i = 0; i < (pp->pelletStuff).size(); i++)
     {
-       pelletStuffs[i]->draw();
+       (pp->pelletStuff)[i]->draw();
     }
 
     // We have been drawing everything to the back buffer

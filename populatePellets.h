@@ -8,10 +8,11 @@ using namespace std;
 
 class populatePellets
 {
-  vector < pellet* > pelletStuff;
+
   public:
+    vector < pellet* > pelletStuff;
     populatePellets();
-    vector < pellet* > getPellets(); 
+    //vector < pellet* > getPellets(); not needed as pelletStuff is public
     ~populatePellets();
 };
 

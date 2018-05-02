@@ -8,11 +8,11 @@ using namespace std;
 
 class gameBoard
 {
-    vector < TexRect* > blocks;
-    //populate this vector with blocks for the gameboard, assign them the appropriate bmp texture file
     public:
+      vector < TexRect* > blocks;
+
       gameBoard();
-      vector < TexRect* > getGameBoard();
+      //vector < TexRect* > getGameBoard(); no need anymore because blocks is public
       ~gameBoard();
 };
 

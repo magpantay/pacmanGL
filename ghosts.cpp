@@ -2,7 +2,7 @@
 
 ghosts::ghosts()
 {
-  
+
 }
 
 ghosts::~ghosts()

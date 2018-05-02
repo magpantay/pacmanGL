@@ -268,10 +268,10 @@ populatePellets::populatePellets()
         //44
 }
 
-vector < pellet* > populatePellets::getPellets()
+/* vector < pellet* > populatePellets::getPellets()
 {
        return pelletStuff;
-}
+} */
 
 populatePellets::~populatePellets()
 {

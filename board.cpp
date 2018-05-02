@@ -204,12 +204,12 @@ gameBoard::gameBoard()
     blocks.push_back(middle_box_part2); //[45]
 }
 
-vector < TexRect* > gameBoard::getGameBoard()
+/* vector < TexRect* > gameBoard::getGameBoard()
 {
    return blocks;
-}
+} */
 
 gameBoard::~gameBoard()
 {
-  
+
 }
