@@ -61,7 +61,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     mx = 0.0;
     my = 0.0;
 
-    background = new TexRect("images/sky.png", -1, 1, 2, 2);
+    background = new TexRect("images/black.png", -1, 1, 2, 2);
     ball = new TexRect("images/mushroom.png", 0, 0.67, 0.2, 0.2);
 
     platform = new TexRect("images/board.png", 0, -0.7, 0.6, 0.2);
@@ -144,10 +144,12 @@ void App::draw() {
 
     for (int i = 0; i < (spooky->spoopy).size(); i++)
     {
-      (spooky->spoopy)[i]->draw();
+      (spooky->spoopy)[i]->draw(); //will draw into buffer
+      (spooky->spoopy)[i]->animate(); //will draw on the screen
     }
 
-    (pacm->pac)->draw();
+    (pacm->pac)->draw(); //will draw into memory buffer
+    (pacm->pac)->animate(); //will draw on the screen
 
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
