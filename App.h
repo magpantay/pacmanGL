@@ -6,8 +6,8 @@
 #include "AnimatedRect.h"
 
 #include "board.h"
-//#include "ghosts.h"
-//#include "pacman.h"
+#include "ghosts.h"
+#include "pacman.h"
 #include "populatePellets.h"
 #include "pellets.h"
 
