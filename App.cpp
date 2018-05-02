@@ -5,7 +5,13 @@ static App* singleton;
 void app_timer(int value){
     if (singleton->game_over){
         singleton->gameOver->advance();
+        for (int i = 0; i < (singleton->spooky->spoopy).size(); i++)
+        {
+            (singleton->spooky->spoopy)[i]->advance(); //just to see it animated
+        }
+        singleton->pacm->pac->advance(); //just to see it animated
     }
+    // it'll only animate on a game over
 
     if (singleton->moving){
         singleton->ball->jump();
@@ -42,7 +48,7 @@ void app_timer(int value){
 
     if (singleton->game_over){
         singleton->redraw();
-        glutTimerFunc(100, app_timer, value);
+        glutTimerFunc(80, app_timer, value); //keep at 80, seems to be good animation speed for pacman
     }
     else{
         if (singleton->up || singleton->down || singleton->left || singleton->right || singleton->moving && !singleton->game_over){
