@@ -2,7 +2,7 @@
 
 pacman::pacman(/*const char* filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5):AnimatedRect(filename, rows, cols, x, y, w, h*/)
 {
-    pac = new AnimatedRect("BMPs/pacman/pacman_left.bmp", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
+    pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
 }
 
 /*void pacman::moveUp(float moveBy){
