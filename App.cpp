@@ -75,8 +75,9 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 
     /* INSTANTIATION OF MY IMPLEMENTATIONS FOR TESTING */
     b = new gameBoard();
-
     pp = new populatePellets();
+    spooky = new ghosts();
+    pacm = new pacman();
 
     app_timer(1);
 
@@ -146,7 +147,7 @@ void App::draw() {
       (spooky->spoopy)[i]->draw();
     }
 
-    pac->draw();
+    (pacm->pac)->draw();
 
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew

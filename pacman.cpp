@@ -6,7 +6,7 @@ pacman::pacman(/*const char* filename, int rows, int cols, float x=0, float y=0,
     float pellet_spacing_y = 0.025;
     float default_width = (2.0/19.0)-2.0*pellet_spacing_x;
     float default_height = 0.1-2.0*pellet_spacing_y;
-    
+
     pac = new AnimatedRect("BMPs/pacman/pacman_left.bmp", -1.0+9.0*(2.0/19.0)+pellet_spacing_x, -0.2-pellet_spacing_y, default_width, default_height);
 }
 
@@ -34,3 +34,5 @@ pacman::~pacman()
 {
   //delete pacman;
 }
+
+/* MIGHT JUST HAVE A CLASS GAME THAT HAS DEFAULT STUFF */

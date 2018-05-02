@@ -44,6 +44,7 @@ public:
     gameBoard * b;
     populatePellets* pp;
     ghosts * spooky;
+    pacman * pacm;
 
     bool up;
     bool down;
