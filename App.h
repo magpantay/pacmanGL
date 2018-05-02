@@ -43,6 +43,7 @@ public:
     /* INSTANTIATION OF MY IMPLEMENTATIONS */
     gameBoard * b;
     populatePellets* pp;
+    ghosts * spooky;
 
     bool up;
     bool down;

@@ -141,6 +141,13 @@ void App::draw() {
        (pp->pelletStuff)[i]->draw();
     }
 
+    for (int i = 0; i < (spooky->spoopy).size(); i++)
+    {
+      (spooky->spoopy)[i]->draw();
+    }
+
+    pac->draw();
+
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
