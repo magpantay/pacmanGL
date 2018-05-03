@@ -1,5 +1,5 @@
-#ifndef "GAME_H"
-#define "GAME_H"
+#ifndef GAME_H
+#define GAME_H
 
 #include "board.h"
 #include "ghosts.h"
@@ -16,7 +16,7 @@ class game
 		pacman * pacman0;
 
 		game();
-		
+
 		void drawAll();
 		void mouseHandler(float x, float y);
 		void collisionHandler(float x, float y);
