@@ -5,12 +5,12 @@ pacman::pacman(/*const char* filename, int rows, int cols, float x=0, float y=0,
     pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
 }
 
-pacman::drawPacman()
+void pacman::drawPacman()
 {
    pac->draw(); //draws to buffer
 }
 
-pacman::animatePacman()
+void pacman::animatePacman()
 {
   pac->animate(); //draw to screen
 }
