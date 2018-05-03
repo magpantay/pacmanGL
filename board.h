@@ -13,6 +13,7 @@ class gameBoard
 
       gameBoard();
       //vector < TexRect* > getGameBoard(); no need anymore because blocks is public
+      void drawBlocks();
       ~gameBoard();
 };
 

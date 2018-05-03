@@ -12,6 +12,22 @@ ghosts::ghosts()
   spoopy.push_back(clyde);
 }
 
+void ghosts::drawGhosts()
+{
+  for (int i = 0; i < spoopy.size(); i++)
+  {
+    spoopy[i]->draw(); //will draw into buffer
+  }
+}
+
+void ghosts::animateGhosts()
+{
+  for (int i = 0; i < spoopy.size(); i++)
+  {
+    spoopy[i]->animate(); //will draw onto screen
+  }
+}
+
 ghosts::~ghosts()
 {
   //delete blinky;

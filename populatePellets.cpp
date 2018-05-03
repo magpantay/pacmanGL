@@ -275,6 +275,14 @@ populatePellets::populatePellets()
        return pelletStuff;
 } */
 
+void populatePellets::drawPellets()
+{
+    for (int i = 0; i < pelletStuff.size(); i++)
+    {
+      pelletStuff[i]->draw();
+    }
+}
+
 populatePellets::~populatePellets()
 {
 

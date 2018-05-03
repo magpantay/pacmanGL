@@ -11,6 +11,9 @@ public:
 
     pacman(/*const char*, int, int, float, float, float, float*/);
 
+    void drawPacman();
+    void animatePacman();
+    
     void moveUp(float);
     void moveDown(float);
     void moveRight(float);

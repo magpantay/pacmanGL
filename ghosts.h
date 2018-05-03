@@ -12,6 +12,10 @@ class ghosts //I think inherit, but unsure
     vector < AnimatedRect* > spoopy; //size of 4, change the X and Y coords constantly since they move, just use AnimatedRect
 
     ghosts();
+
+    void drawGhosts();
+    void animateGhosts();
+
     ~ghosts();
 };
 

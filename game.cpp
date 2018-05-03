@@ -10,24 +10,15 @@ game::game()
 
 void game::drawAll()
 {
-	for (int i = 0; i < (pellets0->pelletStuff).size(); i++)
-	{
-		(pellets0->pelletStuff)[i]->draw();
-	}
+	pellets0->drawPellets();
 
-	for (int i = 0; i < (board0->blocks).size(); i++)
-	{
-		(board0->blocks)[i]->draw();
-	}
+	board0->drawBlocks();
 
-	for (int i = 0; i < (ghosts0->spoopy).size(); i++)
-	{
-		(ghosts0->spoopy)[i]->draw(); //will draw into buffer
-		(ghosts0->spoopy)[i]->animate(); //will draw on the screen
-	}
+  ghosts0->drawGhosts(); //draws to memory (MUST DO BEFORE ANIMATION)
+	ghosts0->animateGhosts(); //draws onto screen
 
-	(pacman0->pac)->draw();
-	(pacman0->pac)->animate();
+	pacman0->drawPacman(); //same logic as above
+	pacman0->animatePacman(); //same logic as above
 }
 
 void game::mouseHandler(float x, float y)

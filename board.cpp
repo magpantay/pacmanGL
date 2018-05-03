@@ -209,6 +209,14 @@ gameBoard::gameBoard()
    return blocks;
 } */
 
+void gameBoard::drawBlocks()
+{
+   for (int i = 0; i < blocks.size(); i++)
+   {
+      blocks[i]->draw();
+   }
+}
+
 gameBoard::~gameBoard()
 {
 
