@@ -5,11 +5,7 @@
 #include "TexRect.h"
 #include "AnimatedRect.h"
 
-#include "board.h"
-#include "ghosts.h"
-#include "pacman.h"
-#include "populatePellets.h"
-#include "pellets.h"
+#include "game.h"
 
 class App: public GlutApp {
     // Maintain app state here
@@ -39,12 +35,7 @@ public:
 
     AnimatedRect* gameOver;
 
-    /* FOR TESTING PURPOSES */
-    /* INSTANTIATION OF MY IMPLEMENTATIONS */
-    gameBoard * b;
-    populatePellets* pp;
-    ghosts * spooky;
-    pacman * pacm;
+    game * game0;
 
     bool up;
     bool down;

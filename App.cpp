@@ -5,11 +5,11 @@ static App* singleton;
 void app_timer(int value){
     if (singleton->game_over){
         singleton->gameOver->advance();
-        for (int i = 0; i < (singleton->spooky->spoopy).size(); i++)
+        for (int i = 0; i < (singleton->game->ghosts0->spoopy).size(); i++)
         {
-            (singleton->spooky->spoopy)[i]->advance(); //just to see it animated
+            (singleton->game->ghosts0->spoopy)[i]->advance(); //just to see it animated
         }
-        singleton->pacm->pac->advance(); //just to see it animated
+        singleton->game->pacman0->pac->advance(); //just to see it animated
     }
     // it'll only animate on a game over
 
@@ -79,11 +79,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     moving = true;
     game_over = false;
 
-    /* INSTANTIATION OF MY IMPLEMENTATIONS FOR TESTING */
-    b = new gameBoard();
-    pp = new populatePellets();
-    spooky = new ghosts();
-    pacm = new pacman();
+    game0 = new game();
 
     app_timer(1);
 
@@ -138,24 +134,7 @@ void App::draw() {
     ball->draw();
     gameOver->draw();
 
-    for (int i = 0; i < (b->blocks).size(); i++)
-    {
-       (b->blocks)[i]->draw();
-    }
-
-    for (int i = 0; i < (pp->pelletStuff).size(); i++)
-    {
-       (pp->pelletStuff)[i]->draw();
-    }
-
-    for (int i = 0; i < (spooky->spoopy).size(); i++)
-    {
-      (spooky->spoopy)[i]->draw(); //will draw into buffer
-      (spooky->spoopy)[i]->animate(); //will draw on the screen
-    }
-
-    (pacm->pac)->draw(); //will draw into memory buffer
-    (pacm->pac)->animate(); //will draw on the screen
+    game0->drawAll();
 
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
