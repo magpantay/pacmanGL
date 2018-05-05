@@ -14,14 +14,14 @@ public:
 
     AnimatedRect * pac;
 
-    pacman(/*const char*, int, int, float, float, float, float*/);
+    pacman();
 
     void drawPacman();
     void animatePacman();
     void advancePacmanAnimation();
 
     void changeDirection(int);
-    void changeDirection(unsigned char*);
+    void changeDirection(unsigned char);
 
     void moveUp(float rate = 0.05);
     void moveDown(float rate = 0.05);

@@ -92,12 +92,12 @@ void game::drawAll()
 			pellets0->drawPellets();
 			board0->drawBlocks();
 
-		  ghosts0->drawGhosts(); //draws to memory (MUST DO BEFORE ANIMATION)
-			pacman0->drawPacman(); //same logic as above
+		  ghosts0->drawGhosts();
+			pacman0->drawPacman();
 
 }
 
-void game::animateAll() //if only drew but not animate AnimatedRects, then it won't appear on screen, only in memory
+void game::animateAll() //animate changes bool value to true, then draw it to make it appear to screen, without it, it'll just be saved in memory
 {
 			pacman0->animatePacman();
 			ghosts0->animateGhosts();

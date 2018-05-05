@@ -23,7 +23,7 @@ class game
 		void drawAll();
 		void animateAll();
 		void advanceAllAnimations();
-		
+
 		void collisionHandler(float, float);
 
 		void specialKeyHandler(int);

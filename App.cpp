@@ -1,6 +1,6 @@
 #include "App.h"
 
-static App* singleton;
+/*static App* singleton;
 
 void app_timer(int value){
     if (singleton->game_over){
@@ -52,30 +52,15 @@ void app_timer(int value){
     }
 
 
-}
+} */
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
 
-    singleton = this;
     mx = 0.0;
     my = 0.0;
 
-    background = new TexRect("images/black.png", -1, 1, 2, 2);
-    ball = new TexRect("images/mushroom.png", 0, 0.67, 0.2, 0.2);
-
-    platform = new TexRect("images/board.png", 0, -0.7, 0.6, 0.2);
-
-    gameOver = new AnimatedRect("images/game_over.png", 7, 1, -1.0, 0.8, 2, 1.2);
-
-    up = down = left = right = false;
-
-    moving = true;
-    game_over = false;
-
     game0 = new game();
-
-    app_timer(1);
 
 }
 
@@ -95,12 +80,9 @@ void App::draw() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    background->draw();
-    platform->draw();
-    ball->draw();
-    gameOver->draw();
-
+    game0->animateAll(); //see game.cpp to see why I animate those that can be animated first then draw
     game0->drawAll();
+
 
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew

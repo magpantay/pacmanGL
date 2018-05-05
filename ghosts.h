@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class ghosts
+class ghosts : public AnimatedRect
 {
   public:
 

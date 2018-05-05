@@ -27,14 +27,6 @@ public:
 
     void idle();
 
-    TexRect* ball;
-
-    TexRect* platform;
-
-    TexRect* background;
-
-    AnimatedRect* gameOver;
-
     game * game0;
 
     bool moving;
