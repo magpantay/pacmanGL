@@ -94,23 +94,23 @@ void pacman::changeDirection(int specialKey)
 }
 
 void pacman::moveUp(float moveBy){
-    y += moveBy;
-    change_Picture_File("BMPs/pacman/pacman_up.bmp", 1, 4);
+    //changePicture
+    pac->moveUp(moveBy);
 }
 
 void pacman::moveDown(float moveBy){
-    y -= moveBy;
-    change_Picture_File("BMPs/pacman/pacman_down.bmp", 1, 4);
+    //change_Picture_File
+    pac->moveDown(moveBy);
 }
 
 void pacman::moveLeft(float moveBy){
-    x -= moveBy;
-    change_Picture_File("BMPs/pacman/pacman_left.bmp", 1, 4);
+    //changePicture
+    pac->moveLeft(moveBy);
 }
 
 void pacman::moveRight(float moveBy){
-    x += moveBy;
-    change_Picture_File("BMPs/pacman/pacman_right.bmp", 1, 4);
+    //change_Picture_File
+    pac->moveRight(moveBy);
 }
 
 pacman::~pacman()

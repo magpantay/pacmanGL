@@ -36,26 +36,21 @@ void populateGhosts::advanceAllGhostsAnimation()
   }
 }
 
-void populateGhosts::moveUp(float moveBy, int whichGhost){
-    y += moveBy;
+void populateGhosts::moveUp(int whichGhost, float moveBy){
     // TO DO: NEED TO FIGURE OUT WHICH GHOST TEXTURE TO CHANGE
-    spoopy[whichGhost]->change_Picture_File("BMP/ghosts/", 1, 4);
-    change_Picture_File("BMPs/pacman/pacman_up.bmp", 1, 4);
+    spoopy[whichGhost]->moveUp(moveBy);
 }
 
-void populateGhosts::moveDown(float moveBy){
-    y -= moveBy;
-    change_Picture_File("BMPs/pacman/pacman_down.bmp", 1, 4);
+void populateGhosts::moveDown(int whichGhost, float moveBy){
+    spoopy[whichGhost]->moveDown(moveBy);
 }
 
-void populateGhosts::moveLeft(float moveBy){
-    x -= moveBy;
-    change_Picture_File("BMPs/pacman/pacman_left.bmp", 1, 4);
+void populateGhosts::moveLeft(int whichGhost, float moveBy){
+    spoopy[whichGhost]->moveLeft(moveBy);
 }
 
-void populateGhosts::moveRight(float moveBy){
-    x += moveBy;
-    change_Picture_File("BMPs/pacman/pacman_right.bmp", 1, 4);
+void populateGhosts::moveRight(int whichGhost, float moveBy){
+    spoopy[whichGhost]->moveRight();
 }
 
 populateGhosts::~populateGhosts()

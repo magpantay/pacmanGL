@@ -43,10 +43,10 @@ public:
     void stop();
     void change_Picture_File(const char*, int, int);
 
-    void moveUp(float rate=0.01);
-    void moveDown(float rate=0.01);
-    void moveLeft(float rate=0.01);
-    void moveRight(float rate=0.01);
+    void moveUp(float rate=0.05);
+    void moveDown(float rate=0.05);
+    void moveLeft(float rate=0.05);
+    void moveRight(float rate=0.05);
 
     void changeX(float);
     void changeY(float);

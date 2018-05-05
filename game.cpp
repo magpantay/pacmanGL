@@ -80,10 +80,11 @@ game::game()
 {
 			board0 = new gameBoard();
 			pellets0 = new populatePellets();
-			ghosts0 = new ghosts();
+			ghosts0 = new populateGhosts();
 			pacman0 = new pacman();
 
 			gameOver = false;
+			//app_timer(1);
 }
 
 void game::drawAll()

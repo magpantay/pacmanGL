@@ -10,10 +10,10 @@ class populateGhosts
       void animateGhosts();
       void advanceAllGhostsAnimation();
 
-      void moveUp(float);
-      void moveDown(float);
-      void moveRight(float);
-      void moveLeft(float);
+      void moveUp(int, float rate = 0.05);
+      void moveDown(int, float rate = 0.05);
+      void moveRight(int, float rate = 0.05);
+      void moveLeft(int, float rate = 0.05);
 
       ~populateGhosts();
 };
