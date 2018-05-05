@@ -5,13 +5,7 @@ static App* singleton;
 void app_timer(int value){
     if (singleton->game_over){
         singleton->gameOver->advance();
-        for (int i = 0; i < (singleton->game0->ghosts0->spoopy).size(); i++)
-        {
-            (singleton->game0->ghosts0->spoopy)[i]->advance(); //just to see it animated
-        }
-        singleton->game0->pacman0->pac->advance(); //just to see it animated
     }
-    // it'll only animate on a game over
 
     if (singleton->moving){
         singleton->ball->jump();

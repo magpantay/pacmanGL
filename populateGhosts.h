@@ -8,6 +8,13 @@ class populateGhosts
       populateGhosts();
       void drawGhosts();
       void animateGhosts();
+      void advanceAllGhostsAnimation();
+
+      void moveUp(float);
+      void moveDown(float);
+      void moveRight(float);
+      void moveLeft(float);
+
       ~populateGhosts();
 };
 

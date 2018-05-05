@@ -16,10 +16,14 @@ class game
 		populateGhosts * ghosts0;
 		pacman * pacman0;
 
+		bool gameOver;
+
 		game();
 
 		void drawAll();
 		void animateAll();
+		void advanceAllAnimations();
+		
 		void collisionHandler(float, float);
 
 		void specialKeyHandler(int);

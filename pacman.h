@@ -10,7 +10,7 @@ public:
     bool up;
     bool down;
     bool left;
-    bool right;
+    bool right; //I feel like the only reason we don't have a populatePacman is because we only need one, while for populatePellets and populateGhosts, we spawn >1 of those
 
     AnimatedRect * pac;
 
@@ -18,6 +18,7 @@ public:
 
     void drawPacman();
     void animatePacman();
+    void advancePacmanAnimation();
 
     void changeDirection(int);
     void changeDirection(unsigned char*);
@@ -26,7 +27,6 @@ public:
     void moveDown(float);
     void moveRight(float);
     void moveLeft(float);
-    //void autoMove(float, int);
 
     ~pacman();
 };

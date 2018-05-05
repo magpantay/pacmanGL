@@ -17,6 +17,11 @@ void pacman::animatePacman()
   pac->animate(); //draw to screen
 }
 
+void pacman::advancePacmanAnimation()
+{
+  pac->advance();
+}
+
 void pacman::changeDirection(unsigned char* key)
 {
   if (key == 'w')
@@ -88,25 +93,25 @@ void pacman::changeDirection(int specialKey)
   }
 }
 
-/*void pacman::moveUp(float moveBy){
+void pacman::moveUp(float moveBy){
     y += moveBy;
-    changeBMPFile("BMPs/pacman/pacman_up.bmp", 1, 4);
+    change_Picture_File("BMPs/pacman/pacman_up.bmp", 1, 4);
 }
 
-void pacman::moveDown(float moveBy){1
+void pacman::moveDown(float moveBy){
     y -= moveBy;
-    changeBMPFile("BMPs/pacman/pacman_down.bmp", 1, 4);
+    change_Picture_File("BMPs/pacman/pacman_down.bmp", 1, 4);
 }
 
 void pacman::moveLeft(float moveBy){
     x -= moveBy;
-    changeBMPFile("BMPs/pacman/pacman_left.bmp", 1, 4);
+    change_Picture_File("BMPs/pacman/pacman_left.bmp", 1, 4);
 }
 
 void pacman::moveRight(float moveBy){
     x += moveBy;
-    changeBMPFile("BMPs/pacman/pacman_right.bmp", 1, 4);
-}*/
+    change_Picture_File("BMPs/pacman/pacman_right.bmp", 1, 4);
+}
 
 pacman::~pacman()
 {
