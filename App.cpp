@@ -86,35 +86,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 }
 
 void App::specialKeyPress(int key){
-    if (!game_over){
-        if (key == 100){
-            left = true;
-        }
-        if (key == 101){
-            //up = true;
-        }
-        if (key == 102){
-            right = true;
-        }
-        if (key == 103){
-            //down = true;
-        }
-    }
-}
-
-void App::specialKeyUp(int key){
-    if (key == 100) {
-        left = false;
-    }
-    if (key == 101) {
-        up = false;
-    }
-    if (key == 102) {
-        right = false;
-    }
-    if (key == 103) {
-        down = false;
-    }
+    game0->specialKeyHandler(key);
 }
 
 void App::draw() {
@@ -142,10 +114,20 @@ void App::draw() {
     glutSwapBuffers();
 }
 
+void App::idle(){
+
+}
+
+void App::keyPress(unsigned char key) {
+    game0->regularKeyHandler(key);
+}
+
+/* UNNECESSARY */
 void App::mouseDown(float x, float y){
     // Update app state
     mx = x;
     my = y;
+    // No need for mouse handler
 
 }
 
@@ -153,34 +135,10 @@ void App::mouseDrag(float x, float y){
     // Update app state
     mx = x;
     my = y;
+    // No need for mouse handler
 
 }
 
-void App::idle(){
-
-}
-
-void App::keyPress(unsigned char key) {
-    if (key == 27){
-        // Exit the app when Esc key is pressed
-
-        delete ball;
-        delete platform;
-        delete gameOver;
-        delete background;
-        delete this;
-
-        exit(0);
-    }
-
-    if (key == ' '){
-        ball->x = 0;
-        ball->y = 0.67;
-        ball->yinc = 0.01;
-        ball->xinc = 0.01;
-        ball->rising = false;
-        game_over = false;
-        gameOver->stop();
-        moving = true;
-    }
+void App::specialKeyUp(int key){
+    // No need to check if key is released (as Pacman moves perpetually until another key press)
 }

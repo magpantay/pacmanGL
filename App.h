@@ -37,11 +37,6 @@ public:
 
     game * game0;
 
-    bool up;
-    bool down;
-    bool left;
-    bool right;
-
     bool moving;
     bool game_over;
 

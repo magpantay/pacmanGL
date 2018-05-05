@@ -6,21 +6,24 @@
 #include "populatePellets.h"
 #include "pacman.h"
 #include "pellets.h"
+#include "populateGhosts.h"
 
 class game
 {
 	public:
 		gameBoard * board0;
 		populatePellets * pellets0;
-		ghosts * ghosts0;
+		populateGhosts * ghosts0;
 		pacman * pacman0;
 
 		game();
 
 		void drawAll();
-		void mouseHandler(float x, float y);
-		void collisionHandler(float x, float y);
-		void keyBoardHandler(int key, bool isKeyUp);
+		void animateAll();
+		void collisionHandler(float, float);
+
+		void specialKeyHandler(int);
+		void regularKeyHandler(unsigned char);
 
 		~game();
 
