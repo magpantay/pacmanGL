@@ -2,6 +2,16 @@
 
 static game* singleton;
 
+void app_timer(int val)
+{
+  if (!singleton->gameOver)
+  {
+    singleton->advanceAllAnimations();
+		singleton->drawAll();
+    glutTimerFunc(80, app_timer, val);
+  }
+}
+
 /* void app_timer(int val){
      if (singleton->game_over){
         singleton->gameOver->advance();
@@ -82,8 +92,9 @@ game::game()
 			ghosts0 = new populateGhosts();
 			pacman0 = new pacman();
 
-			gameOver = true;
-			//app_timer(1);
+			gameOver = false;
+			singleton = this;
+			app_timer(1);
 }
 
 void game::drawAll()

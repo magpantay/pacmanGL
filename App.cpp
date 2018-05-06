@@ -1,7 +1,17 @@
 #include "App.h"
 
-/*static App* singleton;
+/* static App* singleton;
 
+void app_timer(int val)
+{
+  if (!singleton->game0->gameOver)
+  {
+    singleton->game0->advanceAllAnimations();
+    singleton->redraw();
+    glutTimerFunc(80, app_timer, val);
+  }
+} */
+/*
 void app_timer(int value){
     if (singleton->game_over){
         singleton->gameOver->advance();
