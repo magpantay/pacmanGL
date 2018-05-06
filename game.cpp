@@ -75,6 +75,13 @@ static game* singleton;
     }
 } */
 
+void app_timer(int value)
+{
+	if (bool_val){
+		singleton->advanceAllAnimations();
+		glutTimerFunc(80, app_timer, value); }
+}
+
 game::game()
 {
 			board0 = new gameBoard();
@@ -83,7 +90,8 @@ game::game()
 			pacman0 = new pacman();
 
 			gameOver = false;
-			//app_timer(1);
+			bool_val = false;
+			app_timer(1);
 }
 
 void game::drawAll()
