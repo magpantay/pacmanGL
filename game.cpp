@@ -2,7 +2,7 @@
 
 static game* singleton;
 
-/* void app_timer(int value){
+/* void app_timer(int val){
      if (singleton->game_over){
         singleton->gameOver->advance();
         for (int i = 0; i < (singleton->game0->ghosts0->spoopy).size(); i++)
@@ -65,24 +65,15 @@ static game* singleton;
 
     if (singleton->gameOver){
         singleton->drawAll();
-    		glutTimerFunc(80, app_timer, value); //keep at 80, seems to be good animation speed for pacman
+    		glutTimerFunc(80, app_timer, val); //keep at 80, seems to be good animation speed for pacman
     }
     else{
         if (!singleton->gameOver){
             singleton->advanceAllAnimations();
-            glutTimerFunc(80, app_timer, value);
+            glutTimerFunc(80, app_timer, val);
         }
     }
 } */
-
-void app_timer(int val)
-{
-	 if(singleton->gameOver)
-	 {
-	 	 singleton->advanceAllAnimations();
-		 glutTimerFunc(80, app_timer, val);
-	 }
-}
 
 game::game()
 {

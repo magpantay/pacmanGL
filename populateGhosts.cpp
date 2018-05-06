@@ -50,7 +50,7 @@ void populateGhosts::moveLeft(int whichGhost, float moveBy){
 }
 
 void populateGhosts::moveRight(int whichGhost, float moveBy){
-    spoopy[whichGhost]->moveRight();
+    spoopy[whichGhost]->moveRight(moveBy);
 }
 
 populateGhosts::~populateGhosts()

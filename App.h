@@ -28,11 +28,6 @@ public:
     void idle();
 
     game * game0;
-
-    bool moving;
-    bool game_over;
-
-
 };
 
 #endif

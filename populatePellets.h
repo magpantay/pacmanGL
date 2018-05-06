@@ -12,7 +12,7 @@ class populatePellets
   public:
     vector < pellet* > pelletStuff;
     populatePellets();
-    //vector < pellet* > getPellets(); not needed as pelletStuff is public
+
     void drawPellets();
     ~populatePellets();
 };

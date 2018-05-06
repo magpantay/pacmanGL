@@ -270,11 +270,6 @@ populatePellets::populatePellets()
         //44
 }
 
-/* vector < pellet* > populatePellets::getPellets()
-{
-       return pelletStuff;
-} */
-
 void populatePellets::drawPellets()
 {
     for (int i = 0; i < pelletStuff.size(); i++)

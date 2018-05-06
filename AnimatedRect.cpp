@@ -147,7 +147,7 @@ void AnimatedRect::change_Picture_File(const char* map_filename, int rows, int c
     curr_col = 1;
 
     complete = false;
-    animating = false;
+    //animating = false;
 }
 
 void AnimatedRect::changeX(float x)
@@ -198,9 +198,15 @@ bool AnimatedRect::contains(float x0, float y0)
 //MOVEMENT
 void AnimatedRect::moveUp(float rate){
     y += rate;
+    if (y > 0.99){
+        y = 0.99;
+    }
 }
 void AnimatedRect::moveDown(float rate){
     y -= rate;
+    if (y < -0.99){
+        y = -0.99;
+    }
 }
 void AnimatedRect::moveLeft(float rate){
     x -= rate;
