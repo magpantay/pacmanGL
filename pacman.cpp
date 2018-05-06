@@ -95,21 +95,25 @@ void pacman::changeDirection(int key) //special key
 
 void pacman::moveUp(float moveBy){
     //changePicture
+    pac->change_Picture_File("BMPS/pacman/pacman_up.png", 1, 4); 
     pac->moveUp(moveBy);
 }
 
 void pacman::moveDown(float moveBy){
     //change_Picture_File
+    pac->change_Picture_File("BMPS/pacman/pacman_down.png", 1, 4); 
     pac->moveDown(moveBy);
 }
 
 void pacman::moveLeft(float moveBy){
     //changePicture
+    pac->change_Picture_File("BMPS/pacman/pacman_left.png", 1, 4); 
     pac->moveLeft(moveBy);
 }
 
 void pacman::moveRight(float moveBy){
     //change_Picture_File
+    pac->change_Picture_File("BMPS/pacman/pacman_right.png", 1, 4); 
     pac->moveRight(moveBy);
 }
 
