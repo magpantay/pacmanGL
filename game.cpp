@@ -75,11 +75,13 @@ static game* singleton;
     }
 } */
 
-void app_timer(int value)
+void app_timer(int val)
 {
-	if (bool_val){
-		singleton->advanceAllAnimations();
-		glutTimerFunc(80, app_timer, value); }
+	 if(singleton->gameOver)
+	 {
+	 	 singleton->advanceAllAnimations();
+		 glutTimerFunc(80, app_timer, value);
+	 }
 }
 
 game::game()
@@ -89,8 +91,7 @@ game::game()
 			ghosts0 = new populateGhosts();
 			pacman0 = new pacman();
 
-			gameOver = false;
-			bool_val = false;
+			gameOver = true;
 			app_timer(1);
 }
 

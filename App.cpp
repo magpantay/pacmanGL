@@ -95,7 +95,6 @@ void App::idle(){
 
 void App::keyPress(unsigned char key) {
     game0->regularKeyHandler(key);
-    game0->bool_val = true;
 }
 
 /* UNNECESSARY */
