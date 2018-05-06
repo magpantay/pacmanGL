@@ -22,15 +22,15 @@ void app_timer(int val)
 		for (int i = 0; i < 4; i++)
 		{
 				if (ghostMovement[i] == 0)
-					ghosts0->moveUp(i, 0.01);
+					singleton->ghosts0->moveUp(i, 0.01);
 				else if (ghostMovement[i] == 1)
-					ghosts0->moveDown(i, 0.01);
+					singleton->ghosts0->moveDown(i, 0.01);
 				else if (ghostMovement[i] == 2)
-					ghosts0->moveLeft(i, 0.01);
+					singleton->ghosts0->moveLeft(i, 0.01);
 				else
-					ghosts0->moveRight(i, 0.01);
+					singleton->ghosts0->moveRight(i, 0.01);
 		}
-		
+
     singleton->advanceAllAnimations();
     glutTimerFunc(50, app_timer, val);
   }
@@ -42,9 +42,9 @@ void random_number_generator(int val)
 	{
 		  for (int i = 0; i < 4; i++)
 			{
-					ghostMovement[i] = rand() % 4; //generate random number for each ghost from 0-3, each one representing a direction
+					singleton->ghostMovement[i] = rand() % 4; //generate random number for each ghost from 0-3, each one representing a direction
 			}
-			glutTimerFunc(500, random_number_generator, val);
+			glutTimerFunc(2000, random_number_generator, val);
 	}
 }
 
@@ -123,7 +123,7 @@ void random_number_generator(int val)
 
 game::game()
 {
-			srand(time(NULL));
+			srand(time(NULL)); //seed for random
 
 	    background = new TexRect("images/black.png", -1, 1, 2, 2);
 
@@ -134,8 +134,10 @@ game::game()
 
 			gameOver = false;
 			singleton = this;
-			app_timer(1);
-			random_number_generator(2);
+
+			random_number_generator(1);
+			app_timer(2);
+
 }
 
 void game::drawAll()
@@ -145,15 +147,13 @@ void game::drawAll()
 			pellets0->drawPellets();
 			board0->drawBlocks();
 
+			pacman0->animatePacman();
+			ghosts0->animateGhosts();
+			
 		  ghosts0->drawGhosts();
 			pacman0->drawPacman();
 }
 
-void game::animateAll() //animate changes bool value to true, then draw it to make it appear to screen, without it, it'll just be saved in memory
-{
-			pacman0->animatePacman();
-			ghosts0->animateGhosts();
-}
 
 void game::advanceAllAnimations()
 {

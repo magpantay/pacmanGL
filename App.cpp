@@ -91,7 +91,6 @@ void App::draw() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    game0->animateAll(); //see game.cpp to see why I animate those that can be animated first then draw
     game0->drawAll();
 
     // We have been drawing everything to the back buffer

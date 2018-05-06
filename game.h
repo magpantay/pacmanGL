@@ -21,16 +21,15 @@ class game
 		pacman * pacman0;
 
 		TexRect * background;
-		int ghostMovement[4];
+
+		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
 
 		bool gameOver;
 
 		game();
 
 		void drawAll();
-		void animateAll();
 		void advanceAllAnimations();
-		void redrawAnimated();
 
 		void collisionHandler(float, float);
 

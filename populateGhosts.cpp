@@ -14,42 +14,77 @@ populateGhosts::populateGhosts()
 
 void populateGhosts::drawGhosts()
 {
-  for (int i = 0; i < spoopy.size(); i++)
-  {
-    spoopy[i]->draw(); //will draw into buffer
-  }
+    for (int i = 0; i < spoopy.size(); i++)
+    {
+      spoopy[i]->draw(); //will draw into buffer
+    }
 }
 
 void populateGhosts::animateGhosts()
 {
-  for (int i = 0; i < spoopy.size(); i++)
-  {
-    spoopy[i]->animate(); //will draw onto screen
-  }
+    for (int i = 0; i < spoopy.size(); i++)
+    {
+      spoopy[i]->animate(); //will draw onto screen
+    }
 }
 
 void populateGhosts::advanceAllGhostsAnimation()
 {
-  for (int i = 0; i < spoopy.size(); i++)
-  {
-     spoopy[i]->advance();
-  }
+    for (int i = 0; i < spoopy.size(); i++)
+    {
+       spoopy[i]->advance();
+    }
 }
 
 void populateGhosts::moveUp(int whichGhost, float moveBy){
-    // TO DO: NEED TO FIGURE OUT WHICH GHOST TEXTURE TO CHANGE
+    if (whichGhost == 0)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/red_ghost_up.png", 1, 2);
+    else if (whichGhost == 1)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/pink_ghost_up.png", 1, 2);
+    else if (whichGhost == 2)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/orange_ghost_up.png", 1, 2);
+    else
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/blue_ghost_up.png", 1, 2);
+
     spoopy[whichGhost]->moveUp(moveBy);
 }
 
 void populateGhosts::moveDown(int whichGhost, float moveBy){
+    if (whichGhost == 0)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/red_ghost_down.png", 1, 2);
+    else if (whichGhost == 1)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/pink_ghost_down.png", 1, 2);
+    else if (whichGhost == 2)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/orange_ghost_down.png", 1, 2);
+    else
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/blue_ghost_down.png", 1, 2);
+
     spoopy[whichGhost]->moveDown(moveBy);
 }
 
 void populateGhosts::moveLeft(int whichGhost, float moveBy){
+    if (whichGhost == 0)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/red_ghost_down.png", 1, 2);
+    else if (whichGhost == 1)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/pink_ghost_down.png", 1, 2);
+    else if (whichGhost == 2)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/orange_ghost_down.png", 1, 2);
+    else
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/blue_ghost_down.png", 1, 2);
+
     spoopy[whichGhost]->moveLeft(moveBy);
 }
 
 void populateGhosts::moveRight(int whichGhost, float moveBy){
+    if (whichGhost == 0)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/red_ghost_down.png", 1, 2);
+    else if (whichGhost == 1)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/pink_ghost_down.png", 1, 2);
+    else if (whichGhost == 2)
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/orange_ghost_down.png", 1, 2);
+    else
+      spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/blue_ghost_down.png", 1, 2);
+
     spoopy[whichGhost]->moveRight(moveBy);
 }
 
