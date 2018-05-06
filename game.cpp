@@ -47,7 +47,7 @@ void random_number_generator(int val)
 			}
 			for (int i = 0; i < 4; i++)
 			{
-				singleton->ghosts0->changeDirection(i, ghostMovement[i]);
+					singleton->ghosts0->changeDirection(i, singleton->ghostMovement[i]);
 			}
 			glutTimerFunc(2000, random_number_generator, val);
 	}
