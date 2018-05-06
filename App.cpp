@@ -66,6 +66,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 
 void App::specialKeyPress(int key){
     game0->specialKeyHandler(key);
+    redraw();
 }
 
 void App::draw() {
@@ -95,6 +96,7 @@ void App::idle(){
 
 void App::keyPress(unsigned char key) {
     game0->regularKeyHandler(key);
+    redraw();
 }
 
 /* UNNECESSARY */

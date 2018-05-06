@@ -60,7 +60,7 @@ void pacman::changeDirection(unsigned char key)
       left = false;
 
       up = true;
-      moveUp(0.1);
+      moveUp(2.0/19.0);
   }
 
   if (key == 'a')
@@ -70,7 +70,7 @@ void pacman::changeDirection(unsigned char key)
       down = false;
 
       left = true;
-      moveLeft(0.1);
+      moveLeft(2.0/19.0);
   }
 
   if (key == 's')
@@ -80,7 +80,7 @@ void pacman::changeDirection(unsigned char key)
       right = false;
 
       down = true;
-      moveDown(0.1);
+      moveDown(2.0/19.0);
   }
 
   if (key == 'd')
@@ -90,7 +90,7 @@ void pacman::changeDirection(unsigned char key)
       down = false;
 
       right = true;
-      moveRight(0.1);
+      moveRight(2.0/19.0);
   }
 }
 
@@ -102,7 +102,7 @@ void pacman::changeDirection(int key) //special key
       down = false;
 
       left = true;
-      moveLeft(0.1);
+      moveLeft(2.0/19.0);
   }
   if (key == 101){
       right = false;
@@ -110,7 +110,7 @@ void pacman::changeDirection(int key) //special key
       left = false;
 
       up = true;
-      moveUp(0.1);
+      moveUp(2.0/19.0);
   }
   if (key == 102){
       left = false;
@@ -118,7 +118,7 @@ void pacman::changeDirection(int key) //special key
       down = false;
 
       right = true;
-      moveRight(0.1);
+      moveRight(2.0/19.0);
   }
   if (key == 103){
       up = false;
@@ -126,7 +126,7 @@ void pacman::changeDirection(int key) //special key
       right = false;
 
       down = true;
-      moveDown(0.1);
+      moveDown(2.0/19.0);
   }
 }
 
