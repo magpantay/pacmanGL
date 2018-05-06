@@ -20,7 +20,7 @@ void app_timer(int val)
   if (!singleton->gameOver)
   {
     singleton->advanceAllAnimations();
-    glutTimerFunc(80, app_timer, val);
+    glutTimerFunc(50, app_timer, val);
   }
 }
 
