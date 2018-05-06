@@ -21,11 +21,11 @@ void app_timer(int val)
 
 		for (int i = 0; i < 4; i++)
 		{
-				if (ghostMovement[i] == 0)
+				if (singleton->ghostMovement[i] == 0)
 					singleton->ghosts0->moveUp(i, 0.01);
-				else if (ghostMovement[i] == 1)
+				else if (singleton->ghostMovement[i] == 1)
 					singleton->ghosts0->moveDown(i, 0.01);
-				else if (ghostMovement[i] == 2)
+				else if (singleton->ghostMovement[i] == 2)
 					singleton->ghosts0->moveLeft(i, 0.01);
 				else
 					singleton->ghosts0->moveRight(i, 0.01);
@@ -149,7 +149,7 @@ void game::drawAll()
 
 			pacman0->animatePacman();
 			ghosts0->animateGhosts();
-			
+
 		  ghosts0->drawGhosts();
 			pacman0->drawPacman();
 }
