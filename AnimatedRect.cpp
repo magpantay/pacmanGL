@@ -210,13 +210,13 @@ void AnimatedRect::moveDown(float rate){
 }
 void AnimatedRect::moveLeft(float rate){
     x -= rate;
-    if (x < -0.99){
-        x = -0.99;
+    if (x < -1.15){
+        x = 1.05;
     }
 }
 void AnimatedRect::moveRight(float rate){
     x += rate;
-    if (x + w > 0.99){
-        x = 0.99 - w;
+    if (x > 1.05){
+        x = -1.15;
     }
 }
