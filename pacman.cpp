@@ -111,22 +111,18 @@ void pacman::changeDirection(int key) //special key
 
 void pacman::moveUp(float moveBy){
     pac->moveUp(moveBy);
-    //pac->draw();
 }
 
 void pacman::moveDown(float moveBy){
     pac->moveDown(moveBy);
-    //pac->draw();
 }
 
 void pacman::moveLeft(float moveBy){
     pac->moveLeft(moveBy);
-    //pac->draw();
 }
 
 void pacman::moveRight(float moveBy){
     pac->moveRight(moveBy);
-    //pac->draw();
 }
 
 pacman::~pacman()

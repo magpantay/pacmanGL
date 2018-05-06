@@ -8,6 +8,10 @@
 #include "pellets.h"
 #include "populateGhosts.h"
 
+#include <cstdlib> /* rand, srand (aka seed) */
+#include <ctime> /* time for seed for rand */
+#include <cstdio> /* NULL, printf */
+
 class game
 {
 	public:
@@ -17,6 +21,8 @@ class game
 		pacman * pacman0;
 
 		TexRect * background;
+		int ghostMovement[4];
+
 		bool gameOver;
 
 		game();

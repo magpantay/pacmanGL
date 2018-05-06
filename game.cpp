@@ -4,24 +4,48 @@ static game* singleton;
 
 void app_timer(int val)
 {
-	if (singleton->pacman0->up){
-			singleton->pacman0->moveUp(0.01);
-	}
-	if (singleton->pacman0->down){
-			singleton->pacman0->moveDown(0.01);
-	}
-	if (singleton->pacman0->left){
-			singleton->pacman0->moveLeft(0.01);
-	}
-	if (singleton->pacman0->right){
-			singleton->pacman0->moveRight(0.01);
-	}
-
   if (!singleton->gameOver)
   {
+		if (singleton->pacman0->up){
+				singleton->pacman0->moveUp(0.01);
+		}
+		if (singleton->pacman0->down){
+				singleton->pacman0->moveDown(0.01);
+		}
+		if (singleton->pacman0->left){
+				singleton->pacman0->moveLeft(0.01);
+		}
+		if (singleton->pacman0->right){
+				singleton->pacman0->moveRight(0.01);
+		}
+
+		for (int i = 0; i < 4; i++)
+		{
+				if (ghostMovement[i] == 0)
+					ghosts0->moveUp(i, 0.01);
+				else if (ghostMovement[i] == 1)
+					ghosts0->moveDown(i, 0.01);
+				else if (ghostMovement[i] == 2)
+					ghosts0->moveLeft(i, 0.01);
+				else
+					ghosts0->moveRight(i, 0.01);
+		}
+		
     singleton->advanceAllAnimations();
     glutTimerFunc(50, app_timer, val);
   }
+}
+
+void random_number_generator(int val)
+{
+	if(!singleton->gameOver)
+	{
+		  for (int i = 0; i < 4; i++)
+			{
+					ghostMovement[i] = rand() % 4; //generate random number for each ghost from 0-3, each one representing a direction
+			}
+			glutTimerFunc(500, random_number_generator, val);
+	}
 }
 
 /* void app_timer(int val){
@@ -99,6 +123,8 @@ void app_timer(int val)
 
 game::game()
 {
+			srand(time(NULL));
+
 	    background = new TexRect("images/black.png", -1, 1, 2, 2);
 
 			board0 = new gameBoard();
@@ -109,6 +135,7 @@ game::game()
 			gameOver = false;
 			singleton = this;
 			app_timer(1);
+			random_number_generator(2);
 }
 
 void game::drawAll()
