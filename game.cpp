@@ -3,7 +3,7 @@
 static game* singleton;
 
 /* void app_timer(int value){
-    if (singleton->game_over){
+     if (singleton->game_over){
         singleton->gameOver->advance();
         for (int i = 0; i < (singleton->game0->ghosts0->spoopy).size(); i++)
         {
@@ -32,9 +32,9 @@ static game* singleton;
             singleton->gameOver->animate();
 
         }
-    }
+    } */
 
-    if (singleton->pacman0->up){
+    /*if (singleton->pacman0->up){
         singleton->pacman0->moveUp(0.05);
     }
     if (singleton->pacman0->down){
@@ -50,31 +50,30 @@ static game* singleton;
 		for (int i = 0; i < (singleton->ghosts0->spoopy).size(); i++)
 		{
 				if ((singleton->ghosts0->spoopy[i])->up){
-		        (singleton->ghosts0->spoopy[i])->moveUp(0.05, i);
+		        (singleton->ghosts0)->moveUp(i, 0.05);
 		    }
 		    if ((singleton->ghosts0->spoopy[i])->down){
-		        (singleton->ghosts0->spoopy[i])->moveDown(0.05, i);
+		        (singleton->ghosts0)->moveDown(i, 0.05);
 		    }
 		    if ((singleton->ghosts0->spoopy[i])->left){
-		        (singleton->ghosts0->spoopy[i])->moveLeft(0.05, i);
+		        (singleton->ghosts0)->moveLeft(i, 0.05);
 		    }
 		    if ((singleton->ghosts0->spoopy[i])->right){
-		        (singleton->ghosts0->spoopy[i])->moveRight(0.05, i);
+		        (singleton->ghosts0)->moveRight(i, 0.05);
 		    }
 		}
 
-    if (singleton->game_over){
-        singleton->redraw();
-        glutTimerFunc(80, app_timer, value); //keep at 80, seems to be good animation speed for pacman
+    if (singleton->gameOver){
+        singleton->drawAll();
+    		glutTimerFunc(80, app_timer, value); //keep at 80, seems to be good animation speed for pacman
     }
     else{
-        if (!singleton->game_over){
+        if (!singleton->gameOver){
             singleton->advanceAllAnimations();
             glutTimerFunc(80, app_timer, value);
         }
     }
-
-*/
+} */
 
 game::game()
 {
