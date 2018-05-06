@@ -22,77 +22,6 @@ void pacman::advancePacmanAnimation()
   pac->advance();
 }
 
-void pacman::changeDirection(unsigned char key)
-{
-  if (key == 'w')
-  {
-      right = false;
-      down = false;
-      left = false;
-
-      up = true;
-  }
-
-  if (key == 'a')
-  {
-      up = false;
-      right = false;
-      down = false;
-
-      left = true;
-  }
-
-  if (key == 's')
-  {
-      up = false;
-      left = false;
-      right = false;
-
-      down = true;
-  }
-
-  if (key == 'd')
-  {
-      left = false;
-      up = false;
-      down = false;
-
-      right = true;
-  }
-}
-
-void pacman::changeDirection(int key) //special key
-{
-  if (key == 100){
-      up = false;
-      right = false;
-      down = false;
-
-      left = true;
-  }
-  if (key == 101){
-      right = false;
-      down = false;
-      left = false;
-
-      up = true;
-  }
-  if (key == 102){
-      left = false;
-      up = false;
-      down = false;
-
-      right = true;
-  }
-  if (key == 103){
-      up = false;
-      left = false;
-      right = false;
-
-      down = true;
-  }
-}
-
 void pacman::moveUp(float moveBy){
     //changePicture
     pac->change_Picture_File("BMPs/pacman/pacman_up.png", 1, 4); 
@@ -119,6 +48,85 @@ void pacman::moveRight(float moveBy){
     pac->change_Picture_File("BMPs/pacman/pacman_right.png", 1, 4); 
     pac->moveRight(moveBy);
     pac->draw();
+}
+
+void pacman::changeDirection(unsigned char key)
+{
+  if (key == 'w')
+  {
+      right = false;
+      down = false;
+      left = false;
+
+      up = true;
+      moveUp(0.1);
+  }
+
+  if (key == 'a')
+  {
+      up = false;
+      right = false;
+      down = false;
+
+      left = true;
+      moveLeft(0.1);
+  }
+
+  if (key == 's')
+  {
+      up = false;
+      left = false;
+      right = false;
+
+      down = true;
+      moveDown(0.1);
+  }
+
+  if (key == 'd')
+  {
+      left = false;
+      up = false;
+      down = false;
+
+      right = true;
+      moveRight(0.1);
+  }
+}
+
+void pacman::changeDirection(int key) //special key
+{
+  if (key == 100){
+      up = false;
+      right = false;
+      down = false;
+
+      left = true;
+      moveLeft(0.1);
+  }
+  if (key == 101){
+      right = false;
+      down = false;
+      left = false;
+
+      up = true;
+      moveUp(0.1);
+  }
+  if (key == 102){
+      left = false;
+      up = false;
+      down = false;
+
+      right = true;
+      moveRight(0.1);
+  }
+  if (key == 103){
+      up = false;
+      left = false;
+      right = false;
+
+      down = true;
+      moveDown(0.1);
+  }
 }
 
 pacman::~pacman()
