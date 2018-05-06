@@ -21,11 +21,11 @@ void app_timer(int val)
 
 		for (int i = 0; i < 4; i++)
 		{
-				if (singleton->ghostMovement[i] == 0)
+				if (singleton->ghosts0->spoopy[i]->up)
 					singleton->ghosts0->moveUp(i, 0.01);
-				else if (singleton->ghostMovement[i] == 1)
+				else if (singleton->ghosts0->spoopy[i]->down)
 					singleton->ghosts0->moveDown(i, 0.01);
-				else if (singleton->ghostMovement[i] == 2)
+				else if (singleton->ghosts0->spoopy[i]->left)
 					singleton->ghosts0->moveLeft(i, 0.01);
 				else
 					singleton->ghosts0->moveRight(i, 0.01);
@@ -43,6 +43,11 @@ void random_number_generator(int val)
 		  for (int i = 0; i < 4; i++)
 			{
 					singleton->ghostMovement[i] = rand() % 4; //generate random number for each ghost from 0-3, each one representing a direction
+					/* 0 is up, 1 is down, 2 is left, 3 is right */
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				singleton->ghosts0->changeDirection(i, ghostMovement[i]);
 			}
 			glutTimerFunc(2000, random_number_generator, val);
 	}
