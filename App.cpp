@@ -101,7 +101,7 @@ void App::draw() {
 }
 
 void App::idle(){
-
+    redraw();
 }
 
 void App::keyPress(unsigned char key) {

@@ -16,6 +16,7 @@ class game
 		populateGhosts * ghosts0;
 		pacman * pacman0;
 
+		TexRect * background;
 		bool gameOver;
 
 		game();

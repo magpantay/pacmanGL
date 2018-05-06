@@ -20,7 +20,6 @@ void app_timer(int val)
   if (!singleton->gameOver)
   {
     singleton->advanceAllAnimations();
-		singleton->redrawAnimated();
     glutTimerFunc(80, app_timer, val);
   }
 }
@@ -100,6 +99,8 @@ void app_timer(int val)
 
 game::game()
 {
+	    background = new TexRect("images/black.png", -1, 1, 2, 2);
+
 			board0 = new gameBoard();
 			pellets0 = new populatePellets();
 			ghosts0 = new populateGhosts();
@@ -112,18 +113,13 @@ game::game()
 
 void game::drawAll()
 {
+			background->draw();
+
 			pellets0->drawPellets();
 			board0->drawBlocks();
 
 		  ghosts0->drawGhosts();
 			pacman0->drawPacman();
-
-}
-
-void game::redrawAnimated()
-{
-	   ghosts0->drawGhosts();
-		 pacman0->drawPacman();
 }
 
 void game::animateAll() //animate changes bool value to true, then draw it to make it appear to screen, without it, it'll just be saved in memory
