@@ -204,8 +204,8 @@ void AnimatedRect::moveUp(float rate){
 }
 void AnimatedRect::moveDown(float rate){
     y -= rate;
-    if (y < -0.99){
-        y = -0.99;
+    if (y - h < -0.99){
+        y = -0.99 + h;
     }
 }
 void AnimatedRect::moveLeft(float rate){
