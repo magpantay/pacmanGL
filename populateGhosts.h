@@ -8,10 +8,11 @@ using namespace std;
 
 class populateGhosts
 {
-    vector < ghosts* > spoopy;
     public:
+      vector < ghosts* > spoopy;
+
       populateGhosts();
-      
+
       void drawGhosts();
       void animateGhosts();
       void advanceAllGhostsAnimation();
