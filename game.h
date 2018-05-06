@@ -17,6 +17,7 @@ class game
 		pacman * pacman0;
 
 		bool gameOver;
+		bool bool_val;
 
 		game();
 

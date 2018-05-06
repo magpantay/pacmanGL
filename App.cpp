@@ -83,7 +83,6 @@ void App::draw() {
     game0->animateAll(); //see game.cpp to see why I animate those that can be animated first then draw
     game0->drawAll();
 
-
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
@@ -96,6 +95,7 @@ void App::idle(){
 
 void App::keyPress(unsigned char key) {
     game0->regularKeyHandler(key);
+    game0->bool_val = true;
 }
 
 /* UNNECESSARY */
