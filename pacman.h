@@ -23,6 +23,11 @@ public:
     void changeDirection(int);
     void changeDirection(unsigned char);
 
+    void moveUp(float moveBy=0.01);
+    void moveDown(float moveBy=0.01);
+    void moveLeft(float moveBy=0.01);
+    void moveRight(float moveBy=0.01);
+
     ~pacman();
 };
 

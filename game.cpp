@@ -4,10 +4,23 @@ static game* singleton;
 
 void app_timer(int val)
 {
+	if (singleton->pacman0->up){
+			singleton->pacman0->moveUp(0.01);
+	}
+	if (singleton->pacman0->down){
+			singleton->pacman0->moveDown(0.01);
+	}
+	if (singleton->pacman0->left){
+			singleton->pacman0->moveLeft(0.01);
+	}
+	if (singleton->pacman0->right){
+			singleton->pacman0->moveRight(0.01);
+	}
+
   if (!singleton->gameOver)
   {
     singleton->advanceAllAnimations();
-		singleton->drawAll();
+		singleton->redrawAnimated();
     glutTimerFunc(80, app_timer, val);
   }
 }
@@ -105,6 +118,12 @@ void game::drawAll()
 		  ghosts0->drawGhosts();
 			pacman0->drawPacman();
 
+}
+
+void game::redrawAnimated()
+{
+	   ghosts0->drawGhosts();
+		 pacman0->drawPacman();
 }
 
 void game::animateAll() //animate changes bool value to true, then draw it to make it appear to screen, without it, it'll just be saved in memory

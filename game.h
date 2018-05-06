@@ -23,6 +23,7 @@ class game
 		void drawAll();
 		void animateAll();
 		void advanceAllAnimations();
+		void redrawAnimated();
 
 		void collisionHandler(float, float);
 
