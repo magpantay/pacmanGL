@@ -80,7 +80,7 @@ void app_timer(int val)
 	 if(singleton->gameOver)
 	 {
 	 	 singleton->advanceAllAnimations();
-		 glutTimerFunc(80, app_timer, value);
+		 glutTimerFunc(80, app_timer, val);
 	 }
 }
 
@@ -92,7 +92,7 @@ game::game()
 			pacman0 = new pacman();
 
 			gameOver = true;
-			app_timer(1);
+			//app_timer(1);
 }
 
 void game::drawAll()

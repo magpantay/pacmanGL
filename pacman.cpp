@@ -26,6 +26,7 @@ void pacman::moveUp(float moveBy){
     //changePicture
     pac->change_Picture_File("BMPs/pacman/pacman_up.png", 1, 4); 
     pac->moveUp(moveBy);
+    pac->animate();
     pac->draw();
 }
 
