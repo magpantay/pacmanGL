@@ -21,7 +21,8 @@ class game
 		pacman * pacman0;
 
 		TexRect * background;
-
+		AnimatedRect * gameOverText;
+		
 		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
 
 		bool gameOver;
