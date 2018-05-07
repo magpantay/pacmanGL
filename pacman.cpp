@@ -1,13 +1,13 @@
 #include "pacman.h"
 
-pacman::pacman()
+pacman::pacman():AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1)
 {
-    pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
+    //pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
     left = true; //initialize to true, we want pacman facing left
     right = up = down = false; // initialize to false
 }
 
-void pacman::drawPacman()
+/*void pacman::drawPacman()
 {
    pac->draw(); //draws to buffer
 }
@@ -20,7 +20,7 @@ void pacman::animatePacman()
 void pacman::advancePacmanAnimation()
 {
   pac->advance();
-}
+}*/
 
 void pacman::changeDirection(unsigned char key)
 {
@@ -32,7 +32,7 @@ void pacman::changeDirection(unsigned char key)
 
       up = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_up.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_up.png", 1, 4);
   }
 
   if (key == 'a')
@@ -43,7 +43,7 @@ void pacman::changeDirection(unsigned char key)
 
       left = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_left.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_left.png", 1, 4);
   }
 
   if (key == 's')
@@ -54,7 +54,7 @@ void pacman::changeDirection(unsigned char key)
 
       down = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_down.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_down.png", 1, 4);
   }
 
   if (key == 'd')
@@ -65,7 +65,7 @@ void pacman::changeDirection(unsigned char key)
 
       right = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_right.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_right.png", 1, 4);
   }
 }
 
@@ -78,7 +78,7 @@ void pacman::changeDirection(int key) //special key
 
       left = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_left.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_left.png", 1, 4);
   }
   if (key == 101){
       right = false;
@@ -87,7 +87,7 @@ void pacman::changeDirection(int key) //special key
 
       up = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_up.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_up.png", 1, 4);
   }
   if (key == 102){
       left = false;
@@ -96,7 +96,7 @@ void pacman::changeDirection(int key) //special key
 
       right = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_right.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_right.png", 1, 4);
   }
   if (key == 103){
       up = false;
@@ -105,11 +105,11 @@ void pacman::changeDirection(int key) //special key
 
       down = true;
 
-      pac->change_Picture_File("BMPs/pacman/pacman_down.png", 1, 4);
+      change_Picture_File("BMPs/pacman/pacman_down.png", 1, 4);
   }
 }
 
-void pacman::moveUp(float moveBy){
+/*void pacman::moveUp(float moveBy){
     pac->moveUp(moveBy);
 }
 
@@ -123,7 +123,7 @@ void pacman::moveLeft(float moveBy){
 
 void pacman::moveRight(float moveBy){
     pac->moveRight(moveBy);
-}
+}*/
 
 pacman::~pacman()
 {

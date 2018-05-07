@@ -38,7 +38,7 @@ void app_timer(int val)
     {
           singleton->gameOverText->animate();
           singleton->gameOverText->draw();
-          glutTimerFunc(150, app_timer, value); //keep at 80, seems to be good animation speed for pacman
+          glutTimerFunc(150, app_timer, val); //keep at 80, seems to be good animation speed for pacman
     }
 }
 
@@ -121,17 +121,17 @@ void game::drawAll()
 			pellets0->drawPellets();
 			board0->drawBlocks();
 
-			pacman0->animatePacman();
+			pacman0->animate();
 			ghosts0->animateGhosts();
 
 		  ghosts0->drawGhosts();
-			pacman0->drawPacman();
+			pacman0->draw();
 }
 
 
 void game::advanceAllAnimations()
 {
-			pacman0->advancePacmanAnimation();
+			pacman0->advance();
 			ghosts0->advanceAllGhostsAnimation();
 }
 
