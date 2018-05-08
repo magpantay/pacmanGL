@@ -35,7 +35,7 @@ class game
 
 		void collisionHandler();
 		void pelletCollisionHandler();
-		void wallCollisionHandler();
+		bool wallCollisionHandler();
 
 		void specialKeyHandler(int);
 		void regularKeyHandler(unsigned char);
