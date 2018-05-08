@@ -18,7 +18,7 @@ void app_timer(int val)
     {
         animateDeath(0);
     }
-    if (!singleton->pacman0->dead)
+    if (!singleton->pacman0->dead && !singleton->paused)
     {
 		if(singleton->gameWon()){
 			cout << "pacman won" << endl;
@@ -89,7 +89,7 @@ void app_timer(int val)
 
 void random_number_generator(int val)
 {
-  	if(!singleton->pacman0->dead)
+  	if(!singleton->pacman0->dead && !singleton->paused)
   	{
     		  for (int i = 0; i < 4; i++)
     			{
@@ -141,6 +141,7 @@ game::game()
 {
 			srand(time(NULL)); //seed for random
 			singleton = this;
+      paused = false;
       background = new TexRect("images/black.png", -1, 1, 2, 2);
 			board0 = new gameBoard();
 
@@ -311,6 +312,11 @@ void game::regularKeyHandler(unsigned char key)
 					gameOver->stop();
 					moving = true; */
 			}
+
+      if (key == 'p')
+      {
+         paused = !paused;
+      }
 
 			else //because really you can only move pacman
 			{

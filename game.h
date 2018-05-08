@@ -22,6 +22,7 @@ using namespace std;
 class game
 {
 	public:
+
 		gameBoard * board0;
 		populatePellets * pellets0;
 		populateGhosts * ghosts0;
@@ -32,6 +33,7 @@ class game
 
 		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
 
+		bool paused;
 		//bool gameOver;
 
 		game();
