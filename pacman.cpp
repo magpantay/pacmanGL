@@ -15,7 +15,7 @@ pacman::pacman():AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0
     //pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
     left = true; //initialize to true, we want pacman facing left
     right = up = down = false; // initialize to false
-    dead = false
+    dead = false;
 }
 
 pacman::pacman(const char* filename, float x, float y, bool left, bool right, bool up, bool down):AnimatedRect(filename, 1, 4, x, y, 0.07, 0.07)
