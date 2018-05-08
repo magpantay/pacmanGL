@@ -8,7 +8,8 @@ void app_timer(int val)
     {
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
-					singleton->pacman0->up = false;
+					//singleton->pacman0->up = false;
+					singleton->pacman0->decY();
 				}else{
     				singleton->pacman0->moveUp(0.01);
 					singleton->collisionHandler();
@@ -17,7 +18,8 @@ void app_timer(int val)
     		}
     		if (singleton->pacman0->down){
 				if(singleton->wallCollisionHandler()){
-					singleton->pacman0->down = false;
+					//singleton->pacman0->down = false;
+					singleton->pacman0->incY();
 				}else{
     				singleton->pacman0->moveDown(0.01);
 					singleton->collisionHandler();
@@ -26,7 +28,8 @@ void app_timer(int val)
     		}
     		if (singleton->pacman0->left){
 				if(singleton->wallCollisionHandler()){
-					singleton->pacman0->left = false;
+					//singleton->pacman0->left = false;
+					singleton->pacman0->incX();
 				}else{
     				singleton->pacman0->moveLeft(0.01);
 					singleton->collisionHandler();
@@ -35,7 +38,8 @@ void app_timer(int val)
     		}
     		if (singleton->pacman0->right){
 				if(singleton->wallCollisionHandler()){
-					singleton->pacman0->right = false;
+					//singleton->pacman0->right = false;
+					singleton->pacman0->decX();
 				}else{
     				singleton->pacman0->moveRight(0.01);
 					singleton->collisionHandler();

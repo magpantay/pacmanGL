@@ -37,6 +37,8 @@ public:
 
     void incY(float yinc=0.01);
     void incX(float xinc=0.01);
+    void decY(float yinc=0.01);
+    void decX(float xinc=0.01);
 
     void reset();
     void animate();

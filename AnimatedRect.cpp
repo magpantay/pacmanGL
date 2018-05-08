@@ -87,6 +87,15 @@ void AnimatedRect::incX(float xinc){
     x+=xinc;
 }
 
+void AnimatedRect::decY(float yinc){
+    y-=yinc;
+}
+
+void AnimatedRect::decX(float xinc){
+    x-=xinc;
+}
+
+
 void AnimatedRect::advance(){
     if (curr_col < cols){
         curr_col++;
