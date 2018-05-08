@@ -332,13 +332,16 @@ void game::specialKeyHandler(int key)
 }
 
 bool game::gameWon(){
-	bool win = true;
-	if(pacman0->dead == true){
-		win = false;
-	}
-	for(int i = 0; i < pellets0->pelletStuff.size(); i++){
-		if(pellets0->pelletStuff[i]->getHasBeenEaten() == true){
-			win = false;
+	bool win = false;
+	if(!pacman0->dead){
+		int count = 0;
+		for(int i = 0; i < pellets0->pelletStuff.size(); i++){
+			if(pellets0->pelletStuff[i]->getHasBeenEaten() == true){
+				count++;
+			}
+		}
+		if(count == pellets0->pelletStuff.size()){
+			win = true;
 		}
 	}
 	return win;
