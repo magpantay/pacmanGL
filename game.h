@@ -33,8 +33,9 @@ class game
 		void drawAll();
 		void advanceAllAnimations();
 
-		void collisionHandler(float, float);
-		void TexRectCollisionHandler();
+		void collisionHandler();
+		void pelletCollisionHandler();
+		void wallCollisionHandler();
 
 		void specialKeyHandler(int);
 		void regularKeyHandler(unsigned char);

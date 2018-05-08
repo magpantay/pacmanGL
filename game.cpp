@@ -8,23 +8,27 @@ void app_timer(int val)
     {
     		if (singleton->pacman0->up){
     				singleton->pacman0->moveUp(0.01);
-					singleton->collisionHandler(0.0,0.0);
-					singleton->TexRectCollisionHandler();
+					singleton->collisionHandler();
+					singleton->wallCollisionHandler();
+					singleton->pelletCollisionHandler();
     		}
     		if (singleton->pacman0->down){
     				singleton->pacman0->moveDown(0.01);
-					singleton->collisionHandler(0.0,0.0);
-					singleton->TexRectCollisionHandler();
+					singleton->collisionHandler();
+					singleton->wallCollisionHandler();
+					singleton->pelletCollisionHandler();
     		}
     		if (singleton->pacman0->left){
     				singleton->pacman0->moveLeft(0.01);
-					singleton->collisionHandler(0.0,0.0);
-					singleton->TexRectCollisionHandler();
+					singleton->collisionHandler();
+					singleton->wallCollisionHandler();
+					singleton->pelletCollisionHandler();
     		}
     		if (singleton->pacman0->right){
     				singleton->pacman0->moveRight(0.01);
-					singleton->collisionHandler(0.0,0.0);
-					singleton->TexRectCollisionHandler();
+					singleton->collisionHandler();
+					singleton->wallCollisionHandler();
+					singleton->pelletCollisionHandler();
     		}
 
     		for (int i = 0; i < 4; i++)
@@ -173,7 +177,7 @@ void game::specialKeyHandler(int key)
 		pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
 }
 
-void game::collisionHandler(float x, float y)
+void game::collisionHandler()
 {
 	for(int i = 0; i < ghosts0->spoopy.size();i++){
 		if(pacman0->contains(ghosts0->spoopy[i])){
@@ -182,13 +186,16 @@ void game::collisionHandler(float x, float y)
 	}
 }
 
-void game::TexRectCollisionHandler(){
+void game::pelletCollisionHandler()
+{
 	for(int i = 0; i < pellets0->pelletStuff.size();i++){
 		if(pellets0->pelletStuff[i]->contains(pacman0)){
 			std::cout << "Pacman collided with a Pellet" << std::endl;
 		}
 	}
+}
 
+void game::wallCollisionHandler(){
 	for(int i = 0; i < board0->blocks.size();i++){
 		if(board0->blocks[i]->contains(pacman0)){
 			std::cout << "Pacman collided with a Wall " << i << std::endl;
