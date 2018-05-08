@@ -144,25 +144,27 @@ game::game()
 
           float px, py, blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y;
 
-          px = stof(fileInputs[1]);
-          py = stof(fileInputs[2]);
+          px = atof(fileInputs[1].c_str());
+          py = atof(fileInputs[2].c_str());
+
+          bool pleft, pright, pup, pdown;
 
           for (int i = 3; i < 7; i++)
           {
-              bool pleft = toBool(fileInputs[3]);
-              bool pright = toBool(fileInputs[4]);
-              bool pup = toBool(fileInputs[5]);
-              bool pdown = toBool(fileInputs[6]);
+              pleft = toBool(fileInputs[3]);
+              pright = toBool(fileInputs[4]);
+              pup = toBool(fileInputs[5]);
+              pdown = toBool(fileInputs[6]);
           }
 
-          blinky_x = stof(fileInputs[7]);
-          blinky_y = stof(fileInputs[8]);
-          pinky_x = stof(fileInputs[9]);
-          pinky_y = stof(fileInputs[10]);
-          inky_x = stof(fileInputs[11]);
-          inky_y = stof(fileInputs[12]);
-          clyde_x = stof(fileInputs[13]);
-          clyde_y = stof(fileInputs[14]);
+          blinky_x = atof(fileInputs[7].c_str());
+          blinky_y = atof(fileInputs[8].c_str());
+          pinky_x = atof(fileInputs[9].c_str());
+          pinky_y = atof(fileInputs[10].c_str());
+          inky_x = atof(fileInputs[11].c_str());
+          inky_y = atof(fileInputs[12].c_str());
+          clyde_x = atof(fileInputs[13].c_str());
+          clyde_y = atof(fileInputs[14].c_str());
 
           pacman0 = new pacman((fileInputs[0]).c_str(), px, py, pleft, pright, pup, pdown);
           ghosts0 = new populateGhosts(blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y); //no need to determine where ghosts are going or loading textures here, because it gets randomly generated in a few lines
