@@ -234,6 +234,31 @@ void game::regularKeyHandler(unsigned char key)
           exit(0);
       }
 
+      if (key == '`'){ // ` key
+          // Save and exit the app when ` key is pressed
+
+          ofstream writeSaveFile;
+          writeSaveFile.open("pacsave.txt");
+
+          string pacman_filename;
+          pacman_filename = "BMPs/pacman/pacman_";
+
+          if (pacman0->left) pacman_filename += "left.png";
+          else if (pacman0->right) pacman_filename += "right.png";
+          else if (pacman0->up) pacman_filename += "up.png";
+          else pacman_filename += "down.png";
+
+          writeSaveFile << pacman_filename << " " << pacman0->getX() << " " << pacman0->getY() << " " << pacman0->left << " " << pacman0->right << " " << pacman0->up << " " << pacman0->down << " ";
+          writeSaveFile << ghosts0->spoopy[0]->getX() << " " << ghosts0->spoopy[0]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[1]->getX() << " " << ghosts0->spoopy[1]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[2]->getX() << " " << ghosts0->spoopy[2]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[3]->getX() << " " << ghosts0->spoopy[3]->getY() << " ";
+
+          writeSaveFile.close();
+
+          exit(0);
+      }
+
 			if (key == ' '){ // restart game??
 				  //restart();
 					/* ball->x = 0;
@@ -254,31 +279,6 @@ void game::regularKeyHandler(unsigned char key)
 
 void game::specialKeyHandler(int key)
 {
-    if (key == 112){ // ` key
-        // Save and exit the app when ` key is pressed
-
-        ofstream writeSaveFile;
-        writeSaveFile.open("pacsave.txt");
-
-        string pacman_filename;
-        pacman_filename = "BMPs/pacman/pacman_";
-
-        if (pacman0->left) pacman_filename += "left.png";
-        else if (pacman0->right) pacman_filename += "right.png";
-        else if (pacman0->up) pacman_filename += "up.png";
-        else pacman_filename += "down.png";
-
-        writeSaveFile << pacman_filename << " " << pacman0->getX() << " " << pacman0->getY() << " " << pacman0->left << " " << pacman0->right << " " << pacman0->up << " " << pacman0->down << " ";
-        writeSaveFile << ghosts0->spoopy[0]->getX() << " " << ghosts0->spoopy[0]->getY() << " ";
-        writeSaveFile << ghosts0->spoopy[1]->getX() << " " << ghosts0->spoopy[1]->getY() << " ";
-        writeSaveFile << ghosts0->spoopy[2]->getX() << " " << ghosts0->spoopy[2]->getY() << " ";
-        writeSaveFile << ghosts0->spoopy[3]->getX() << " " << ghosts0->spoopy[3]->getY() << " ";
-
-        writeSaveFile.close();
-
-        exit(0);
-    }
-    
 		pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
 }
 
