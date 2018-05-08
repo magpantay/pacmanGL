@@ -180,8 +180,6 @@ game::game()
     			pacman0 = new pacman();
 
           gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
-
-
       }
 
     	gameOver = false;
@@ -224,8 +222,19 @@ void game::advanceAllAnimations()
 
 void game::regularKeyHandler(unsigned char key)
 {
-			if (key == 27){ // escape key
-					// Exit the app when Esc key is pressed
+      if (key == 27) // esc key
+      {
+          if (doesFileExist("pacsave.txt"))
+          {
+              if (remove("pacsave.txt") != 0)
+              {
+                  cout << "No write access to delete" << endl;
+              } //delete save file if esc is pressed
+          }
+          exit(0);
+      }
+			if (key == 112){ // f1 key
+					// Save and exit the app when f1 key is pressed
 
           ofstream writeSaveFile;
           writeSaveFile.open("pacsave.txt");
