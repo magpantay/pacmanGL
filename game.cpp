@@ -282,6 +282,10 @@ void game::specialKeyHandler(int key)
 		pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
 }
 
+bool game::inRange(float min0, float max0, float min1, float max1){
+	return max(min0,max0) >= min(min1,max1) && min(min0,max0) <= max(min1,max1);
+}
+
 void game::collisionHandler()
 {
 	for(int i = 0; i < ghosts0->spoopy.size();i++){
@@ -291,18 +295,8 @@ void game::collisionHandler()
 	}
 }
 
-bool game::inRange(float min0, float max0, float min1, float max1){
-	return max(min0,max0) >= min(min1,max1) && min(min0,max0) <= max(min1,max1);
-}
-
 void game::pelletCollisionHandler()
 {
-	/*for(int i = 0; i < pellets0->pelletStuff.size();i++){
-		if(pellets0->pelletStuff[i]->contains(pacman0)){
-			//std::cout << "Pacman collided with a Pellet" << std::endl;
-			pellets0->pelletStuff[i]->changeBeenEaten();
-		}
-	}*/
 	for(int i = 0; i < pellets0->pelletStuff.size(); i++){
 		if(inRange(pellets0->pelletStuff[i]->getX(), pellets0->pelletStuff[i]->getX()+pellets0->pelletStuff[i]->getW(),pacman0->getX(), pacman0->getX()+pacman0->getW()) && inRange(pellets0->pelletStuff[i]->getY(), pellets0->pelletStuff[i]->getY()+pellets0->pelletStuff[i]->getH(),pacman0->getY(), pacman0->getY()+pacman0->getH())){
 			pellets0->pelletStuff[i]->changeBeenEaten();
@@ -312,13 +306,20 @@ void game::pelletCollisionHandler()
 
 bool game::wallCollisionHandler(){
 	bool collision = false;
+	for(int i = 0; i < board0->blocks.size(); i++){
+		if(inRange(board0->blocks[i]->getX(), board0->blocks[i]->getX()+board0->blocks[i]->getW(),pacman0->getX(), pacman0->getX()+pacman0->getW()) && inRange(board0->blocks[i]->getY(), board0->blocks[i]->getY()+board0->blocks[i]->getH(),pacman0->getY(), pacman0->getY()+pacman0->getH())){
+			return !collision;
+		}
+	}
+	return collision;
+	/*bool collision = false;
 	for(int i = 0; i < board0->blocks.size();i++){
 		if(board0->blocks[i]->contains(pacman0) == true){
 			return !collision;
 		}
 			//std::cout << "Pacman collided with a Wall " << i << std::endl;
 	}
-	return collision;
+	return collision;*/
 }
 
 game::~game()
