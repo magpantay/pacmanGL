@@ -32,7 +32,7 @@ class game
 
 		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
 
-		bool gameOver;
+		//bool gameOver;
 
 		game();
 

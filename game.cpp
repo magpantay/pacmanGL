@@ -10,7 +10,6 @@ void animateDeath (int vala)
         glutTimerFunc(1000, animateDeath, vala);
     }
     else singleton->pacman0->stop();
-
 }
 
 void app_timer(int val)
@@ -19,7 +18,7 @@ void app_timer(int val)
     {
         animateDeath(0);
     }
-    if (!singleton->gameOver && !singleton->pacman0->dead)
+    if (!singleton->pacman0->dead)
     {
 		if(singleton->gameWon()){
 			cout << "pacman won" << endl;
@@ -90,7 +89,7 @@ void app_timer(int val)
 
 void random_number_generator(int val)
 {
-  	if(!singleton->gameOver && !singleton->pacman0->dead)
+  	if(!singleton->pacman0->dead)
   	{
     		  for (int i = 0; i < 4; i++)
     			{
@@ -214,7 +213,6 @@ game::game()
           gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
       }
 
-    	gameOver = false;
 			random_number_generator(1);
 			app_timer(2);
 
