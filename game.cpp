@@ -208,10 +208,14 @@ void game::pelletCollisionHandler()
 }
 
 bool game::wallCollisionHandler(){
+	bool collision = false;
 	for(int i = 0; i < board0->blocks.size();i++){
-		return board0->blocks[i]->contains(pacman0);
+		if(board0->blocks[i]->contains(pacman0) == true){
+			return !collision;
+		}
 			//std::cout << "Pacman collided with a Wall " << i << std::endl;
 	}
+	return collision;
 }
 
 game::~game()
