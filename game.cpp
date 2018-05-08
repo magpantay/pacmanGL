@@ -9,18 +9,22 @@ void app_timer(int val)
     		if (singleton->pacman0->up){
     				singleton->pacman0->moveUp(0.01);
 					singleton->collisionHandler(0.0,0.0);
+					singleton->TexRectCollisionHandler();
     		}
     		if (singleton->pacman0->down){
     				singleton->pacman0->moveDown(0.01);
 					singleton->collisionHandler(0.0,0.0);
+					singleton->TexRectCollisionHandler();
     		}
     		if (singleton->pacman0->left){
     				singleton->pacman0->moveLeft(0.01);
 					singleton->collisionHandler(0.0,0.0);
+					singleton->TexRectCollisionHandler();
     		}
     		if (singleton->pacman0->right){
     				singleton->pacman0->moveRight(0.01);
 					singleton->collisionHandler(0.0,0.0);
+					singleton->TexRectCollisionHandler();
     		}
 
     		for (int i = 0; i < 4; i++)
@@ -176,16 +180,18 @@ void game::collisionHandler(float x, float y)
 			std::cout << "Pacman collided with a Ghost" << std::endl;
 		}
 	}
+}
 
-	for(int i = 0; i < board0->blocks.size();i++){
-		if(pacman0->contains(board0->blocks[i])){
-			std::cout << "Pacman collided with a Wall " << i << std::endl;
+void game::TexRectCollisionHandler(){
+	for(int i = 0; i < pellets0->pelletStuff.size();i++){
+		if(pellets0->pelletStuff[i]->contains(pacman0)){
+			std::cout << "Pacman collided with a Pellet" << std::endl;
 		}
 	}
 
-	for(int i = 0; i < pellets0->pelletStuff.size();i++){
-		if(pacman0->contains(pellets0->pelletStuff[i])){
-			std::cout << "Pacman collided with a Pellet" << std::endl;
+	for(int i = 0; i < board0->blocks.size();i++){
+		if(board0->blocks[i]->contains(pacman0)){
+			std::cout << "Pacman collided with a Wall " << i << std::endl;
 		}
 	}
 }

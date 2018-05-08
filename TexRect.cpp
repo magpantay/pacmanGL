@@ -141,9 +141,14 @@ void TexRect::change_Picture_File(const char* filename) //no need for rows and c
       yinc = 0.01;
 }
 
-bool TexRect::contains(float x0, float y0)
+bool TexRect::contains(AnimatedRect* obj)
 {
-    return (x0 <= this->x+this->w && x0 >= this->x) && (y0 >= (this->y - this->h) && y0 <= this->y);
+    return (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
+}
+
+bool TexRect::contains(TexRect* obj)
+{
+    return (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
 }
 
 /* COMMENT AS TO WHY THIS WAS REMOVED IN THE H FILE

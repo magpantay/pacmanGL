@@ -15,6 +15,7 @@
 #include <SOIL.h>
 #endif
 
+#include "AnimatedRect.h"
 
 class TexRect {
 public:
@@ -34,7 +35,8 @@ public:
 
     void draw();
 
-    bool contains(float, float);
+    bool contains(AnimatedRect*);
+    bool contains(TexRect*);
 
     void moveUp(float rate=0.01);
     void moveDown(float rate=0.01);

@@ -34,6 +34,7 @@ class game
 		void advanceAllAnimations();
 
 		void collisionHandler(float, float);
+		void TexRectCollisionHandler();
 
 		void specialKeyHandler(int);
 		void regularKeyHandler(unsigned char);
