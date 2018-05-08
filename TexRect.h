@@ -15,6 +15,7 @@
 #include <SOIL.h>
 #endif
 
+
 class TexRect {
 public:
     float x;
@@ -49,12 +50,12 @@ public:
     void changeY(float);
     void changeWidth(float);
     void changeHeight(float);
-
+    */
     float getX() const;
     float getY() const;
     float getW() const;
     float getH() const;
-    */
+    
 };
 
 #endif

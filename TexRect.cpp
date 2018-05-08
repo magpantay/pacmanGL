@@ -166,6 +166,7 @@ void TexRect::changeHeight(float h)
 {
 	this->h = h;
 }
+*/
 
 float TexRect::getX() const
 {
@@ -186,4 +187,4 @@ float TexRect::getH() const
 {
     return h;
 }
-*/
+

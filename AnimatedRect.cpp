@@ -195,6 +195,11 @@ bool AnimatedRect::contains(AnimatedRect* obj)
     return (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
 }
 
+bool AnimatedRect::contains(TexRect* obj)
+{
+    return (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
+}
+
 //MOVEMENT
 void AnimatedRect::moveUp(float rate){
     y += rate;

@@ -14,6 +14,8 @@
 #include <SOIL.h>
 #endif
 
+#include "TexRect.h"
+
 class AnimatedRect {
     float x;
     float y;
@@ -59,6 +61,7 @@ public:
     float getH() const;
 
     bool contains(AnimatedRect*);
+    bool contains(TexRect*);
 };
 
 #endif

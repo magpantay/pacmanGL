@@ -176,6 +176,18 @@ void game::collisionHandler(float x, float y)
 			std::cout << "Pacman collided with a Ghost" << std::endl;
 		}
 	}
+
+	for(int i = 0; i < board0->blocks.size();i++){
+		if(pacman0->contains(board0->blocks[i])){
+			std::cout << "Pacman collided with a Wall " << i << std::endl;
+		}
+	}
+
+	for(int i = 0; i < pellets0->pelletStuff.size();i++){
+		if(pacman0->contains(pellets0->pelletStuff[i])){
+			std::cout << "Pacman collided with a Pellet" << std::endl;
+		}
+	}
 }
 
 game::~game()
