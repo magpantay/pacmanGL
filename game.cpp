@@ -233,8 +233,8 @@ void game::regularKeyHandler(unsigned char key)
           }
           exit(0);
       }
-			if (key == 112){ // f1 key
-					// Save and exit the app when f1 key is pressed
+			if (key == 96){ // ` key
+					// Save and exit the app when ` key is pressed
 
           ofstream writeSaveFile;
           writeSaveFile.open("pacsave.txt");
