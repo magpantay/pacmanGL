@@ -171,6 +171,20 @@ game::game()
 
           pellets0 = new populatePellets(); //saving comes at the cost of having to get all the pellets again
 
+          vector <bool> pelletEaten;
+          bool temp;
+
+          for (int i = 15; i < fileInputs.size(); i++)
+          {
+              temp = toBool(fileInputs[i]);
+              pelletEaten.push_back(temp);
+          }
+
+          for (int i = 0; i < pellets0->pelletStuff.size(); i++)
+          {
+              pellets0->pelletStuff[i]->changeBeenEaten(pelletEaten[i]);
+          }
+
       }
 
       else
@@ -253,6 +267,11 @@ void game::regularKeyHandler(unsigned char key)
           writeSaveFile << ghosts0->spoopy[1]->getX() << " " << ghosts0->spoopy[1]->getY() << " ";
           writeSaveFile << ghosts0->spoopy[2]->getX() << " " << ghosts0->spoopy[2]->getY() << " ";
           writeSaveFile << ghosts0->spoopy[3]->getX() << " " << ghosts0->spoopy[3]->getY() << " ";
+
+          for (int i = 0; i < pellets0->pelletStuff.size(); i++)
+          {
+              writeSaveFile << pellets0->pelletStuff[i]->getHasBeenEaten() << " ";
+          }
 
           writeSaveFile.close();
 
