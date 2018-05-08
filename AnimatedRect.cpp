@@ -190,9 +190,9 @@ float AnimatedRect::getH() const
     return h;
 }
 
-bool AnimatedRect::contains(float x0, float y0)
+bool AnimatedRect::contains(AnimatedRect* obj)
 {
-    return (x0 <= this->x+this->w && x0 >= this->x) && (y0 >= (this->y - this->h) && y0 <= this->y); //this->done to prevent user from clicking again once the animation finishes
+    return (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
 }
 
 //MOVEMENT

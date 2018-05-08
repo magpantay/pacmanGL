@@ -8,15 +8,19 @@ void app_timer(int val)
     {
     		if (singleton->pacman0->up){
     				singleton->pacman0->moveUp(0.01);
+					singleton->collisionHandler(0.0,0.0);
     		}
     		if (singleton->pacman0->down){
     				singleton->pacman0->moveDown(0.01);
+					singleton->collisionHandler(0.0,0.0);
     		}
     		if (singleton->pacman0->left){
     				singleton->pacman0->moveLeft(0.01);
+					singleton->collisionHandler(0.0,0.0);
     		}
     		if (singleton->pacman0->right){
     				singleton->pacman0->moveRight(0.01);
+					singleton->collisionHandler(0.0,0.0);
     		}
 
     		for (int i = 0; i < 4; i++)
@@ -96,14 +100,14 @@ game::game()
 {
 			srand(time(NULL)); //seed for random
 
-	    background = new TexRect("images/black.png", -1, 1, 2, 2);
+	    	background = new TexRect("images/black.png", -1, 1, 2, 2);
 
 			board0 = new gameBoard();
 			pellets0 = new populatePellets();
 			ghosts0 = new populateGhosts();
 			pacman0 = new pacman();
 
-      gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
+      		gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
 
 			gameOver = false;
       
@@ -167,7 +171,11 @@ void game::specialKeyHandler(int key)
 
 void game::collisionHandler(float x, float y)
 {
-
+	for(int i = 0; i < ghosts0->spoopy.size();i++){
+		if(pacman0->contains(ghosts0->spoopy[i])){
+			std::cout << "Pacman collided with a Ghost" << std::endl;
+		}
+	}
 }
 
 game::~game()

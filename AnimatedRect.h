@@ -58,7 +58,7 @@ public:
     float getW() const;
     float getH() const;
 
-    bool contains(float, float);
+    bool contains(AnimatedRect*);
 };
 
 #endif

@@ -11,6 +11,7 @@
 #include <cstdlib> /* rand, srand (aka seed) */
 #include <ctime> /* time for seed for rand */
 #include <cstdio> /* NULL, printf */
+#include <iostream>
 
 class game
 {
