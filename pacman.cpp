@@ -1,13 +1,13 @@
 #include "pacman.h"
 
-pacman::pacman():AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1)
+pacman::pacman():AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.22, 0.07, 0.07)
 {
     //pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
     left = true; //initialize to true, we want pacman facing left
     right = up = down = false; // initialize to false
 }
 
-pacman::pacman(const char* filename, float x, float y, bool left, bool right, bool up, bool down):AnimatedRect(filename, 1, 4, x, y, (2.0/19.0), 0.1)
+pacman::pacman(const char* filename, float x, float y, bool left, bool right, bool up, bool down):AnimatedRect(filename, 1, 4, x, y, 0.07, 0.07)
 {
     this->left = left;
     this->right = right;
