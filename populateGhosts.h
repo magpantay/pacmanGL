@@ -17,6 +17,7 @@ class populateGhosts
       void drawGhosts();
       void animateGhosts();
       void advanceAllGhostsAnimation();
+      void stopAllGhostsAnimation();
 
       void changeDirection(int, int);
       void moveUp(int, float rate = 0.01);

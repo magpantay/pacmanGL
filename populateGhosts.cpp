@@ -48,6 +48,14 @@ void populateGhosts::advanceAllGhostsAnimation()
     }
 }
 
+void populateGhosts::stopAllGhostsAnimation()
+{
+    for(int i = 0; i < spoopy.size(); i++)
+    {
+        spoopy[i]->stop();
+    }
+}
+
 void populateGhosts::moveUp(int whichGhost, float moveBy){
     spoopy[whichGhost]->moveUp(moveBy);
 }

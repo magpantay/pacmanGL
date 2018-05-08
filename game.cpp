@@ -220,6 +220,12 @@ void game::advanceAllAnimations()
 			ghosts0->advanceAllGhostsAnimation();
 }
 
+void game::stopAllAnimations()
+{
+    pacman0->stop();
+    ghosts0->stopAllGhostsAnimation();
+}
+
 void game::regularKeyHandler(unsigned char key)
 {
       if (key == 27) // esc key
@@ -321,6 +327,12 @@ bool game::wallCollisionHandler(){
 	}
 	return collision;
 }
+
+//  GHOST COLLISION
+//      if(collide)
+//          pacman0->die()
+//          stopAllAnimations()
+//          display gameover image
 
 game::~game()
 {

@@ -1,10 +1,21 @@
 #include "pacman.h"
 
+static pacman* singleton;
+
+void deathAnimate(int value) {
+    if(!singleton->done()) {
+        singleton->advance();
+        singleton->draw();
+        glutTimerFunc(32, deathAnimate, value);
+    }
+}
+
 pacman::pacman():AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.22, 0.07, 0.07)
 {
     //pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
     left = true; //initialize to true, we want pacman facing left
     right = up = down = false; // initialize to false
+    dead = false
 }
 
 pacman::pacman(const char* filename, float x, float y, bool left, bool right, bool up, bool down):AnimatedRect(filename, 1, 4, x, y, 0.07, 0.07)
@@ -13,6 +24,7 @@ pacman::pacman(const char* filename, float x, float y, bool left, bool right, bo
     this->right = right;
     this->up = up;
     this->down = down;
+    dead = false;
 }
 
 /*void pacman::drawPacman()
@@ -115,6 +127,12 @@ void pacman::changeDirection(int key) //special key
 
       change_Picture_File("BMPs/pacman/pacman_down.png", 1, 4);
   }
+}
+
+void pacman::die() {
+    dead = true;
+    change_Picture_File("BMPs/pacman/pacman_death.png", 1, 14);
+    deathAnimate(0);
 }
 
 /*void pacman::moveUp(float moveBy){

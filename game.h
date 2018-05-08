@@ -38,6 +38,7 @@ class game
 
 		void drawAll();
 		void advanceAllAnimations();
+        void stopAllAnimations();
 
 		bool inRange(float, float, float, float);
 		void collisionHandler();
