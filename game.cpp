@@ -12,9 +12,9 @@ void app_timer(int val)
 					singleton->pacman0->up = false;
 				}else{
     				singleton->pacman0->moveUp(0.01);
-					singleton->collisionHandler();
-					singleton->pelletCollisionHandler();
 				}
+				singleton->collisionHandler();
+				singleton->pelletCollisionHandler();
     		}
     		if (singleton->pacman0->down){
 				if(singleton->wallCollisionHandler()){
@@ -291,11 +291,20 @@ void game::collisionHandler()
 	}
 }
 
+bool game::inRange(float min0, float max0, float min1, float max1){
+	return max(min0,max0) >= min(min1,max1) && min(min0,max0) <= max(min1,max1);
+}
+
 void game::pelletCollisionHandler()
 {
-	for(int i = 0; i < pellets0->pelletStuff.size();i++){
+	/*for(int i = 0; i < pellets0->pelletStuff.size();i++){
 		if(pellets0->pelletStuff[i]->contains(pacman0)){
 			//std::cout << "Pacman collided with a Pellet" << std::endl;
+			pellets0->pelletStuff[i]->changeBeenEaten();
+		}
+	}*/
+	for(int i = 0; i < pellets0->pelletStuff.size(); i++){
+		if(inRange(pellets0->pelletStuff[i]->getX(), pellets0->pelletStuff[i]->getX()+pellets0->pelletStuff[i]->getW(),pacman0->getX(), pacman0->getX()+pacman0->getW()) && inRange(pellets0->pelletStuff[i]->getY(), pellets0->pelletStuff[i]->getY()+pellets0->pelletStuff[i]->getH(),pacman0->getY(), pacman0->getY()+pacman0->getH())){
 			pellets0->pelletStuff[i]->changeBeenEaten();
 		}
 	}

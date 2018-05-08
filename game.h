@@ -15,6 +15,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,6 +39,7 @@ class game
 		void drawAll();
 		void advanceAllAnimations();
 
+		bool inRange(float, float, float, float);
 		void collisionHandler();
 		void pelletCollisionHandler();
 		bool wallCollisionHandler();
