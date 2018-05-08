@@ -330,21 +330,21 @@ void game::pelletCollisionHandler()
 }
 
 bool game::wallCollisionHandler(){
-	/*bool collision = false;
+	bool collision = false;
 	for(int i = 0; i < board0->blocks.size(); i++){
-		if(inRange(board0->blocks[i]->getX(), board0->blocks[i]->getX()+board0->blocks[i]->getW(),pacman0->getX(), pacman0->getX()+pacman0->getW()) && inRange(board0->blocks[i]->getY(), board0->blocks[i]->getY()+board0->blocks[i]->getH(),pacman0->getY(), pacman0->getY()+pacman0->getH())){
-			return !collision;
+		if(inRange(board0->blocks[i]->getX(), board0->blocks[i]->getX()+board0->blocks[i]->getW(),pacman0->getX(), pacman0->getX()+pacman0->getW()) && inRange(board0->blocks[i]->getY(), board0->blocks[i]->getY()-board0->blocks[i]->getH(),pacman0->getY(), pacman0->getY()-pacman0->getH())){
+			collision = !collision;
 		}
 	}
-	return collision;*/
-	bool collision = false;
+	return collision;
+	/*bool collision = false;
 	for(int i = 0; i < board0->blocks.size();i++){
 		if(board0->blocks[i]->contains(pacman0) == true){
 			return !collision;
 		}
 			//std::cout << "Pacman collided with a Wall " << i << std::endl;
 	}
-	return collision;
+	return collision;*/
 }
 
 //  GHOST COLLISION
