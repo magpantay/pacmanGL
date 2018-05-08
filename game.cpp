@@ -2,9 +2,24 @@
 
 static game* singleton;
 
+void animateDeath (int vala)
+{
+    if(!singleton->pacman0->done()) {
+        singleton->pacman0->advance();
+        singleton->pacman0->draw();
+        glutTimerFunc(1000, animateDeath, vala);
+    }
+    else singleton->pacman0->stop();
+
+}
+
 void app_timer(int val)
 {
-    if (!singleton->gameOver)
+    if (singleton->pacman0->dead)
+    {
+        animateDeath(0);
+    }
+    if (!singleton->gameOver && !singleton->pacman0->dead)
     {
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
@@ -72,7 +87,7 @@ void app_timer(int val)
 
 void random_number_generator(int val)
 {
-  	if(!singleton->gameOver)
+  	if(!singleton->gameOver && !singleton->pacman0->dead)
   	{
     		  for (int i = 0; i < 4; i++)
     			{
@@ -230,13 +245,13 @@ void game::drawAll()
 
 void game::advanceAllAnimations()
 {
-			pacman0->advance();
-			ghosts0->advanceAllGhostsAnimation();
+    pacman0->advance();
+    ghosts0->advanceAllGhostsAnimation();
 }
 
 void game::stopAllAnimations()
 {
-    pacman0->stop();
+    //pacman0->stop();
     ghosts0->stopAllGhostsAnimation();
 }
 
@@ -298,13 +313,15 @@ void game::regularKeyHandler(unsigned char key)
 
 			else //because really you can only move pacman
 			{
+                if (!pacman0->dead)
 					pacman0->changeDirection(key);
 			}
 }
 
 void game::specialKeyHandler(int key)
 {
-		pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
+        if (!pacman0->dead)
+            pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
 }
 
 bool game::inRange(float min0, float max0, float min1, float max1){
@@ -316,6 +333,8 @@ void game::collisionHandler()
 	for(int i = 0; i < ghosts0->spoopy.size();i++){
 		if(pacman0->contains(ghosts0->spoopy[i])){
 			std::cout << "Pacman collided with a Ghost" << std::endl;
+            pacman0->die();
+            //stopAllAnimations();
 		}
 	}
 }

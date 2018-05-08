@@ -2,25 +2,25 @@
 
 populateGhosts::populateGhosts()
 {
-    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, -1.0+7.0*(2.0/19.0), 0.0, (2.0/19.0), 0.1);
+    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, -1.0+7.0*(2.0/19.0), -0.01, 0.075, 0.075);
     spoopy.push_back(blinky); //[0]
-    ghosts * pinky = new ghosts("BMPs/ghosts/pink_ghost_left.png", 1, 2, -1.0+8.0*(2.0/19.0), 0.0, (2.0/19.0), 0.1);
+    ghosts * pinky = new ghosts("BMPs/ghosts/pink_ghost_left.png", 1, 2, -1.0+8.0*(2.0/19.0), -0.01, 0.08, 0.075);
     spoopy.push_back(pinky); //[1]
-    ghosts * inky = new ghosts("BMPs/ghosts/orange_ghost_left.png", 1, 2, -1.0+9.0*(2.0/19.0), 0.0, (2.0/19.0), 0.1);
+    ghosts * inky = new ghosts("BMPs/ghosts/orange_ghost_left.png", 1, 2, -1.0+9.0*(2.0/19.0), -0.01, 0.08, 0.075);
     spoopy.push_back(inky); //[2]
-    ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, -1.0+10.0*(2.0/19.0), 0.0, (2.0/19.0), 0.1);
+    ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, -1.0+10.0*(2.0/19.0), -0.01, 0.08, 0.075);
     spoopy.push_back(clyde); //[3]
 }
 
 populateGhosts::populateGhosts(float blinky_x, float blinky_y, float pinky_x, float pinky_y, float inky_x, float inky_y, float clyde_x, float clyde_y)
 {
-    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, blinky_x, blinky_y, (2.0/19.0), 0.1);
+    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, blinky_x, blinky_y, 0.075, 0.075);
     spoopy.push_back(blinky); //[0]
-    ghosts * pinky = new ghosts("BMPs/ghosts/pink_ghost_left.png", 1, 2, pinky_x, pinky_y, (2.0/19.0), 0.1);
+    ghosts * pinky = new ghosts("BMPs/ghosts/pink_ghost_left.png", 1, 2, pinky_x, pinky_y, 0.075, 0.075);
     spoopy.push_back(pinky); //[1]
-    ghosts * inky = new ghosts("BMPs/ghosts/orange_ghost_left.png", 1, 2, inky_x, inky_y, (2.0/19.0), 0.1);
+    ghosts * inky = new ghosts("BMPs/ghosts/orange_ghost_left.png", 1, 2, inky_x, inky_y, 0.075, 0.075);
     spoopy.push_back(inky); //[2]
-    ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, clyde_x, clyde_y, (2.0/19.0), 0.1);
+    ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, clyde_x, clyde_y, 0.075, 0.075);
     spoopy.push_back(clyde); //[3]
 }
 
