@@ -12,6 +12,18 @@ populateGhosts::populateGhosts()
     spoopy.push_back(clyde); //[3]
 }
 
+populateGhosts:populateGhosts(float blinky_x, float blinky_y, float pinky_x, float pinky_y, float inky_x, float inky_y, float clyde_x, float clyde_y)
+{
+    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, blinky_x, blinky_y, (2.0/19.0), 0.1);
+    spoopy.push_back(blinky); //[0]
+    ghosts * pinky = new ghosts("BMPs/ghosts/pink_ghost_left.png", 1, 2, pinky_x, pinky_y, (2.0/19.0), 0.1);
+    spoopy.push_back(pinky); //[1]
+    ghosts * inky = new ghosts("BMPs/ghosts/orange_ghost_left.png", 1, 2, inky_x, inky_y, (2.0/19.0), 0.1);
+    spoopy.push_back(inky); //[2]
+    ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, clyde_x, clyde_y, (2.0/19.0), 0.1);
+    spoopy.push_back(clyde); //[3]
+}
+
 void populateGhosts::drawGhosts()
 {
     for (int i = 0; i < spoopy.size(); i++)

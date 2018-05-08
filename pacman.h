@@ -15,6 +15,7 @@ public:
     //AnimatedRect * pac;
 
     pacman();
+    pacman(const char*, float, float, bool, bool, bool, bool);
 
     /*void drawPacman();
     void animatePacman();
