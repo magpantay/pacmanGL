@@ -274,7 +274,9 @@ void populatePellets::drawPellets()
 {
     for (int i = 0; i < pelletStuff.size(); i++)
     {
-      pelletStuff[i]->draw();
+        if(!pelletStuff[i]->getHasBeenEaten()){
+            pelletStuff[i]->draw();
+        }
     }
 }
 

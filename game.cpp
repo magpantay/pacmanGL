@@ -8,8 +8,8 @@ void app_timer(int val)
     {
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
-					//singleton->pacman0->up = false;
-					singleton->pacman0->decY();
+					singleton->pacman0->decY(0.02);
+					singleton->pacman0->up = false;
 				}else{
     				singleton->pacman0->moveUp(0.01);
 					singleton->collisionHandler();
@@ -18,8 +18,8 @@ void app_timer(int val)
     		}
     		if (singleton->pacman0->down){
 				if(singleton->wallCollisionHandler()){
-					//singleton->pacman0->down = false;
-					singleton->pacman0->incY();
+					singleton->pacman0->incY(0.02);
+					singleton->pacman0->down = false;
 				}else{
     				singleton->pacman0->moveDown(0.01);
 					singleton->collisionHandler();
@@ -28,8 +28,8 @@ void app_timer(int val)
     		}
     		if (singleton->pacman0->left){
 				if(singleton->wallCollisionHandler()){
-					//singleton->pacman0->left = false;
-					singleton->pacman0->incX();
+					singleton->pacman0->incX(0.02);
+					singleton->pacman0->left = false;
 				}else{
     				singleton->pacman0->moveLeft(0.01);
 					singleton->collisionHandler();
@@ -38,8 +38,8 @@ void app_timer(int val)
     		}
     		if (singleton->pacman0->right){
 				if(singleton->wallCollisionHandler()){
-					//singleton->pacman0->right = false;
-					singleton->pacman0->decX();
+					singleton->pacman0->decX(0.02);
+					singleton->pacman0->right = false;
 				}else{
     				singleton->pacman0->moveRight(0.01);
 					singleton->collisionHandler();
@@ -123,23 +123,80 @@ void random_number_generator(int val)
 game::game()
 {
 			srand(time(NULL)); //seed for random
-
-	    	background = new TexRect("images/black.png", -1, 1, 2, 2);
-
-			board0 = new gameBoard();
-			pellets0 = new populatePellets();
-			ghosts0 = new populateGhosts();
-			pacman0 = new pacman();
-
-      		gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
-
-			gameOver = false;
-      
 			singleton = this;
+      background = new TexRect("images/black.png", -1, 1, 2, 2);
+			board0 = new gameBoard();
 
+      if (doesFileExist("pacsave.txt"))
+      {
+          std::ifstream saveFile;
+          saveFile.open("pacsave.txt");
+
+          vector < string > fileInputs;
+          string buffer;
+
+          while (saveFile >> buffer)
+          {
+              fileInputs.push_back(buffer);
+          }
+
+          saveFile.close();
+
+          float px, py, blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y;
+
+          px = atof(fileInputs[1].c_str());
+          py = atof(fileInputs[2].c_str());
+
+          bool pleft, pright, pup, pdown;
+
+          for (int i = 3; i < 7; i++)
+          {
+              pleft = toBool(fileInputs[3]);
+              pright = toBool(fileInputs[4]);
+              pup = toBool(fileInputs[5]);
+              pdown = toBool(fileInputs[6]);
+          }
+
+          blinky_x = atof(fileInputs[7].c_str());
+          blinky_y = atof(fileInputs[8].c_str());
+          pinky_x = atof(fileInputs[9].c_str());
+          pinky_y = atof(fileInputs[10].c_str());
+          inky_x = atof(fileInputs[11].c_str());
+          inky_y = atof(fileInputs[12].c_str());
+          clyde_x = atof(fileInputs[13].c_str());
+          clyde_y = atof(fileInputs[14].c_str());
+
+          pacman0 = new pacman((fileInputs[0]).c_str(), px, py, pleft, pright, pup, pdown);
+          ghosts0 = new populateGhosts(blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y); //no need to determine where ghosts are going or loading textures here, because it gets randomly generated in a few lines
+
+          pellets0 = new populatePellets(); //saving comes at the cost of having to get all the pellets again
+
+      }
+
+      else
+      {
+    			pellets0 = new populatePellets();
+    			ghosts0 = new populateGhosts();
+    			pacman0 = new pacman();
+
+          gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
+      }
+
+    	gameOver = false;
 			random_number_generator(1);
 			app_timer(2);
 
+}
+
+bool game::toBool(string const & s)
+{
+    return s != "0";
+}
+
+bool game::doesFileExist(const char* fileName)
+{
+    std::ifstream infile(fileName);
+    return infile.good();
 }
 
 void game::drawAll()
@@ -165,10 +222,42 @@ void game::advanceAllAnimations()
 
 void game::regularKeyHandler(unsigned char key)
 {
-			if (key == 27){ // escape key
-					// Exit the app when Esc key is pressed
-					exit(0);
-			}
+      if (key == 27) // esc key
+      {
+          if (doesFileExist("pacsave.txt"))
+          {
+              if (remove("pacsave.txt") != 0)
+              {
+                  cout << "No write access to delete" << endl;
+              } //delete save file if esc is pressed
+          }
+          exit(0);
+      }
+
+      if (key == '`'){ // ` key
+          // Save and exit the app when ` key is pressed
+
+          ofstream writeSaveFile;
+          writeSaveFile.open("pacsave.txt");
+
+          string pacman_filename;
+          pacman_filename = "BMPs/pacman/pacman_";
+
+          if (pacman0->left) pacman_filename += "left.png";
+          else if (pacman0->right) pacman_filename += "right.png";
+          else if (pacman0->up) pacman_filename += "up.png";
+          else pacman_filename += "down.png";
+
+          writeSaveFile << pacman_filename << " " << pacman0->getX() << " " << pacman0->getY() << " " << pacman0->left << " " << pacman0->right << " " << pacman0->up << " " << pacman0->down << " ";
+          writeSaveFile << ghosts0->spoopy[0]->getX() << " " << ghosts0->spoopy[0]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[1]->getX() << " " << ghosts0->spoopy[1]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[2]->getX() << " " << ghosts0->spoopy[2]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[3]->getX() << " " << ghosts0->spoopy[3]->getY() << " ";
+
+          writeSaveFile.close();
+
+          exit(0);
+      }
 
 			if (key == ' '){ // restart game??
 				  //restart();
@@ -206,7 +295,8 @@ void game::pelletCollisionHandler()
 {
 	for(int i = 0; i < pellets0->pelletStuff.size();i++){
 		if(pellets0->pelletStuff[i]->contains(pacman0)){
-			std::cout << "Pacman collided with a Pellet" << std::endl;
+			//std::cout << "Pacman collided with a Pellet" << std::endl;
+			pellets0->pelletStuff[i]->changeBeenEaten();
 		}
 	}
 }

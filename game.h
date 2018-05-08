@@ -8,10 +8,15 @@
 #include "pellets.h"
 #include "populateGhosts.h"
 
-#include <cstdlib> /* rand, srand (aka seed) */
+#include <cstdlib> /* rand, srand (aka seed), strtof */
 #include <ctime> /* time for seed for rand */
 #include <cstdio> /* NULL, printf */
-#include <iostream>
+#include <iostream> /* cout */
+#include <fstream>
+#include <string>
+#include <vector>
+
+using namespace std;
 
 class game
 {
@@ -23,7 +28,7 @@ class game
 
 		TexRect * background;
 		AnimatedRect * gameOverText;
-		
+
 		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
 
 		bool gameOver;
@@ -39,6 +44,9 @@ class game
 
 		void specialKeyHandler(int);
 		void regularKeyHandler(unsigned char);
+
+		bool doesFileExist(const char*);
+		bool toBool(string const&);
 
 		~game();
 
