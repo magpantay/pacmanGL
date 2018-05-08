@@ -295,7 +295,8 @@ void game::pelletCollisionHandler()
 {
 	for(int i = 0; i < pellets0->pelletStuff.size();i++){
 		if(pellets0->pelletStuff[i]->contains(pacman0)){
-			std::cout << "Pacman collided with a Pellet" << std::endl;
+			//std::cout << "Pacman collided with a Pellet" << std::endl;
+			pellets0->pelletStuff[i]->changeBeenEaten();
 		}
 	}
 }

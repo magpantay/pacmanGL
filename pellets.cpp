@@ -10,6 +10,10 @@ void pellet::changeBeenEaten()
   hasBeenEaten = true; //only trips when pellet has been eaten to clear from board
 }
 
+bool pellet::getHasBeenEaten(){
+  return hasBeenEaten;
+}
+
 pellet::~pellet()
 {
  //unneeded probably
