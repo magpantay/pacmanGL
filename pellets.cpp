@@ -5,9 +5,9 @@ pellet::pellet(const char* filename, float x, float y, float w, float h):TexRect
   hasBeenEaten = false;
 }
 
-void pellet::changeBeenEaten()
+void pellet::changeBeenEaten(bool value)
 {
-  hasBeenEaten = true; //only trips when pellet has been eaten to clear from board
+  hasBeenEaten = value; //only trips when pellet has been eaten to clear from board
 }
 
 bool pellet::getHasBeenEaten(){
