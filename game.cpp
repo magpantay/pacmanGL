@@ -6,6 +6,9 @@ void app_timer(int val)
 {
     if (!singleton->gameOver)
     {
+		if(singleton->gameWon()){
+			cout << "pacman won" << endl;
+		}
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->decY(0.02);
@@ -305,6 +308,19 @@ void game::regularKeyHandler(unsigned char key)
 void game::specialKeyHandler(int key)
 {
 		pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
+}
+
+bool game::gameWon(){
+	bool win = true;
+	if(pacman0->dead == true){
+		win = false;
+	}
+	for(int i = 0; i < pellets0->pelletStuff.size(); i++){
+		if(pellets0->pelletStuff[i]->getHasBeenEaten() == true){
+			win = false;
+		}
+	}
+	return win;
 }
 
 bool game::inRange(float min0, float max0, float min1, float max1){

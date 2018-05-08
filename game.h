@@ -40,6 +40,7 @@ class game
 		void advanceAllAnimations();
         void stopAllAnimations();
 
+		bool gameWon();
 		bool inRange(float, float, float, float);
 		void collisionHandler();
 		void pelletCollisionHandler();
