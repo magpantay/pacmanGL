@@ -20,7 +20,7 @@ void app_timer(int val)
     }
     if (!singleton->pacman0->dead && !singleton->paused)
     {
-		if(singleton->gameWon()){
+		if(singleton->gameWon() && !singleton->pacmanWin){
 			cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
             singleton->pacmanWin = true;
 		}
