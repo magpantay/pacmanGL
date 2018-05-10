@@ -20,9 +20,11 @@ void app_timer(int val)
     }
     if (!singleton->pacman0->dead && !singleton->paused)
     {
-		if(singleton->gameWon()){
-			cout << "pacman won" << endl;
+		if(singleton->gameWon() && !singleton->pacmanWin){
+			cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
+            singleton->pacmanWin = true;
 		}
+        if(!singleton->pacmanWin){
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->decY(0.02);
@@ -75,9 +77,9 @@ void app_timer(int val)
     				else
     					singleton->ghosts0->moveRight(i, 0.01);
     		}
-
-        singleton->advanceAllAnimations();
-        glutTimerFunc(50, app_timer, val);
+            singleton->advanceAllAnimations();
+            glutTimerFunc(50, app_timer, val);
+        }
     }
     else
     {
@@ -141,8 +143,9 @@ game::game()
 {
 			srand(time(NULL)); //seed for random
 			singleton = this;
-      paused = false;
-      background = new TexRect("images/black.png", -1, 1, 2, 2);
+            paused = false;
+            pacmanWin = false;
+            background = new TexRect("images/black.png", -1, 1, 2, 2);
 			board0 = new gameBoard();
 
       if (doesFileExist("pacsave.txt"))

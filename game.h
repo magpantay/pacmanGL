@@ -35,6 +35,7 @@ class game
 
 		bool paused;
 		//bool gameOver;
+		bool pacmanWin;
 
 		game();
 
