@@ -15,7 +15,7 @@ void animateDeath (int vala)
 void app_timer(int val)
 {
     if (singleton->pacman0->dead)
-    {
+    {    
         animateDeath(0);
     }
     if (!singleton->pacman0->dead && !singleton->paused)
@@ -224,6 +224,7 @@ game::game()
 
 			random_number_generator(1);
 			app_timer(2);
+			gameOverText->draw();
 
 }
 
