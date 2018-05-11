@@ -9,13 +9,18 @@ void animateDeath (int vala)
         singleton->pacman0->draw();
         glutTimerFunc(1000, animateDeath, vala);
     }
-    else singleton->pacman0->stop();
+    else 
+    {
+	    singleton->pacman0->stop();
+	    gameOverText->advance();
+	    glutTimerFunc(1000, animateDeath, vala);
+    }
 }
 
 void app_timer(int val)
 {
     if (singleton->pacman0->dead)
-    {    
+    {   
         animateDeath(0);
     }
     if (!singleton->pacman0->dead && !singleton->paused)
