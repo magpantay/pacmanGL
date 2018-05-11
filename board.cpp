@@ -195,7 +195,7 @@ gameBoard::gameBoard()
     TexRect * middlelower_tbox_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(7.0*x_axis_divider), -0.5, 5.0*x_axis_divider, 0.1);
     blocks.push_back(middlelower_tbox_part1); //[38]
 
-    TexRect * middlelower_tbox_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), -0.15, x_axis_divider, 0.25);
+    TexRect * middlelower_tbox_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), -0.3, x_axis_divider, 0.25);
     blocks.push_back(middlelower_tbox_part2); //[39]
 
     TexRect * midright_tbox0_part1 = new TexRect("BMPs/bluesquare.bmp", 1.0-(6.0*x_axis_divider), 0.5, x_axis_divider, 0.5);
