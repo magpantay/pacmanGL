@@ -7,13 +7,13 @@ void animateDeath (int vala)
     if(!singleton->pacman0->done()) {
         singleton->pacman0->advance();
         singleton->pacman0->draw();
-        glutTimerFunc(1000, animateDeath, vala);
+        //glutTimerFunc(1000, animateDeath, vala);
     }
     else 
     {
 	    singleton->pacman0->stop();
 	    singleton->gameOverText->advance();
-	    glutTimerFunc(5000, animateDeath, vala);
+	    //glutTimerFunc(5000, animateDeath, vala);
     }
 }
 
@@ -91,8 +91,15 @@ void app_timer(int val)
     }
     else
     {
-          singleton->gameOverText->animate();
-          glutTimerFunc(150, app_timer, val); //keep at 80, seems to be good animation speed for pacman
+	  if (singleton->pacman0->done())
+	  {
+		singleton->gameOverText->animate();
+		glutTimerFunc(250, app_timer, val);
+	  }
+	  else
+	  {
+		glutTimerFunc(150, app_timer, val);
+	  }
     }
 }
 
