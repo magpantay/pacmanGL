@@ -2,7 +2,7 @@
 
 static game* singleton;
 
-void animateDeath (int vala)
+void animateDeath ()
 {
     if(!singleton->pacman0->done()) {
         singleton->pacman0->advance();
@@ -17,22 +17,27 @@ void animateDeath (int vala)
     }
 }
 
+void animeWon()
+{
+    //anime is best show
+    singleton->youWinText->advance();
+            //glutTimerFunc(150, app_timer, val);
+			//cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
+        //singleton->pacmanWin = true;
+}
+
 void app_timer(int val)
 {
+    if (singleton->gameWon())
+    {
+        animeWon();
+    }
     if (singleton->pacman0->dead)
     {   
-        animateDeath(0);
+        animateDeath();
     }
     if (!singleton->pacman0->dead && !singleton->paused)
     {
-		if(singleton->gameWon()){
-            //singleton->youWinText->animate();
-            //singleton->youWinText->draw();
-            //glutTimerFunc(150, app_timer, val);
-			//cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
-            //singleton->pacmanWin = true;
-		}
-        if(!singleton->pacmanWin){
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->decY(0.02);
@@ -87,7 +92,6 @@ void app_timer(int val)
     		}
             singleton->advanceAllAnimations();
             glutTimerFunc(50, app_timer, val);
-        }
     }
     else
     {
@@ -96,10 +100,17 @@ void app_timer(int val)
 		singleton->gameOverText->animate();
 		glutTimerFunc(250, app_timer, val);
 	  }
-	  else
+	  else if (!singleton->pacman0->done())
 	  {
 		glutTimerFunc(150, app_timer, val);
 	  }
+      else //gamewon
+      {
+        singleton->youWinText->animate();
+        singleton->stopAllAnimations();
+        singleton->pacman0->stop();
+        glutTimerFunc(250, app_timer, val);
+      }
     }
 }
 
@@ -204,7 +215,7 @@ game::game()
           pacman0 = new pacman((fileInputs[0]).c_str(), px, py, pleft, pright, pup, pdown);
           ghosts0 = new populateGhosts(blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y); //no need to determine where ghosts are going or loading textures here, because it gets randomly generated in a few lines
 	  gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
-	      
+	      youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
           pellets0 = new populatePellets(); //saving comes at the cost of having to get all the pellets again
 
           vector <bool> pelletEaten;
@@ -230,7 +241,7 @@ game::game()
     			pacman0 = new pacman();
 
                 gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
-                //youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
+                youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
       }
 
 			random_number_generator(1);
@@ -263,6 +274,7 @@ void game::drawAll()
 		  ghosts0->drawGhosts();
 			pacman0->draw();
             gameOverText->draw();
+            youWinText->draw();
 }
 
 
@@ -341,14 +353,14 @@ void game::regularKeyHandler(unsigned char key)
 
 			else //because really you can only move pacman
 			{
-                if (!pacman0->dead)
+                if (!pacman0->dead && !pacmanWin)
 					pacman0->changeDirection(key);
 			}
 }
 
 void game::specialKeyHandler(int key)
 {
-        if (!pacman0->dead)
+        if (!pacman0->dead && !pacmanWin)
             pacman0->changeDirection(key); //because we only worry about the left, right, down, up special keys, meaning it just affects pacman
 }
 
