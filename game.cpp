@@ -375,6 +375,13 @@ void game::regularKeyHandler(unsigned char key)
                 pacman0 = new pacman();
                 paused = false;
                 pacmanWin = false;
+                delete youWinText;
+                delete gameOverText;
+                gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
+                youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
+                gameOverText->draw();
+                youWinText->draw();
+                
                 random_number_generator(1);
 			}
 
