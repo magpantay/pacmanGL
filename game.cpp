@@ -87,7 +87,6 @@ void app_timer(int val)
     else
     {
           singleton->gameOverText->animate();
-          singleton->gameOverText->draw();
           glutTimerFunc(150, app_timer, val); //keep at 80, seems to be good animation speed for pacman
     }
 }
