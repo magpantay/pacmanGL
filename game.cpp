@@ -271,7 +271,7 @@ game::game()
                 youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
       }
 
-			//random_number_generator(1);
+			random_number_generator(1);
 			app_timer(2);
 			//gameOverText->draw();
 
