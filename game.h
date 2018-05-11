@@ -49,6 +49,7 @@ class game
 		void collisionHandler();
 		void pelletCollisionHandler();
 		bool wallCollisionHandler();
+		//bool ghostCollisionAgainstWall();
 
 		void specialKeyHandler(int);
 		void regularKeyHandler(unsigned char);

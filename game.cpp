@@ -83,14 +83,38 @@ void app_timer(int val)
 
     		for (int i = 0; i < 4; i++)
     		{
-    				if (singleton->ghosts0->spoopy[i]->up)
-    					singleton->ghosts0->moveUp(i, 0.01);
-    				else if (singleton->ghosts0->spoopy[i]->down)
-    					singleton->ghosts0->moveDown(i, 0.01);
-    				else if (singleton->ghosts0->spoopy[i]->left)
-    					singleton->ghosts0->moveLeft(i, 0.01);
-    				else
-    					singleton->ghosts0->moveRight(i, 0.01);
+    				if (singleton->ghosts0->spoopy[i]->up){
+                        //if(singleton->ghostCollisionAgainstWall()){
+    					    //singleton->ghosts0->spoopy[i]->decY(0.02);
+                            //singleton->ghosts0->spoopy[i]->up = false;
+                        //}else{
+                            singleton->ghosts0->moveUp(i, 0.01);
+                        //}
+                    }
+    				else if (singleton->ghosts0->spoopy[i]->down){
+    					//if(singleton->ghostCollisionAgainstWall()){
+    					    //singleton->ghosts0->spoopy[i]->incY(0.02);
+                            //singleton->ghosts0->spoopy[i]->down = false;
+                        //}else{
+                            singleton->ghosts0->moveDown(i, 0.01);
+                        //}
+                    }
+    				else if (singleton->ghosts0->spoopy[i]->left){
+    					//if(singleton->ghostCollisionAgainstWall()){
+    					    //singleton->ghosts0->spoopy[i]->incX(0.02);
+                            //singleton->ghosts0->spoopy[i]->left = false;
+                        //}else{
+                            singleton->ghosts0->moveLeft(i, 0.01);
+                        //}
+                    }
+    				else{
+    					//if(singleton->ghostCollisionAgainstWall()){
+    					    //singleton->ghosts0->spoopy[i]->decX(0.02);
+                            //singleton->ghosts0->spoopy[i]->right = false;
+                        //}else{
+                            singleton->ghosts0->moveRight(i, 0.01);
+                        //}
+                    }
     		}
             singleton->advanceAllAnimations();
             glutTimerFunc(50, app_timer, val);
@@ -388,6 +412,18 @@ bool game::gameWon(){
 bool game::inRange(float min0, float max0, float min1, float max1){
 	return max(min0,max0) >= min(min1,max1) && min(min0,max0) <= max(min1,max1);
 }
+
+/*bool game::ghostCollisionAgainstWall(){
+    bool collision = false;
+	for(int i = 0; i < board0->blocks.size(); i++){
+            for(int j = 0; j < ghosts0->spoopy.size(); j++){
+                if(inRange(board0->blocks[i]->getX(), board0->blocks[i]->getX()+board0->blocks[i]->getW(),ghosts0->spoopy[j]->getX(), ghosts0->spoopy[j]->getX()+ghosts0->spoopy[j]->getW()) && inRange(board0->blocks[i]->getY(), board0->blocks[i]->getY()-board0->blocks[i]->getH(),ghosts0->spoopy[j]->getY(), ghosts0->spoopy[j]->getY()-ghosts0->spoopy[j]->getH())){
+                    collision = !collision;
+            }
+        }
+	}
+	return collision;
+}*/
 
 void game::collisionHandler()
 {

@@ -207,14 +207,14 @@ bool AnimatedRect::contains(AnimatedRect* obj)
 //MOVEMENT
 void AnimatedRect::moveUp(float rate){
     y += rate;
-    if (y > 0.99){
-        y = 0.99;
+    if (y > 0.8){
+        y = 0.8;
     }
 }
 void AnimatedRect::moveDown(float rate){
     y -= rate;
-    if (y - h < -0.99){
-        y = -0.99 + h;
+    if (y - h < -0.9){
+        y = -0.9 + h;
     }
 }
 void AnimatedRect::moveLeft(float rate){
