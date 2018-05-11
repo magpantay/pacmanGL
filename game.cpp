@@ -12,8 +12,8 @@ void animateDeath (int vala)
     else 
     {
 	    singleton->pacman0->stop();
-	    gameOverText->advance();
-	    glutTimerFunc(1000, animateDeath, vala);
+	    singleton->gameOverText->advance();
+	    glutTimerFunc(5000, animateDeath, vala);
     }
 }
 
@@ -26,9 +26,9 @@ void app_timer(int val)
     if (!singleton->pacman0->dead && !singleton->paused)
     {
 		if(singleton->gameWon()){
-            singleton->youWinText->animate();
-            singleton->youWinText->draw();
-            glutTimerFunc(150, app_timer, val);
+            //singleton->youWinText->animate();
+            //singleton->youWinText->draw();
+            //glutTimerFunc(150, app_timer, val);
 			//cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
             //singleton->pacmanWin = true;
 		}
@@ -223,12 +223,12 @@ game::game()
     			pacman0 = new pacman();
 
                 gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
-                youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
+                //youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
       }
 
 			random_number_generator(1);
 			app_timer(2);
-			gameOverText->draw();
+			//gameOverText->draw();
 
 }
 
@@ -255,6 +255,7 @@ void game::drawAll()
 
 		  ghosts0->drawGhosts();
 			pacman0->draw();
+            gameOverText->draw();
 }
 
 
