@@ -365,14 +365,16 @@ void game::regularKeyHandler(unsigned char key)
 
 			if (key == ' '){ // restart game??
 				  //restart();
-					/* ball->x = 0;
-					ball->y = 0.67;
-					ball->yinc = 0.01;
-					ball->xinc = 0.01;
-					ball->rising = false;
-					game_over = false;
-					gameOver->stop();
-					moving = true; */
+				delete board0;
+	            delete pellets0;
+	            delete ghosts0;
+	            delete pacman0;
+                board0 = new gameBoard();
+                pellets0 = new populatePellets();
+                ghosts0 = new populateGhosts();
+                pacman0 = new pacman();
+                paused = false;
+                pacmanWin = false;
 			}
 
       if (key == 'p')
