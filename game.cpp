@@ -20,9 +20,12 @@ void app_timer(int val)
     }
     if (!singleton->pacman0->dead && !singleton->paused)
     {
-		if(singleton->gameWon() && !singleton->pacmanWin){
-			cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
-            singleton->pacmanWin = true;
+		if(singleton->gameWon()){
+            singleton->youWinText->animate();
+            singleton->youWinText->draw();
+            glutTimerFunc(150, app_timer, val);
+			//cout << "pacman won" << endl; //we can replace this with an animation of a winning message once we have one
+            //singleton->pacmanWin = true;
 		}
         if(!singleton->pacmanWin){
     		if (singleton->pacman0->up){
@@ -214,7 +217,8 @@ game::game()
     			ghosts0 = new populateGhosts();
     			pacman0 = new pacman();
 
-          gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
+                gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
+                youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
       }
 
 			random_number_generator(1);

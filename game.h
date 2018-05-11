@@ -30,6 +30,7 @@ class game
 
 		TexRect * background;
 		AnimatedRect * gameOverText;
+		AnimatedRect * youWinText;
 
 		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
 
