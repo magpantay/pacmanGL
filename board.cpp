@@ -68,7 +68,7 @@ gameBoard::gameBoard()
     TexRect * top_bar = new TexRect ("BMPs/bluesquare.bmp", -1.0, 0.9, 2.0, 0.1);
     blocks.push_back(top_bar); //[0]
 
-    TexRect * leftmost_downbar0 = new TexRect("BMPs/bluesquare.bmp", -1.0, 0.8, x_axis_divider, 0.5);
+    TexRect * leftmost_downbar0 = new TexRect("BMPs/bluesquare.bmp", -1.0, 0.85, x_axis_divider, 0.6);
     blocks.push_back(leftmost_downbar0); //[1]
 /*
     TexRect * leftmost_horizbar0 = new TexRect("BMPs/bluesquare.bmp", -1.0, 0.3, 3.0*x_axis_divider, 0.1);
@@ -95,13 +95,13 @@ gameBoard::gameBoard()
     TexRect * leftmost_horizbar3 = new TexRect("BMPs/bluesquare.bmp", -1.0, -0.3,  3.0*x_axis_divider, 0.1);
     blocks.push_back(leftmost_horizbar3); //[7] */
 
-    TexRect * leftmost_downbar1 = new TexRect("BMPs/bluesquare.bmp", -1.0,-0.4, x_axis_divider, 0.5);
+    TexRect * leftmost_downbar1 = new TexRect("BMPs/bluesquare.bmp", -1.0,-0.35, x_axis_divider, 0.6);
     blocks.push_back(leftmost_downbar1); //[8]
 
     TexRect * bottom_bar = new TexRect ("BMPs/bluesquare.bmp", -1.0, -0.9, 2.0, 0.1);
     blocks.push_back(bottom_bar); //[9]
 
-    TexRect * rightmost_downbar0 = new TexRect("BMPs/bluesquare.bmp", 1.0-x_axis_divider, 0.8, x_axis_divider, 0.5);
+    TexRect * rightmost_downbar0 = new TexRect("BMPs/bluesquare.bmp", 1.0-x_axis_divider, 0.85, x_axis_divider, 0.6);
     blocks.push_back(rightmost_downbar0); //[10]
 
 /*
@@ -129,13 +129,13 @@ gameBoard::gameBoard()
     TexRect * fuccinghell3 = new TexRect("BMPs/bluesquare.bmp", 1.0-(4.0*x_axis_divider), -0.1, 4.0*x_axis_divider, 0.3);
     blocks.push_back(fuccinghell3);
 
-    TexRect * rightmost_downbar1 = new TexRect("BMPs/bluesquare.bmp", 1.0-x_axis_divider,-0.4, x_axis_divider, 0.5);
+    TexRect * rightmost_downbar1 = new TexRect("BMPs/bluesquare.bmp", 1.0-x_axis_divider,-0.35, x_axis_divider, 0.6);
     blocks.push_back(rightmost_downbar1); //[17]
 
-    TexRect * top_middlebar = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), 0.8, x_axis_divider, 0.2);
+    TexRect * top_middlebar = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), 0.85, x_axis_divider, 0.25);
     blocks.push_back(top_middlebar); //[18]
 
-    TexRect * bottom_middlebar = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), -0.7, x_axis_divider, 0.2);
+    TexRect * bottom_middlebar = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), -0.7, x_axis_divider, 0.25);
     blocks.push_back(bottom_middlebar); //[19]
 
     TexRect * leftupper_box1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(2.0*x_axis_divider), 0.7, 2.0*x_axis_divider, 0.1);
@@ -177,37 +177,37 @@ gameBoard::gameBoard()
     TexRect * midleft_tbox0_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(5.0*x_axis_divider), 0.5, x_axis_divider, 0.5);
     blocks.push_back(midleft_tbox0_part1); //[32]
 
-    TexRect * midleft_tbox0_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(6.0*x_axis_divider), 0.3, 2.0*x_axis_divider, 0.1);
+    TexRect * midleft_tbox0_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(6.0*x_axis_divider)-0.05, 0.3, 2.0*x_axis_divider+0.05, 0.1);
     blocks.push_back(midleft_tbox0_part2); //[33]
 
     TexRect * midleft_tbox1_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(5.0*x_axis_divider), -0.1, x_axis_divider, 0.5);
     blocks.push_back(midleft_tbox1_part1); //[34]
 
-    TexRect * midleft_tbox1_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(6.0*x_axis_divider), -0.3, 2.0*x_axis_divider, 0.1);
+    TexRect * midleft_tbox1_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(6.0*x_axis_divider)-0.05, -0.3, 2.0*x_axis_divider+0.05, 0.1);
     blocks.push_back(midleft_tbox1_part2); //[35]
 
     TexRect * middleupper_tbox_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(7.0*x_axis_divider), 0.5, 5.0*x_axis_divider, 0.1);
     blocks.push_back(middleupper_tbox_part1); //[36]
 
-    TexRect * middleupper_tbox_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), 0.4, x_axis_divider, 0.2);
+    TexRect * middleupper_tbox_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), 0.45, x_axis_divider, 0.25);
     blocks.push_back(middleupper_tbox_part2); //[37]
 
     TexRect * middlelower_tbox_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(7.0*x_axis_divider), -0.5, 5.0*x_axis_divider, 0.1);
     blocks.push_back(middlelower_tbox_part1); //[38]
 
-    TexRect * middlelower_tbox_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), -0.3, x_axis_divider, 0.2);
+    TexRect * middlelower_tbox_part2 = new TexRect("BMPs/bluesquare.bmp", -1.0+(9.0*x_axis_divider), -0.25, x_axis_divider, 0.25);
     blocks.push_back(middlelower_tbox_part2); //[39]
 
     TexRect * midright_tbox0_part1 = new TexRect("BMPs/bluesquare.bmp", 1.0-(6.0*x_axis_divider), 0.5, x_axis_divider, 0.5);
     blocks.push_back(midright_tbox0_part1); //[40]
 
-    TexRect * midright_tbox0_part2 = new TexRect("BMPs/bluesquare.bmp", 1.0-(8.0*x_axis_divider), 0.3, 2.0*x_axis_divider, 0.1);
+    TexRect * midright_tbox0_part2 = new TexRect("BMPs/bluesquare.bmp", 1.0-(8.0*x_axis_divider), 0.3, 2.0*x_axis_divider+0.05, 0.1);
     blocks.push_back(midright_tbox0_part2); //[41]
 
     TexRect * midright_tbox1_part1 = new TexRect("BMPs/bluesquare.bmp", 1.0-(6.0*x_axis_divider), -0.1, x_axis_divider, 0.5);
     blocks.push_back(midright_tbox1_part1); //[42]
 
-    TexRect * midright_tbox1_part2 = new TexRect("BMPs/bluesquare.bmp", 1.0-(8.0*x_axis_divider), -0.3, 2.0*x_axis_divider, 0.1);
+    TexRect * midright_tbox1_part2 = new TexRect("BMPs/bluesquare.bmp", 1.0-(8.0*x_axis_divider), -0.3, 2.0*x_axis_divider+0.05, 0.1);
     blocks.push_back(midright_tbox1_part2); //[43]
 
     TexRect * middle_box_part1 = new TexRect("BMPs/bluesquare.bmp", -1.0+(7.0*(2.0/19.0)), 0.1, 5.0*x_axis_divider, 0.1);
