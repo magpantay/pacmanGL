@@ -30,13 +30,15 @@ void app_timer(int val)
 {
     if (singleton->gameWon())
     {
+	singleton->pacmanWin = true;
+	//cout << "pacman won" << endl;
         animeWon();
     }
     if (singleton->pacman0->dead)
     {   
         animateDeath();
     }
-    if (!singleton->pacman0->dead && !singleton->paused)
+    if (!singleton->pacman0->dead && !singleton->paused && !singleton->pacmanWin)
     {
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
@@ -95,12 +97,12 @@ void app_timer(int val)
     }
     else
     {
-	  if (singleton->pacman0->done())
+	  if (singleton->pacman0->done() && singleton->pacman0->dead)
 	  {
 		singleton->gameOverText->animate();
 		glutTimerFunc(250, app_timer, val);
 	  }
-	  else if (!singleton->pacman0->done())
+	  else if (!singleton->pacman0->done() && singleton->pacman0->dead)
 	  {
 		glutTimerFunc(150, app_timer, val);
 	  }
@@ -109,6 +111,7 @@ void app_timer(int val)
         singleton->youWinText->animate();
         singleton->stopAllAnimations();
         singleton->pacman0->stop();
+	//cout<<"#winning"<<endl;
         glutTimerFunc(250, app_timer, val);
       }
     }
@@ -244,7 +247,7 @@ game::game()
                 youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
       }
 
-			random_number_generator(1);
+			//random_number_generator(1);
 			app_timer(2);
 			//gameOverText->draw();
 
@@ -286,7 +289,6 @@ void game::advanceAllAnimations()
 
 void game::stopAllAnimations()
 {
-    //pacman0->stop();
     ghosts0->stopAllGhostsAnimation();
 }
 
@@ -365,11 +367,14 @@ void game::specialKeyHandler(int key)
 }
 
 bool game::gameWon(){
+	/*for(int i = 0; i < pellets0->pelletStuff.size(); i++){
+			pellets0->pelletStuff[i]->changeBeenEaten();
+		}*/
 	bool win = false;
 	if(!pacman0->dead){
 		int count = 0;
 		for(int i = 0; i < pellets0->pelletStuff.size(); i++){
-			if(pellets0->pelletStuff[i]->getHasBeenEaten() == true){
+			if(pellets0->pelletStuff[i]->getHasBeenEaten()){
 				count++;
 			}
 		}
