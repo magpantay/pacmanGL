@@ -192,7 +192,8 @@ game::game()
 
           pacman0 = new pacman((fileInputs[0]).c_str(), px, py, pleft, pright, pup, pdown);
           ghosts0 = new populateGhosts(blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y); //no need to determine where ghosts are going or loading textures here, because it gets randomly generated in a few lines
-
+	  gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
+	      
           pellets0 = new populatePellets(); //saving comes at the cost of having to get all the pellets again
 
           vector <bool> pelletEaten;
