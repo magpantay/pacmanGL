@@ -337,6 +337,7 @@ void game::stopAllAnimations()
 
 void game::regularKeyHandler(unsigned char key)
 {
+<<<<<<< HEAD
     if (key == 27) // esc key
     {
         if (doesFileExist("pacsave.txt"))
@@ -395,6 +396,73 @@ void game::regularKeyHandler(unsigned char key)
         if (!pacman0->dead && !pacmanWin)
             pacman0->changeDirection(key);
     }
+=======
+      if (key == 27) // esc key
+      {
+          if (doesFileExist("pacsave.txt"))
+          {
+              if (remove("pacsave.txt") != 0)
+              {
+                  cout << "No write access to delete" << endl;
+              } //delete save file if esc is pressed
+          }
+          exit(0);
+      }
+
+      if (key == '`'){ // ` key
+          // Save and exit the app when ` key is pressed
+
+          ofstream writeSaveFile;
+          writeSaveFile.open("pacsave.txt");
+
+          string pacman_filename;
+          pacman_filename = "BMPs/pacman/pacman_";
+
+          if (pacman0->left) pacman_filename += "left.png";
+          else if (pacman0->right) pacman_filename += "right.png";
+          else if (pacman0->up) pacman_filename += "up.png";
+          else pacman_filename += "down.png";
+
+          writeSaveFile << pacman_filename << " " << pacman0->getX() << " " << pacman0->getY() << " " << pacman0->left << " " << pacman0->right << " " << pacman0->up << " " << pacman0->down << " ";
+          writeSaveFile << ghosts0->spoopy[0]->getX() << " " << ghosts0->spoopy[0]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[1]->getX() << " " << ghosts0->spoopy[1]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[2]->getX() << " " << ghosts0->spoopy[2]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[3]->getX() << " " << ghosts0->spoopy[3]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[4]->getX() << " " << ghosts0->spoopy[4]->getY() << " ";
+
+          for (int i = 0; i < pellets0->pelletStuff.size(); i++)
+          {
+              writeSaveFile << pellets0->pelletStuff[i]->getHasBeenEaten() << " ";
+          }
+
+          writeSaveFile.close();
+
+          exit(0);
+      }
+
+			if (key == ' '){ // restart game??
+				  //restart();
+					/* ball->x = 0;
+					ball->y = 0.67;
+					ball->yinc = 0.01;
+					ball->xinc = 0.01;
+					ball->rising = false;
+					game_over = false;
+					gameOver->stop();
+					moving = true; */
+			}
+
+      if (key == 'p')
+      {
+         paused = !paused;
+      }
+
+			else //because really you can only move pacman
+			{
+                if (!pacman0->dead && !pacmanWin)
+					pacman0->changeDirection(key);
+			}
+>>>>>>> parent of 798ebf0... implemented a restart button
 }
 
 void game::specialKeyHandler(int key)

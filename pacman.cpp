@@ -2,6 +2,7 @@
 
 static pacman* singleton;
 
+
 pacman::pacman():AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.21, 0.075, 0.075)
 {
     //pac = new AnimatedRect("BMPs/pacman/pacman_left.png", 1, 4, -1.0+9.0*(2.0/19.0), -0.2, (2.0/19.0), 0.1);
