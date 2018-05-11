@@ -2,7 +2,7 @@
 
 populateGhosts::populateGhosts()
 {
-    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, -1.0+7.0*(2.0/19.0), -0.01, 0.075, 0.075);
+    ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, -1.0+7.0*(2.0/19.0), -0.01, 0.08, 0.075);
     spoopy.push_back(blinky); //[0]
     ghosts * pinky = new ghosts("BMPs/ghosts/pink_ghost_left.png", 1, 2, -1.0+8.0*(2.0/19.0), -0.01, 0.08, 0.075);
     spoopy.push_back(pinky); //[1]
@@ -10,9 +10,11 @@ populateGhosts::populateGhosts()
     spoopy.push_back(inky); //[2]
     ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, -1.0+10.0*(2.0/19.0), -0.01, 0.08, 0.075);
     spoopy.push_back(clyde); //[3]
+    ghosts * rufus_the_hedgeghost = new ghosts("BMPs/ghosts/green_ghost_left.png", 1, 2, -1.0+11.0*(2.0/19.0), -0.01, 0.08, 0.075); //pacman OC don stel pls
+    spoopy.push_back(rufus_the_hedgeghost);
 }
 
-populateGhosts::populateGhosts(float blinky_x, float blinky_y, float pinky_x, float pinky_y, float inky_x, float inky_y, float clyde_x, float clyde_y)
+populateGhosts::populateGhosts(float blinky_x, float blinky_y, float pinky_x, float pinky_y, float inky_x, float inky_y, float clyde_x, float clyde_y, float rufus_x, float rufus_y)
 {
     ghosts * blinky = new ghosts("BMPs/ghosts/red_ghost_left.png", 1, 2, blinky_x, blinky_y, 0.075, 0.075);
     spoopy.push_back(blinky); //[0]
@@ -22,6 +24,8 @@ populateGhosts::populateGhosts(float blinky_x, float blinky_y, float pinky_x, fl
     spoopy.push_back(inky); //[2]
     ghosts * clyde = new ghosts("BMPs/ghosts/blue_ghost_left.png", 1, 2, clyde_x, clyde_y, 0.075, 0.075);
     spoopy.push_back(clyde); //[3]
+    ghosts * rufus_the_hedgeghost = new ghosts("BMPs/ghosts/green_ghost_left.png", 1, 2, rufus_x, rufus_y, 0.08, 0.075); //pacman OC don stel pls
+    spoopy.push_back(rufus_the_hedgeghost);
 }
 
 void populateGhosts::drawGhosts()
@@ -156,7 +160,7 @@ void populateGhosts::changeDirection(int whichGhost, int whichDirection)
         spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/blue_ghost_right.png", 1, 2);
       }
   }
-  else
+  if (whichGhost == 3)
   {
       if (whichDirection == 0)
       {
@@ -183,9 +187,40 @@ void populateGhosts::changeDirection(int whichGhost, int whichDirection)
         spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/orange_ghost_right.png", 1, 2);
       }
   }
+  else
+  {
+      if (whichDirection == 0)
+      {
+        spoopy[whichGhost]->up = true;
+        spoopy[whichGhost]->right = spoopy[whichGhost]->left = spoopy[whichGhost]->down = false;
+        spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/green_ghost_up.png", 1, 2);
+      }
+      else if (whichDirection == 1)
+      {
+        spoopy[whichGhost]->down = true;
+        spoopy[whichGhost]->right = spoopy[whichGhost]->up = spoopy[whichGhost]->left = false;
+        spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/green_ghost_down.png", 1, 2);
+      }
+      else if (whichDirection == 2)
+      {
+        spoopy[whichGhost]->left = true;
+        spoopy[whichGhost]->right = spoopy[whichGhost]->up = spoopy[whichGhost]->down = false;
+        spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/green_ghost_left.png", 1, 2);
+      }
+      else
+      {
+        spoopy[whichGhost]->right = true;
+        spoopy[whichGhost]->left = spoopy[whichGhost]->up = spoopy[whichGhost]->down = false;
+        spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/green_ghost_right.png", 1, 2);
+      }
+  }
+  
 }
 
 populateGhosts::~populateGhosts()
 {
-
+  for (int i = 0; i < spoopy.size(); i++)
+  {
+    delete spoopy[i];
+  }
 }

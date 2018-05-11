@@ -81,7 +81,7 @@ void app_timer(int val)
 				}
     		}
 
-    		for (int i = 0; i < 4; i++)
+    		for (int i = 0; i < singleton->ghosts0->spoopy.size(); i++)
     		{
     				if (singleton->ghosts0->spoopy[i]->up){
                         //if(singleton->ghostCollisionAgainstWall()){
@@ -145,12 +145,12 @@ void random_number_generator(int val)
 {
   	if(!singleton->pacman0->dead && !singleton->paused)
   	{
-    		  for (int i = 0; i < 4; i++)
+    		  for (int i = 0; i < singleton->ghosts0->spoopy.size(); i++)
     			{
     					singleton->ghostMovement[i] = rand() % 4; //generate random number for each ghost from 0-3, each one representing a direction
     					/* 0 is up, 1 is down, 2 is left, 3 is right */
     			}
-    			for (int i = 0; i < 4; i++)
+    			for (int i = 0; i < singleton->ghosts0->spoopy.size(); i++)
     			{
     					singleton->ghosts0->changeDirection(i, singleton->ghostMovement[i]);
     			}
@@ -215,7 +215,7 @@ game::game()
 
           saveFile.close();
 
-          float px, py, blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y;
+          float px, py, blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y, rufus_x, rufus_y;
 
           px = atof(fileInputs[1].c_str());
           py = atof(fileInputs[2].c_str());
@@ -238,9 +238,11 @@ game::game()
           inky_y = atof(fileInputs[12].c_str());
           clyde_x = atof(fileInputs[13].c_str());
           clyde_y = atof(fileInputs[14].c_str());
+          rufus_x = atof(fileInputs[15].c_str());
+          rufus_y = atof(fileInputs[16].c_str());
 
           pacman0 = new pacman((fileInputs[0]).c_str(), px, py, pleft, pright, pup, pdown);
-          ghosts0 = new populateGhosts(blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y); //no need to determine where ghosts are going or loading textures here, because it gets randomly generated in a few lines
+          ghosts0 = new populateGhosts(blinky_x, blinky_y, pinky_x, pinky_y, inky_x, inky_y, clyde_x, clyde_y, rufus_x, rufus_y); //no need to determine where ghosts are going or loading textures here, because it gets randomly generated in a few lines
 	  gameOverText = new AnimatedRect("images/game_over.png", 7, 1, -0.5, 0.5, 1, 1);
 	      youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
           pellets0 = new populatePellets(); //saving comes at the cost of having to get all the pellets again
@@ -248,7 +250,7 @@ game::game()
           vector <bool> pelletEaten;
           bool temp;
 
-          for (int i = 15; i < fileInputs.size(); i++)
+          for (int i = 17; i < fileInputs.size(); i++)
           {
               temp = toBool(fileInputs[i]);
               pelletEaten.push_back(temp);
@@ -349,6 +351,7 @@ void game::regularKeyHandler(unsigned char key)
           writeSaveFile << ghosts0->spoopy[1]->getX() << " " << ghosts0->spoopy[1]->getY() << " ";
           writeSaveFile << ghosts0->spoopy[2]->getX() << " " << ghosts0->spoopy[2]->getY() << " ";
           writeSaveFile << ghosts0->spoopy[3]->getX() << " " << ghosts0->spoopy[3]->getY() << " ";
+          writeSaveFile << ghosts0->spoopy[4]->getX() << " " << ghosts0->spoopy[4]->getY() << " ";
 
           for (int i = 0; i < pellets0->pelletStuff.size(); i++)
           {

@@ -12,7 +12,7 @@ class populateGhosts
       vector < ghosts* > spoopy;
 
       populateGhosts();
-      populateGhosts(float, float, float, float, float, float, float, float);
+      populateGhosts(float, float, float, float, float, float, float, float, float, float);
 
       void drawGhosts();
       void animateGhosts();

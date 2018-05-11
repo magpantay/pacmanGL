@@ -32,7 +32,7 @@ class game
 		AnimatedRect * gameOverText;
 		AnimatedRect * youWinText;
 
-		int ghostMovement[4]; //an array of randomly generated elements to randomize ghost movements
+		int ghostMovement[5]; //an array of randomly generated elements to randomize ghost movements
 
 		bool paused;
 		//bool gameOver;
