@@ -375,6 +375,7 @@ void game::regularKeyHandler(unsigned char key)
                 pacman0 = new pacman();
                 paused = false;
                 pacmanWin = false;
+                random_number_generator(1);
 			}
 
       if (key == 'p')
