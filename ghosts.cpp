@@ -8,8 +8,4 @@ ghosts::ghosts(const char* filename, int rows, int cols, float x, float y, float
 
 ghosts::~ghosts()
 {
-  //delete blinky;
-  //delete pinky;
-  //delete inky;
-  //delete clyde;
 }

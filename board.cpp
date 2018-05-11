@@ -232,5 +232,8 @@ void gameBoard::drawBlocks()
 
 gameBoard::~gameBoard()
 {
-
+    for (int i = 0; i < blocks.size(); i++)
+    {
+        delete blocks[i]; //delet this
+    }
 }

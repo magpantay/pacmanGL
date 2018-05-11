@@ -160,7 +160,7 @@ void populateGhosts::changeDirection(int whichGhost, int whichDirection)
         spoopy[whichGhost]->change_Picture_File("BMPs/ghosts/blue_ghost_right.png", 1, 2);
       }
   }
-  if (whichGhost == 3)
+  else if (whichGhost == 3)
   {
       if (whichDirection == 0)
       {

@@ -282,5 +282,8 @@ void populatePellets::drawPellets()
 
 populatePellets::~populatePellets()
 {
-
+    for (int i = 0; i < pelletStuff.size(); i++)
+    {
+        delete pelletStuff[i];
+    }
 }
