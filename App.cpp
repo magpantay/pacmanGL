@@ -104,10 +104,6 @@ void App::idle(){
 }
 
 void App::keyPress(unsigned char key) {
-    if (key == ' '){ 
-        delete game0; 
-        game0 = new game();
-    }
     game0->regularKeyHandler(key);
     redraw();
 }

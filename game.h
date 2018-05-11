@@ -35,7 +35,6 @@ class game
 		int ghostMovement[5]; //an array of randomly generated elements to randomize ghost movements
 
 		bool paused;
-		//bool gameOver;
 		bool pacmanWin;
 
 		game();
