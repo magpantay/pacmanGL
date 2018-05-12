@@ -269,6 +269,7 @@ void game::drawAll()
     pacman0->draw();
     gameOverText->draw();
     youWinText->draw();
+    pacman_logo->draw();
 }
 
 void game::advanceAllAnimations()
