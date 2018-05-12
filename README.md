@@ -12,8 +12,7 @@ Pacman created in C++ utilizing FreeGLUT
 This is a rendition of the classic Pacman, utilizing GLUT libraries. The game board is different looking from the original, and the ghosts' movements are completely changed. In other words, the ghosts' movements are not bounded by walls, meaning they will move through walls with ease (basically true ghosts). Their movements are also randomly generated every few seconds, meaning that their behavior is unpredictable, and seems to be the most unpredictable at the beginning of the game. Make sure to collect all of the pellets to win the game.
 
 # Controls
-=====================================================================
-## Key       | What it does
+Key       | What it does
 =====================================================================
 "w"/up        | Moves Pacman up
 "a"/left      | Moves Pacman left
