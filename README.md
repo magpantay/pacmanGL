@@ -13,16 +13,16 @@ This is a rendition of the classic Pacman, utilizing GLUT libraries. The game bo
 
 # Controls
 =====================================================================
-Key         | What it does
+## Key       | What it does
 =====================================================================
-"w"/up      | Moves Pacman up
-"a"/left    | Moves Pacman left
-"s"/down    | Moves Pacman down
-"d"/right   | Moves Pacman right
-"p"         | Pauses/resumes the game
-space       | Restarts the game
-esc         | Quits the game, deletes any existing save file
-"`"         | Saves/overwrites current save file and quits the game
+"w"/up        | Moves Pacman up
+"a"/left      | Moves Pacman left
+"s"/down      | Moves Pacman down
+"d"/right     | Moves Pacman right
+"p"           | Pauses/resumes the game
+space         | Restarts the game
+esc           | Quits the game, deletes any existing save file
+"`"           | Saves/overwrites current save file and quits the game
 =====================================================================
 
 
