@@ -135,7 +135,7 @@ populatePellets::populatePellets()
     /* 9TH ROW (MIDDLE) */
     for (float j = 1.0; j < 18.0; j += 1.0)
     {
-        if (j == 7.0 || j == 8.0 || j == 9.0 || j == 10.0)
+        if (j == 7.0 || j == 8.0 || j == 9.0 || j == 10.0 || j == 11.0)
             continue; // still lazy to separate the for-loop
         pellet *pellet0 = new pellet("BMPs/other/pellet_med.png", -1.0 + j * (2.0 / 19.0) + pellet_spacing_x, 0.0 - pellet_spacing_y, default_width, default_height);
         pelletStuff.push_back(pellet0);
