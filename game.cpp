@@ -439,4 +439,9 @@ game::~game()
     delete pellets0;
     delete ghosts0;
     delete pacman0;
+
+    delete gameOverText;
+    delete youWinText;
+    delete pacman_logo;
+    delete background;
 }
