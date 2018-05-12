@@ -165,7 +165,7 @@ game::game()
     background = new TexRect("images/black.png", -1, 1, 2, 2);
     board0 = new gameBoard();
 
-    pacman_logo = new TexRect("BMPs/other/pacman_logo.png", -1.0, 1.0, 2.0, 0.1);
+    pacman_logo = new TexRect("BMPs/other/pacman_logo.png", -0.625, 1.0, 1.25, 0.1);
 
     if (doesFileExist("pacsave.txt"))
     {
@@ -257,7 +257,7 @@ bool game::doesFileExist(const char *fileName)
 void game::drawAll()
 {
     background->draw();
-    pacman_logo->draw();
+
 
     pellets0->drawPellets();
     board0->drawBlocks();
