@@ -43,6 +43,7 @@ void app_timer(int val)
     		if (singleton->pacman0->up){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->decY(0.02);
+                    singleton->collisionHandler();
 					singleton->pacman0->up = false;
 				}else{
     				singleton->pacman0->moveUp(0.01);
@@ -53,6 +54,7 @@ void app_timer(int val)
     		if (singleton->pacman0->down){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->incY(0.02);
+                    singleton->collisionHandler();
 					singleton->pacman0->down = false;
 				}else{
     				singleton->pacman0->moveDown(0.01);
@@ -63,6 +65,7 @@ void app_timer(int val)
     		if (singleton->pacman0->left){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->incX(0.02);
+                    singleton->collisionHandler();
 					singleton->pacman0->left = false;
 				}else{
     				singleton->pacman0->moveLeft(0.01);
@@ -73,6 +76,7 @@ void app_timer(int val)
     		if (singleton->pacman0->right){
 				if(singleton->wallCollisionHandler()){
 					singleton->pacman0->decX(0.02);
+                    singleton->collisionHandler();
 					singleton->pacman0->right = false;
 				}else{
     				singleton->pacman0->moveRight(0.01);
@@ -381,7 +385,7 @@ void game::regularKeyHandler(unsigned char key)
                 youWinText = new AnimatedRect("images/you_win.png", 6, 1, -0.5, 0.5, 1, 1);
                 gameOverText->draw();
                 youWinText->draw();
-                
+
                 random_number_generator(1);
 			}
 
