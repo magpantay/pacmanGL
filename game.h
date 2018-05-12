@@ -30,6 +30,7 @@ class game
 	TexRect *background;
 	AnimatedRect *gameOverText;
 	AnimatedRect *youWinText;
+  TexRect *pacman_logo;
 
 	int ghostMovement[5]; //an array of randomly generated elements to randomize ghost movements
 
