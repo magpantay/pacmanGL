@@ -14,7 +14,8 @@
 #include <SOIL.h>
 #endif
 
-class AnimatedRect {
+class AnimatedRect
+{
     float x;
     float y;
     float w;
@@ -29,26 +30,27 @@ class AnimatedRect {
 
     bool complete;
     bool animating;
-public:
-    AnimatedRect (const char*, int, int, float, float, float, float);
+
+  public:
+    AnimatedRect(const char *, int, int, float, float, float, float);
     bool done();
     void draw();
     void advance();
 
-    void incY(float yinc=0.01);
-    void incX(float xinc=0.01);
-    void decY(float yinc=0.01);
-    void decX(float xinc=0.01);
+    void incY(float yinc = 0.01);
+    void incX(float xinc = 0.01);
+    void decY(float yinc = 0.01);
+    void decX(float xinc = 0.01);
 
     void reset();
     void animate();
     void stop();
-    void change_Picture_File(const char*, int, int);
+    void change_Picture_File(const char *, int, int);
 
-    void moveUp(float rate=0.05);
-    void moveDown(float rate=0.05);
-    void moveLeft(float rate=0.05);
-    void moveRight(float rate=0.05);
+    void moveUp(float rate = 0.05);
+    void moveDown(float rate = 0.05);
+    void moveLeft(float rate = 0.05);
+    void moveRight(float rate = 0.05);
 
     void changeX(float);
     void changeY(float);
@@ -60,7 +62,7 @@ public:
     float getW() const;
     float getH() const;
 
-    bool contains(AnimatedRect*);
+    bool contains(AnimatedRect *);
 };
 
 #endif

@@ -8,9 +8,9 @@
 #include "pellets.h"
 #include "populateGhosts.h"
 
-#include <cstdlib> /* rand, srand (aka seed), strtof */
-#include <ctime> /* time for seed for rand */
-#include <cstdio> /* NULL, printf */
+#include <cstdlib>  /* rand, srand (aka seed), strtof */
+#include <ctime>	/* time for seed for rand */
+#include <cstdio>   /* NULL, printf */
 #include <iostream> /* cout */
 #include <fstream>
 #include <string>
@@ -21,43 +21,40 @@ using namespace std;
 
 class game
 {
-	public:
+  public:
+	gameBoard *board0;
+	populatePellets *pellets0;
+	populateGhosts *ghosts0;
+	pacman *pacman0;
 
-		gameBoard * board0;
-		populatePellets * pellets0;
-		populateGhosts * ghosts0;
-		pacman * pacman0;
+	TexRect *background;
+	AnimatedRect *gameOverText;
+	AnimatedRect *youWinText;
 
-		TexRect * background;
-		AnimatedRect * gameOverText;
-		AnimatedRect * youWinText;
+	int ghostMovement[5]; //an array of randomly generated elements to randomize ghost movements
 
-		int ghostMovement[5]; //an array of randomly generated elements to randomize ghost movements
+	bool paused;
+	bool pacmanWin;
 
-		bool paused;
-		bool pacmanWin;
+	game();
 
-		game();
+	void drawAll();
+	void advanceAllAnimations();
+	void stopAllAnimations();
 
-		void drawAll();
-		void advanceAllAnimations();
-        void stopAllAnimations();
+	bool gameWon();
+	bool inRange(float, float, float, float);
+	void collisionHandler();
+	void pelletCollisionHandler();
+	bool wallCollisionHandler();
 
-		bool gameWon();
-		bool inRange(float, float, float, float);
-		void collisionHandler();
-		void pelletCollisionHandler();
-		bool wallCollisionHandler();
-		//bool ghostCollisionAgainstWall();
+	void specialKeyHandler(int);
+	void regularKeyHandler(unsigned char);
 
-		void specialKeyHandler(int);
-		void regularKeyHandler(unsigned char);
+	bool doesFileExist(const char *);
+	bool toBool(string const &);
 
-		bool doesFileExist(const char*);
-		bool toBool(string const&);
-
-		~game();
-
+	~game();
 };
 
 #endif

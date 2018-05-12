@@ -8,16 +8,15 @@ using namespace std;
 
 class ghosts : public AnimatedRect
 {
-  public:
+public:
+  bool left;
+  bool up;
+  bool down;
+  bool right;
 
-    bool left;
-    bool up;
-    bool down;
-    bool right;
+  ghosts(const char *, int, int, float, float, float, float);
 
-    ghosts(const char*, int, int, float, float, float, float);
-
-    ~ghosts();
+  ~ghosts();
 };
 
 #endif

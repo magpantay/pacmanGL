@@ -2,18 +2,17 @@
 
 /* THIS ONE IS FOR ANIMATED TEXTURES */
 
-AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5){
-    glClearColor (0.0, 0.0, 0.0, 0.0);
+AnimatedRect::AnimatedRect(const char *map_filename, int rows, int cols, float x = 0, float y = 0, float w = 0.5, float h = 0.5)
+{
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_FLAT);
     glEnable(GL_DEPTH_TEST);
 
-    texture_map_id = SOIL_load_OGL_texture
-    (
-     map_filename,
-     SOIL_LOAD_AUTO,
-     SOIL_CREATE_NEW_ID,
-     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-     );
+    texture_map_id = SOIL_load_OGL_texture(
+        map_filename,
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -37,27 +36,27 @@ AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float 
     animating = false;
 }
 
-bool AnimatedRect::done() {
+bool AnimatedRect::done()
+{
     return complete;
 }
 
-void AnimatedRect::draw(){
-    if (animating){
-        glBindTexture( GL_TEXTURE_2D, texture_map_id );
+void AnimatedRect::draw()
+{
+    if (animating)
+    {
+        glBindTexture(GL_TEXTURE_2D, texture_map_id);
         glEnable(GL_TEXTURE_2D);
         glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-
-        float xinc = 1.0/cols;
-        float yinc = 1.0/rows;
-
+        float xinc = 1.0 / cols;
+        float yinc = 1.0 / rows;
 
         float top = 1 - yinc * (curr_row - 1);
         float bottom = 1 - yinc * curr_row;
 
         float left = xinc * (curr_col - 1);
         float right = xinc * curr_col;
-
 
         glBegin(GL_QUADS);
 
@@ -68,10 +67,10 @@ void AnimatedRect::draw(){
         glVertex2f(x, y);
 
         glTexCoord2f(right, top);
-        glVertex2f(x+w, y);
+        glVertex2f(x + w, y);
 
         glTexCoord2f(right, bottom);
-        glVertex2f(x+w, y - h);
+        glVertex2f(x + w, y - h);
 
         glEnd();
 
@@ -79,68 +78,78 @@ void AnimatedRect::draw(){
     }
 }
 
-void AnimatedRect::incY(float yinc){
-    y+=yinc;
+void AnimatedRect::incY(float yinc)
+{
+    y += yinc;
 }
 
-void AnimatedRect::incX(float xinc){
-    x+=xinc;
+void AnimatedRect::incX(float xinc)
+{
+    x += xinc;
 }
 
-void AnimatedRect::decY(float yinc){
-    y-=yinc;
+void AnimatedRect::decY(float yinc)
+{
+    y -= yinc;
 }
 
-void AnimatedRect::decX(float xinc){
-    x-=xinc;
+void AnimatedRect::decX(float xinc)
+{
+    x -= xinc;
 }
 
-
-void AnimatedRect::advance(){
-    if (curr_col < cols){
+void AnimatedRect::advance()
+{
+    if (curr_col < cols)
+    {
         curr_col++;
     }
-    else {
-        if (curr_row < rows){
+    else
+    {
+        if (curr_row < rows)
+        {
             curr_row++;
             curr_col = 1;
         }
-        else{
+        else
+        {
             curr_row = 1;
             curr_col = 1;
         }
     }
 
-    if (curr_row == rows && curr_col == cols){
+    if (curr_row == rows && curr_col == cols)
+    {
         complete = true;
     }
 }
 
-void AnimatedRect::reset(){
+void AnimatedRect::reset()
+{
     complete = false;
 }
 
-void AnimatedRect::animate(){
+void AnimatedRect::animate()
+{
     animating = true;
 }
 
-void AnimatedRect::stop(){
+void AnimatedRect::stop()
+{
     animating = false;
 }
 
-void AnimatedRect::change_Picture_File(const char* map_filename, int rows, int cols)
+void AnimatedRect::change_Picture_File(const char *map_filename, int rows, int cols)
 {
-    glClearColor (0.0, 0.0, 0.0, 0.0);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_FLAT);
     glEnable(GL_DEPTH_TEST);
 
-    texture_map_id = SOIL_load_OGL_texture
-    (
-     map_filename,
-     SOIL_LOAD_AUTO,
-     SOIL_CREATE_NEW_ID,
-     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-     );
+    texture_map_id = SOIL_load_OGL_texture(
+        map_filename,
+        SOIL_LOAD_AUTO,
+        SOIL_CREATE_NEW_ID,
+        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -161,22 +170,22 @@ void AnimatedRect::change_Picture_File(const char* map_filename, int rows, int c
 
 void AnimatedRect::changeX(float x)
 {
-	  this->x = x;
+    this->x = x;
 }
 
 void AnimatedRect::changeY(float y)
 {
-	  this->y = y;
+    this->y = y;
 }
 
 void AnimatedRect::changeWidth(float w)
 {
-	  this->w = w;
+    this->w = w;
 }
 
 void AnimatedRect::changeHeight(float h)
 {
-	  this->h = h;
+    this->h = h;
 }
 
 float AnimatedRect::getX() const
@@ -199,33 +208,41 @@ float AnimatedRect::getH() const
     return h;
 }
 
-bool AnimatedRect::contains(AnimatedRect* obj)
+bool AnimatedRect::contains(AnimatedRect *obj)
 {
-    return (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x+this->w && obj->getX() >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y) || ((obj->getX()+obj->getW()) <= this->x+this->w && (obj->getX()+obj->getW()) >= this->x) && ((obj->getY()-obj->getH()) >= (this->y - this->h) && (obj->getY()-obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
+    return (obj->getX() <= this->x + this->w && obj->getX() >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || ((obj->getX() + obj->getW()) <= this->x + this->w && (obj->getX() + obj->getW()) >= this->x) && (obj->getY() >= (this->y - this->h) && obj->getY() <= this->y) || (obj->getX() <= this->x + this->w && obj->getX() >= this->x) && ((obj->getY() - obj->getH()) >= (this->y - this->h) && (obj->getY() - obj->getH()) <= this->y) || ((obj->getX() + obj->getW()) <= this->x + this->w && (obj->getX() + obj->getW()) >= this->x) && ((obj->getY() - obj->getH()) >= (this->y - this->h) && (obj->getY() - obj->getH()) <= this->y); //this->done to prevent user from clicking again once the animation finishes
 }
 
 //MOVEMENT
-void AnimatedRect::moveUp(float rate){
+void AnimatedRect::moveUp(float rate)
+{
     y += rate;
-    if (y > 0.8){
+    if (y > 0.8)
+    {
         y = 0.8;
     }
 }
-void AnimatedRect::moveDown(float rate){
+void AnimatedRect::moveDown(float rate)
+{
     y -= rate;
-    if (y - h < -0.9){
+    if (y - h < -0.9)
+    {
         y = -0.9 + h;
     }
 }
-void AnimatedRect::moveLeft(float rate){
+void AnimatedRect::moveLeft(float rate)
+{
     x -= rate;
-    if (x < -1.15){
+    if (x < -1.15)
+    {
         x = 1.05;
     }
 }
-void AnimatedRect::moveRight(float rate){
+void AnimatedRect::moveRight(float rate)
+{
     x += rate;
-    if (x > 1.05){
+    if (x > 1.05)
+    {
         x = -1.15;
     }
 }

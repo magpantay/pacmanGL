@@ -17,8 +17,9 @@
 
 #include "AnimatedRect.h"
 
-class TexRect {
-public:
+class TexRect
+{
+  public:
     float x;
     float y;
     float w;
@@ -31,21 +32,21 @@ public:
     float xinc;
     float yinc;
 
-    TexRect (const char*, float, float, float, float);
+    TexRect(const char *, float, float, float, float);
 
     void draw();
 
-    bool contains(AnimatedRect*);
-    bool contains(TexRect*);
+    bool contains(AnimatedRect *);
+    bool contains(TexRect *);
 
-    void moveUp(float rate=0.01);
-    void moveDown(float rate=0.01);
-    void moveLeft(float rate=0.01);
-    void moveRight(float rate=0.01);
+    void moveUp(float rate = 0.01);
+    void moveDown(float rate = 0.01);
+    void moveLeft(float rate = 0.01);
+    void moveRight(float rate = 0.01);
 
     void jump();
 
-    void change_Picture_File(const char*);
+    void change_Picture_File(const char *);
 
     /* UNNECESSARY, SINCE IT'S PUBLIC
     void changeX(float);
@@ -57,7 +58,6 @@ public:
     float getY() const;
     float getW() const;
     float getH() const;
-    
 };
 
 #endif

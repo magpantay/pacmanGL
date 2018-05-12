@@ -7,13 +7,15 @@
 
 #include "game.h"
 
-class App: public GlutApp {
+class App : public GlutApp
+{
     // Maintain app state here
     float mx;
     float my;
-public:
+
+  public:
     // Constructor, to initialize state
-    App(const char* label, int x, int y, int w, int h);
+    App(const char *label, int x, int y, int w, int h);
 
     // These are the events we want to handle
     void draw();
@@ -27,7 +29,7 @@ public:
 
     void idle();
 
-    game * game0;
+    game *game0;
 };
 
 #endif

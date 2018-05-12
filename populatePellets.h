@@ -9,12 +9,12 @@ using namespace std;
 class populatePellets
 {
 
-  public:
-    vector < pellet* > pelletStuff;
-    populatePellets();
+public:
+  vector<pellet *> pelletStuff;
+  populatePellets();
 
-    void drawPellets();
-    ~populatePellets();
+  void drawPellets();
+  ~populatePellets();
 };
 
 #endif
