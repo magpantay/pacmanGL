@@ -23,7 +23,7 @@ populatePellets::populatePellets()
 
     /* SECOND ROW */
     /* SECOND ROW OF PELLETS */
-    pellet *pellet1 = new pellet("BMPs/other/pellet_big.png", -1.0 + (2.0 / 19.0) + pellet_spacing_x - 0.00725, 0.7 - pellet_spacing_y + 0.015, default_width + 0.02, default_height + 0.03);
+    pellet *pellet1 = new pellet("BMPs/other/pellet_big.png", -1.0 + (2.0 / 19.0) + pellet_spacing_x, 0.7 - pellet_spacing_y, default_width, default_height);
     pelletStuff.push_back(pellet1); //BIGGER PELLET #1
 
     pellet *pellet2 = new pellet("BMPs/other/pellet_med.png", -1.0 + 4.0 * (2.0 / 19.0) + pellet_spacing_x, 0.7 - pellet_spacing_y, default_width, default_height);
@@ -38,7 +38,7 @@ populatePellets::populatePellets()
     pellet *pellet5 = new pellet("BMPs/other/pellet_med.png", -1.0 + 14.0 * (2.0 / 19.0) + pellet_spacing_x, 0.7 - pellet_spacing_y, default_width, default_height);
     pelletStuff.push_back(pellet5);
 
-    pellet *pellet6 = new pellet("BMPs/other/pellet_big.png", -1.0 + 17.0 * (2.0 / 19.0) + pellet_spacing_x - 0.00725, 0.7 - pellet_spacing_y + 0.015, default_width + 0.02, default_height + 0.03);
+    pellet *pellet6 = new pellet("BMPs/other/pellet_big.png", -1.0 + 17.0 * (2.0 / 19.0) + pellet_spacing_x, 0.7 - pellet_spacing_y, default_width, default_height);
     pelletStuff.push_back(pellet6); //BIGGER PELLET #2
 
     /* THIRD ROW */
@@ -238,7 +238,7 @@ populatePellets::populatePellets()
     }
 
     /* 16TH ROW */ /* SAME AS SECOND ROW */
-    pellet *pellet23 = new pellet("BMPs/other/pellet_big.png", -1.0 + (2.0 / 19.0) + pellet_spacing_x - 0.00725, -0.7 - pellet_spacing_y + 0.015, default_width + 0.02, default_height + 0.03);
+    pellet *pellet23 = new pellet("BMPs/other/pellet_big.png", -1.0 + (2.0 / 19.0) + pellet_spacing_x, -0.7 - pellet_spacing_y, default_width, default_height);
     pelletStuff.push_back(pellet23); //BIG PELLET #3
 
     pellet *pellet24 = new pellet("BMPs/other/pellet_med.png", -1.0 + 4.0 * (2.0 / 19.0) + pellet_spacing_x, -0.7 - pellet_spacing_y, default_width, default_height);
@@ -253,7 +253,7 @@ populatePellets::populatePellets()
     pellet *pellet27 = new pellet("BMPs/other/pellet_med.png", -1.0 + 14.0 * (2.0 / 19.0) + pellet_spacing_x, -0.7 - pellet_spacing_y, default_width, default_height);
     pelletStuff.push_back(pellet27);
 
-    pellet *pellet28 = new pellet("BMPs/other/pellet_big.png", -1.0 + 17.0 * (2.0 / 19.0) + pellet_spacing_x - 0.00725, -0.7 - pellet_spacing_y + 0.015, default_width + 0.02, default_height + 0.03);
+    pellet *pellet28 = new pellet("BMPs/other/pellet_big.png", -1.0 + 17.0 * (2.0 / 19.0) + pellet_spacing_x, -0.7 - pellet_spacing_y, default_width, default_height);
     pelletStuff.push_back(pellet28); //BIG PELLET #4
 
     /* 17TH ROW */ /* SAME AS FIRST ROW */
